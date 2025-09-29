@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formation - KemdeHolo</title>
+    <link href="/css/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --bleu-principal: #C00000;
+            --rouge-accent: #c32e27;
+        }
+        
+        .formation-card {
+            transition: all 0.3s ease;
+        }
+        
+        .formation-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .avantage-icon {
+            width: 24px;
+            height: 24px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 8px;
+            color: #C00000;
+        }
+        
+        .testimonial-card {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border-radius: 12px;
+            padding: 30px;
+        }
+        /* Galerie d'images */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 15px;
+        }
+        
+        .gallery-item {
+            border-radius: 8px;
+            overflow: hidden;
+            height: 200px;
+            position: relative;
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+        
+    </style>
+</head>
+<body class="font-sans">
+    <!-- Navigation -->
+    <header id="main-header"></header>
+
+    <!-- Hero Section Formation -->
+    <section class="hero-section relative h-[600px] flex items-center justify-center bg-cover bg-center text-white overflow-hidden" style="background-image: url('images/Sans titre3.jpeg');">
+        <div class="absolute inset-0 bg-black bg-opacity-60"></div>
+        <div class="container mx-auto px-4 z-10 text-center animate-fade-in-up">
+            <h1 class="text-4xl md:text-5xl font-bold mb-4" data-translate-key="training_hero_title">Formation Professionnelle</h1>
+            <p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto" data-translate-key="training_hero_subtitle">
+                Développez vos compétences dans l'hôtellerie et la restauration avec nos experts
+            </p>
+            <a href="#programmes" class="bg-primary-blue hover:bg-red-700 text-white px-6 py-3 rounded-lg font-semibold inline-block transition-colors duration-300" data-translate-key="training_hero_button">
+                Découvrir nos programmes
+            </a>
+        </div>
+    </section>
+
+    <!-- Programmes de formation -->
+    <section id="programmes" class="py-16 px-4 scroll-reveal">
+        <div class="container mx-auto">
+            <h2 class="text-3xl font-bold text-center mb-12 text-[#030303]" data-translate-key="training_programs_title">Nos Programmes de Formation</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Formation Service en Salle -->
+                <div class="formation-card bg-white rounded-lg shadow-lg overflow-hidden">
+                    <div class="relative">
+                        <img src="images/E.jpeg" alt="Service en Salle" class="w-full h-48 object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2" data-translate-key="training_program1_title">Service en tourisme</h3>
+                        <p class="text-gray-600 mb-4" data-translate-key="training_program1_desc">Maîtrisez l'art du service et de l'accueil client.</p>
+                        <div class="mb-4">
+                            <div class="flex items-center mb-2">
+                                <div class="avantage-icon"><i class="fas fa-clock"></i></div>
+                                <span data-translate-key="training_program_duration_6w">6 semaines</span>
+                            </div>
+                            <div class="flex items-center mb-2">
+                                <div class="avantage-icon"><i class="fas fa-graduation-cap"></i></div>
+                                <span data-translate-key="training_program_certif">Certification reconnue</span>
+                            </div>
+                            <div class="flex items-center">
+                                <div class="avantage-icon"><i class="fas fa-users"></i></div>
+                                <span data-translate-key="training_program_learners_12">Max. 12 participants</span>
+                            </div>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <p class="text-2xl font-bold text-secondary-red">150,000 FCFA</p>
+                            <button onclick="openInscriptionModal('Service en Salle')" class="bg-primary-blue hover:bg-red-700 text-white px-4 py-2 rounded font-semibold text-sm" data-translate-key="training_program_signup">
+                                S'inscrire
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Formation Cuisine -->
+                <div class="formation-card bg-white rounded-lg shadow-lg overflow-hidden">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Art Culinaire" class="w-full h-48 object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">Art Culinaire</h3>
+                        <p class="text-gray-600 mb-4">Apprenez les techniques de cuisine professionnelle.</p>
+                        <div class="mb-4">
+                            <div class="flex items-center mb-2">
+                                <div class="avantage-icon"><i class="fas fa-clock"></i></div>
+                                <span>8 semaines</span>
+                            </div>
+                            <div class="flex items-center mb-2">
+                                <div class="avantage-icon"><i class="fas fa-graduation-cap"></i></div>
+                                <span>Diplôme professionnel</span>
+                            </div>
+                            <div class="flex items-center">
+                                <div class="avantage-icon"><i class="fas fa-users"></i></div>
+                                <span>Max. 10 participants</span>
+                            </div>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <p class="text-2xl font-bold text-secondary-red">200,000 FCFA</p>
+                            <button onclick="openInscriptionModal('Art Culinaire')" class="bg-primary-blue hover:bg-red-700 text-white px-4 py-2 rounded font-semibold text-sm">
+                                S'inscrire
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Formation Gestion Hôtelière -->
+                <div class="formation-card bg-white rounded-lg shadow-lg overflow-hidden">
+                    <div class="relative">
+                        <img src="images/rest.jpeg" alt="Gestion Hôtelière" class="w-full h-48 object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">Gestion Hôtelière</h3>
+                        <p class="text-gray-600 mb-4">Formation complète en management hôtelier.</p>
+                        <div class="mb-4">
+                            <div class="flex items-center mb-2">
+                                <div class="avantage-icon"><i class="fas fa-clock"></i></div>
+                                <span>12 semaines</span>
+                            </div>
+                            <div class="flex items-center mb-2">
+                                <div class="avantage-icon"><i class="fas fa-graduation-cap"></i></div>
+                                <span>Certificat de gestion</span>
+                            </div>
+                            <div class="flex items-center">
+                                <div class="avantage-icon"><i class="fas fa-users"></i></div>
+                                <span>Max. 15 participants</span>
+                            </div>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <p class="text-2xl font-bold text-secondary-red">300,000 FCFA</p>
+                            <button onclick="openInscriptionModal('Gestion Hôtelière')" class="bg-primary-blue hover:bg-red-700 text-white px-4 py-2 rounded font-semibold text-sm">
+                                S'inscrire
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Avantages de la formation -->
+    <section class="py-16 bg-gray-100 px-4 scroll-reveal">
+        <div class="container mx-auto">
+            <h2 class="text-3xl font-bold text-center mb-12 text-[#080808]">Pourquoi nous choisir ?</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="bg-white p-6 rounded-lg shadow text-center">
+                    <div class="text-4xl text-primary-blue mb-4"><i class="fas fa-chalkboard-teacher"></i></div>
+                    <h3 class="font-semibold mb-2">Formateurs Experts</h3>
+                    <p class="text-gray-600">Des professionnels avec 10+ ans d'expérience</p>
+                </div>
+                
+                <div class="bg-white p-6 rounded-lg shadow text-center">
+                    <div class="text-4xl text-primary-blue mb-4"><i class="fas fa-briefcase"></i></div>
+                    <h3 class="font-semibold mb-2">Stage Inclus</h3>
+                    <p class="text-gray-600">Stage pratique en situation réelle</p>
+                </div>
+                
+                <div class="bg-white p-6 rounded-lg shadow text-center">
+                    <div class="text-4xl text-primary-blue mb-4"><i class="fas fa-certificate"></i></div>
+                    <h3 class="font-semibold mb-2">Certification</h3>
+                    <p class="text-gray-600">Diplôme reconnu par les professionnels</p>
+                </div>
+                
+                <div class="bg-white p-6 rounded-lg shadow text-center">
+                    <div class="text-4xl text-primary-blue mb-4"><i class="fas fa-handshake"></i></div>
+                    <h3 class="font-semibold mb-2">Insertion Professionnelle</h3>
+                    <p class="text-gray-600">Accompagnement vers l'emploi</p>
+                </div>
+            </div>
+        </div>
+    </section>
+<!-- Galerie -->
+    <section class="py-16 px-4 scroll-reveal">
+        <div class="container mx-auto">
+            <h2 class="text-3xl font-bold text-center mb-12 text-[#020202]" data-translate-key="accommodation_gallery_title">Galerie</h2>
+            
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="images/R.jpeg" alt="Chambre">
+                </div>
+                <div class="gallery-item">
+                    <img src="images/Sans titreu.jpeg" alt="Salle de bain">
+                </div>
+                <div class="gallery-item">
+                    <img src="images/Sans titrel.jpeg" alt="Chambre double">
+                </div>
+                <div class="gallery-item">
+                    <img src="images/T.jpeg" alt="Suite">
+                </div>
+                <div class="gallery-item">
+                    <img src="images/Q.jpeg" alt="Hall d'entrée">
+                </div>
+                <div class="gallery-item">
+                    <img src="images/formation.jpeg" alt="Terrasse">
+                </div>
+                <div class="gallery-item">
+                    <img src="images/Sans titre1.jpeg" alt="Chambre">
+                </div>
+                <div class="gallery-item">
+                    <img src="images/U.jpeg" alt="Salle de bain">
+                </div>
+                <div class="gallery-item">
+                    <img src="images/Z.jpeg" alt="Chambre double">
+                </div>
+                <div class="gallery-item">
+                    <img src="images/E.jpeg" alt="Suite">
+                </div>
+               
+            </div>
+        </div>
+    </section>
+
+    <!-- Témoignages -->
+    <section class="py-16 px-4 scroll-reveal">
+        <div class="container mx-auto">
+            <h2 class="text-3xl font-bold text-center mb-12 text-[#030303]">Témoignages</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="testimonial-card">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-primary-blue rounded-full flex items-center justify-center text-white font-bold mr-4">AM</div>
+                        <div>
+                            <h4 class="font-semibold">Aïcha Mahamat</h4>
+                            <p class="text-gray-600">Ancienne élève</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-700">"La formation en service m'a ouvert les portes d'un grand hôtel à N'Djamena. Merci KemdeHolo !"</p>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-primary-blue rounded-full flex items-center justify-center text-white font-bold mr-4">MD</div>
+                        <div>
+                            <h4 class="font-semibold">Moussa Dallah</h4>
+                            <p class="text-gray-600">Chef cuisinier</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-700">"Les techniques apprises en cuisine sont directement applicables. J'ai pu améliorer mes plats et satisfaire mes clients."</p>
+                </div>  
+
+                <div class="testimonial-card">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-primary-blue rounded-full flex items-center justify-center text-white font-bold mr-4">SN</div>
+                        <div>
+                            <h4 class="font-semibold">Sophie Ngarlemdana</h4>
+                            <p class="text-gray-600">Manager d'hôtel</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-700">"La formation en gestion hôtelière m'a permis de mieux gérer mon équipe et d'optimiser les opérations de l'hôtel."</p  >
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modale d'inscription -->
+    <div id="inscriptionModal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden items-center justify-center p-4">
+        <div class="bg-white rounded-lg shadow-xl p-6 md:p-8 max-w-md w-full">
+            <div class="flex justify-between items-start mb-4">
+                <h3 class="text-2xl font-bold text-primary-blue">Inscription à la formation</h3>
+                <button id="closeModalBtn" class="text-gray-500 hover:text-gray-800 text-3xl leading-none">&times;</button>
+            </div>
+            <p class="mb-6">Vous êtes sur le point de vous inscrire à la formation : <strong id="modalFormationName" class="text-secondary-red"></strong></p>
+            <form id="inscriptionForm">
+                <input type="hidden" id="formationNameInput">
+                <div class="mb-4">
+                    <label for="inscriptionName" class="block text-gray-700 mb-2 font-semibold">Votre Nom Complet</label>
+                    <input type="text" id="inscriptionName" name="name" required class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500">
+                </div>
+                <div class="mb-4">
+                    <label for="inscriptionEmail" class="block text-gray-700 mb-2 font-semibold">Votre Email</label>
+                    <input type="email" id="inscriptionEmail" name="email" required class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500">
+                </div>
+                <div class="mb-6">
+                    <label for="inscriptionPhone" class="block text-gray-700 mb-2 font-semibold">Votre Téléphone (Optionnel)</label>
+                    <input type="tel" id="inscriptionPhone" name="phone" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500">
+                </div>
+                <button type="submit" class="w-full bg-primary-blue hover:bg-red-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors duration-300">Confirmer l'inscription</button>
+            </form>
+        </div>
+    </div>
+
+     <!-- Footer -->
+    <footer id="main-footer"></footer>
+
+    <script src="/main.js"></script>
+    <script src="/translations.js"></script>
+    <script src="/language.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const elements = document.querySelectorAll(".scroll-reveal");
+            const revealOnScroll = () => {
+                const windowHeight = window.innerHeight;
+                elements.forEach(el => {
+                    const elementTop = el.getBoundingClientRect().top;
+                    if (elementTop < windowHeight - 50) {
+                        el.classList.add("visible");
+                    }
+                });
+            };
+            window.addEventListener("scroll", revealOnScroll);
+            revealOnScroll();
+        });
+
+        const inscriptionModal = document.getElementById('inscriptionModal');
+        const closeModalBtn = document.getElementById('closeModalBtn');
+        const modalFormationName = document.getElementById('modalFormationName');
+        const formationNameInput = document.getElementById('formationNameInput');
+        const inscriptionForm = document.getElementById('inscriptionForm');
+
+        function openInscriptionModal(formationName) {
+            modalFormationName.textContent = formationName;
+            formationNameInput.value = formationName;
+            inscriptionModal.classList.remove('hidden');
+            inscriptionModal.classList.add('flex');
+        }
+
+        function closeInscriptionModal() {
+            inscriptionModal.classList.add('hidden');
+            inscriptionModal.classList.remove('flex');
+            inscriptionForm.reset();
+        }
+
+        closeModalBtn.addEventListener('click', closeInscriptionModal);
+        inscriptionModal.addEventListener('click', (e) => {
+            if (e.target === inscriptionModal) {
+                closeInscriptionModal();
+            }
+        });
+
+        inscriptionForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const formData = {
+                name: document.getElementById('inscriptionName').value,
+                email: document.getElementById('inscriptionEmail').value,
+                phone: document.getElementById('inscriptionPhone').value,
+                formationName: formationNameInput.value
+            };
+
+            try {
+                const response = await fetch('/api/formation-inscriptions', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(formData)
+                });
+                const result = await response.json();
+                if (!response.ok) throw new Error(result.error || 'Une erreur est survenue.');
+                alert('Merci pour votre inscription ! Nous vous contacterons bientôt.');
+                closeInscriptionModal();
+            } catch (error) {
+                alert(`Erreur: ${error.message}`);
+            }
+        });
+    </script>
+</body>
+</html>

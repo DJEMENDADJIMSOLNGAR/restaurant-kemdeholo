@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin - KemdeHolo</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <link href="/css/style.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 font-sans">
+  <header class="bg-white shadow-md sticky top-0 z-50 mb-8">
+    <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+      <span class="text-2xl font-bold text-gray-800">Admin KemdeHolo</span>
+      <a href="index.html" class="btn-primary">Retour au site</a>
+    </div>
+  </header>
+  <main class="container mx-auto px-4">
+    <h1 class="text-3xl font-bold text-primary-blue mb-6">Gestion du site</h1>
+    <section id="blog-section" class="mb-12">
+      <h2 class="text-2xl font-bold mb-4">Articles de blog</h2>
+      <form id="blog-form" class="flex flex-col gap-4 mb-4 bg-white p-4 rounded-lg shadow">
+        <div id="blog-error" class="text-red-600 font-bold"></div>
+        <input id="blog-titre" type="text" placeholder="Titre de l'article" required class="w-full px-3 py-2 rounded border border-gray-300 focus:border-primary-blue focus:ring-1 focus:ring-primary-blue">
+        <textarea id="blog-contenu" placeholder="Contenu de l'article" required rows="5" class="w-full px-3 py-2 rounded border border-gray-300 focus:border-primary-blue focus:ring-1 focus:ring-primary-blue"></textarea>
+        <input id="blog-image" type="file" accept="image/*" class="w-full px-3 py-2 rounded border border-gray-300 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-primary-blue file:text-white hover:file:bg-blue-800">
+        <input id="blog-image-url" type="hidden">
+        <select id="blog-categorie" required class="w-full px-3 py-2 rounded border border-gray-300 focus:border-primary-blue focus:ring-1 focus:ring-primary-blue">
+          <option value="">-- Catégorie --</option>
+          <option value="Cuisine">Cuisine</option>
+          <option value="Tourisme">Tourisme</option>
+          <option value="Formation">Formation</option>
+        </select>
+        <input type="hidden" id="blog-id">
+        <div>
+          <button type="submit" id="blog-submit-btn" class="btn-primary">Ajouter l'article</button>
+          <button type="button" id="blog-cancel-btn" class="hidden ml-2 text-gray-600 hover:text-gray-900" onclick="annulerModificationBlog()">Annuler</button>
+        </div>
+      </form>
+      <input type="search" id="search-blog" onkeyup="filterContent('search-blog', 'blog-list', 'li')" placeholder="Rechercher un article..." class="w-full mb-4 px-3 py-2 rounded border border-gray-300">
+      <ul id="blog-list" class="mb-8"></ul>
+    </section>
+    <section class="mb-12">
+      <h2 class="text-2xl font-bold mb-4">Commandes reçues</h2>
+      <input type="search" id="search-orders" onkeyup="filterContent('search-orders', 'orders-table', 'tr')" placeholder="Rechercher une commande..." class="w-full mb-4 px-3 py-2 rounded border border-gray-300">
+      <table class="w-full bg-white rounded shadow">
+        <thead class="bg-primary-blue text-white">
+          <tr>
+            <th class="p-2">Plat</th>
+            <th class="p-2">Quantité</th>
+            <th class="p-2">Client</th>
+            <th class="p-2">Téléphone</th>
+            <th class="p-2">Date</th>
+            <th class="p-2">Statut / Action</th>
+          </tr>
+        </thead>
+        <tbody id="orders-table">
+          <!-- Les commandes seront chargées ici -->
+        </tbody>
+      </table>
+    </section>
+    <section class="mb-12">
+      <h2 class="text-2xl font-bold mb-4">Messages de contact reçus</h2>
+      <input type="search" id="search-contacts" onkeyup="filterContent('search-contacts', 'contacts-table', 'tr')" placeholder="Rechercher un message..." class="w-full mb-4 px-3 py-2 rounded border border-gray-300">
+      <table class="w-full bg-white rounded shadow">
+        <thead class="bg-primary-blue text-white">
+          <tr>
+            <th class="p-2">Prénom</th>
+            <th class="p-2">Nom</th>
+            <th class="p-2">Email</th>
+            <th class="p-2">Sujet</th>
+            <th class="p-2">Message</th>
+            <th class="p-2">Date</th>
+            <th class="p-2">Action</th>
+          </tr>
+        </thead>
+        <tbody id="contacts-table"></tbody>
+      </table>
+    </section>
+    <section class="mb-12">
+      <h2 class="text-2xl font-bold mb-4">Commentaires du blog</h2>
+      <input type="search" id="search-comments" onkeyup="filterContent('search-comments', 'comments-table', 'tr')" placeholder="Rechercher un commentaire..." class="w-full mb-4 px-3 py-2 rounded border border-gray-300">
+      <table class="w-full bg-white rounded shadow">
+        <thead class="bg-primary-blue text-white">
+          <tr>
+            <th class="p-2">Nom</th>
+            <th class="p-2">Article</th>
+            <th class="p-2">Commentaire</th>
+            <th class="p-2">Date</th>
+            <th class="p-2">Action</th>
+          </tr>
+        </thead>
+        <tbody id="comments-table"></tbody>
+      </table>
+    </section>
+    <section class="mb-12">
+      <h2 class="text-2xl font-bold mb-4">Abonnés à la newsletter</h2>
+      <input type="search" id="search-subscribers" onkeyup="filterContent('search-subscribers', 'subscribers-table', 'tr')" placeholder="Rechercher un email..." class="w-full mb-4 px-3 py-2 rounded border border-gray-300">
+      <table class="w-full bg-white rounded shadow">
+        <thead class="bg-primary-blue text-white">
+          <tr>
+            <th class="p-2">Email</th>
+            <th class="p-2">Date d'abonnement</th>
+            <th class="p-2">Action</th>
+          </tr>
+        </thead>
+        <tbody id="subscribers-table"></tbody>
+      </table>
+    </section>
+    <section class="mb-12">
+      <h2 class="text-2xl font-bold mb-4">Réservations de chambres</h2>
+      <input type="search" id="search-reservations" onkeyup="filterContent('search-reservations', 'reservations-table', 'tr')" placeholder="Rechercher une réservation..." class="w-full mb-4 px-3 py-2 rounded border border-gray-300">
+      <table class="w-full bg-white rounded shadow text-sm">
+        <thead class="bg-primary-blue text-white">
+          <tr>
+            <th class="p-2">Client</th>
+            <th class="p-2">Chambre</th>
+            <th class="p-2">Arrivée</th>
+            <th class="p-2">Départ</th>
+            <th class="p-2">Demandes</th>
+            <th class="p-2">Date Demande</th>
+            <th class="p-2">Statut</th>
+            <th class="p-2">Action</th>
+          </tr>
+        </thead>
+        <tbody id="reservations-table">
+          <!-- Les réservations seront chargées ici -->
+        </tbody>
+      </table>
+    </section>
+    <section class="mb-12">
+      <h2 class="text-2xl font-bold mb-4">Gestion des Membres de l'Équipe</h2>
+      <form id="team-form" class="flex flex-col gap-4 mb-4 bg-white p-4 rounded-lg shadow">
+        <input type="hidden" id="team-id">
+        <input type="hidden" id="team-image-url">
+        <input id="team-nom" type="text" placeholder="Nom du membre" required class="w-full px-3 py-2 rounded border border-gray-300">
+        <input id="team-role" type="text" placeholder="Rôle" required class="w-full px-3 py-2 rounded border border-gray-300">
+        <textarea id="team-description" placeholder="Description" rows="2" class="w-full px-3 py-2 rounded border border-gray-300"></textarea>
+        <input id="team-image" type="file" accept="image/*" class="w-full px-3 py-2 rounded border border-gray-300 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-primary-blue file:text-white hover:file:bg-blue-800">
+        <div>
+          <button type="submit" id="team-submit-btn" class="btn-primary">Ajouter</button>
+          <button type="button" id="team-cancel-btn" class="hidden ml-2 text-gray-600 hover:text-gray-900" onclick="annulerModificationEquipe()">Annuler</button>
+        </div>
+      </form>
+      <input type="search" id="search-team" onkeyup="filterContent('search-team', 'team-table', 'tr')" placeholder="Rechercher un membre..." class="w-full mb-4 px-3 py-2 rounded border border-gray-300">
+      <table class="w-full bg-white rounded shadow">
+        <thead class="bg-primary-blue text-white">
+          <tr>
+            <th class="p-2">Nom</th>
+            <th class="p-2">Rôle</th>
+            <th class="p-2">Action</th>
+          </tr>
+        </thead>
+        <tbody id="team-table"></tbody>
+      </table>
+    </section>
+    <section class="mb-12">
+      <h2 class="text-2xl font-bold mb-4">Gestion des Témoignages</h2>
+      <form id="testimonial-form" class="flex flex-col gap-4 mb-4 bg-white p-4 rounded-lg shadow">
+        <input type="hidden" id="testimonial-id">
+        <input type="hidden" id="testimonial-image-url">
+        <input id="testimonial-name" type="text" placeholder="Nom du client" required class="w-full px-3 py-2 rounded border border-gray-300">
+        <textarea id="testimonial-quote" placeholder="Citation du client" required rows="3" class="w-full px-3 py-2 rounded border border-gray-300"></textarea>
+        <input id="testimonial-image" type="file" accept="image/*" class="w-full px-3 py-2 rounded border border-gray-300 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-primary-blue file:text-white hover:file:bg-blue-800">
+        <select id="testimonial-rating" required class="w-full px-3 py-2 rounded border border-gray-300">
+          <option value="">-- Note --</option>
+          <option value="5">5 étoiles</option>
+          <option value="4">4 étoiles</option>
+          <option value="3">3 étoiles</option>
+          <option value="2">2 étoiles</option>
+          <option value="1">1 étoile</option>
+        </select>
+        <select id="testimonial-status" class="w-full px-3 py-2 rounded border border-gray-300">
+          <option value="approved">Approuvé</option>
+          <option value="pending">En attente</option>
+        </select>
+        <div>
+          <button type="submit" id="testimonial-submit-btn" class="btn-primary">Ajouter le témoignage</button>
+          <button type="button" id="testimonial-cancel-btn" class="hidden ml-2 text-gray-600 hover:text-gray-900" onclick="annulerModificationTestimonial()">Annuler</button>
+        </div>
+      </form>
+      <input type="search" id="search-testimonials" onkeyup="filterContent('search-testimonials', 'testimonial-table', 'tr')" placeholder="Rechercher un témoignage..." class="w-full mb-4 px-3 py-2 rounded border border-gray-300">
+      <table class="w-full bg-white rounded shadow">
+        <thead class="bg-primary-blue text-white">
+          <tr>
+            <th class="p-2">Nom</th>
+            <th class="p-2">Citation</th>
+            <th class="p-2">Note</th>
+            <th class="p-2">Statut</th>
+            <th class="p-2">Action</th>
+          </tr>
+        </thead>
+        <tbody id="testimonial-table">
+          <!-- Les témoignages seront chargés ici -->
+        </tbody>
+      </table>
+    </section>
+
+</main>
+  <script>
+    // Gestion admin complète
+   function getAdminToken() {
+      const token = localStorage.getItem('adminToken') || '';
+      return `Bearer ${token}`;
+    }
+
+    /**
+     * Affiche un message d'erreur dans un conteneur dédié.
+     * @param {string} containerId - L'ID de l'élément où afficher l'erreur.
+     * @param {string} message - Le message d'erreur à afficher.
+     */
+    function handleApiError(containerId, message) {
+      const errorDiv = document.getElementById(containerId);
+      if (errorDiv) {
+        errorDiv.textContent = message;
+        errorDiv.classList.remove('hidden');
+        setTimeout(() => errorDiv.classList.add('hidden'), 5000);
+      }
+    }
+
+    // --- FONCTION DE RECHERCHE GÉNÉRIQUE ---
+    function filterContent(inputId, containerId, itemSelector) {
+      const input = document.getElementById(inputId);
+      const filter = input.value.toLowerCase();
+      const container = document.getElementById(containerId);
+      const items = container.getElementsByTagName(itemSelector);
+
+      for (let i = 0; i < items.length; i++) {
+        const item = items[i];
+        // S'assurer que l'élément n'est pas une ligne d'en-tête de tableau
+        if (item.getElementsByTagName('th').length > 0) {
+          continue;
+        }
+        const textContent = item.textContent || item.innerText;
+        if (textContent.toLowerCase().indexOf(filter) > -1) {
+          item.style.display = ""; // Rétablit l'affichage par défaut (ex: 'table-row', 'flex', 'list-item')
+        } else {
+          item.style.display = "none";
+        }
+      }
+    }
+
+    // --- Gestion du Blog ---
+    async function chargerBlog() {
+      const res = await fetch('/admin/blog', { headers: { 'Authorization': getAdminToken() } });
+      if (res.status === 403) { window.location.href = 'admin-login.html'; return; }
+      
+      const ul = document.getElementById('blog-list');
+      try { // Correction du bloc try-catch
+        if (!res.ok) { // Gestion d'erreur améliorée
+          throw new Error(`Erreur HTTP: ${res.status}`);
+        }
+        const data = await res.json();
+        if (!data || data.length === 0) {
+          ul.innerHTML = '<li class="text-gray-500">Aucun article de blog trouvé.</li>';
+        } else {
+          ul.innerHTML = data.map(a => `
+            <li class="mb-4 p-4 bg-white rounded-lg shadow flex justify-between items-start" id="article-${a.id}">
+                <div>
+                    <h3 class="text-xl font-bold">${a.titre}</h3>
+                    <p class="text-sm text-gray-500">Catégorie: ${a.categorie || 'Non classé'} | Publié le: ${new Date(a.date || a.createdAt).toLocaleDateString()}</p>
+                    <p class="mt-2">${(a.contenu || '').substring(0, 150)}...</p>
+                </div>
+                <div class="flex-shrink-0 ml-4">
+                    <button onclick="modifierBlog(${a.id})" class="text-blue-600 hover:text-blue-800 mr-2">Modifier</button>
+                    <button onclick="supprimerBlog(${a.id})" class="text-red-600 hover:text-red-800">Supprimer</button>
+                </div>
+            </li>
+          `).join('');
+        }
+      } catch (err) {
+        console.error('Erreur lors du chargement du blog:', err);
+        ul.innerHTML = `<li class="text-red-500">Erreur lors du chargement des articles: ${err.message}</li>`;
+      }
+    }
+
+    async function sauvegarderBlog(e) {
+      e.preventDefault();
+      const id = document.getElementById('blog-id').value;
+      const formData = new FormData();
+      formData.append('titre', document.getElementById('blog-titre').value);
+      formData.append('contenu', document.getElementById('blog-contenu').value);
+      formData.append('categorie', document.getElementById('blog-categorie').value);
+      
+      const imageFile = document.getElementById('blog-image').files[0];
+      if (imageFile) {
+        formData.append('image', imageFile);
+      } else if (id) {
+        formData.append('image_url', document.getElementById('blog-image-url').value);
+      }
+
+      const method = id ? 'PUT' : 'POST';
+      const url = id ? `/admin/blog/${id}` : '/admin/blog';
+
+      try {
+          const res = await fetch(url, {
+              method: method,
+              headers: { 'Authorization': getAdminToken() }, // Pas de 'Content-Type', le navigateur le mettra pour FormData
+              body: formData
+          });
+
+          if (!res.ok) {
+              const errorData = await res.json();
+              handleApiError('blog-error', errorData.error || 'Erreur inconnue lors de la sauvegarde.');
+              return;
+          }
+
+          annulerModificationBlog();
+          chargerBlog();
+      } catch (error) {
+          afficherErreurBlog('Erreur réseau ou serveur injoignable.');
+      }
+    }
+
+
+    async function modifierBlog(id) {
+      const res = await fetch(`/admin/blog/${id}`, { headers: { 'Authorization': getAdminToken() } });
+      if (!res.ok) return alert("Impossible de charger l'article.");
+      const article = await res.json();
+      
+      document.getElementById('blog-id').value = article.id;
+      document.getElementById('blog-titre').value = article.titre;
+      document.getElementById('blog-contenu').value = article.contenu;
+      document.getElementById('blog-image').value = ''; // On ne peut pas pré-remplir un input file
+      document.getElementById('blog-image-url').value = article.image; // On stocke l'URL actuelle
+      document.getElementById('blog-categorie').value = article.categorie;
+
+      document.getElementById('blog-submit-btn').textContent = 'Mettre à jour';
+      document.getElementById('blog-cancel-btn').classList.remove('hidden');
+      document.getElementById('blog-form').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function annulerModificationBlog() {
+      document.getElementById('blog-form').reset();
+      document.getElementById('blog-id').value = '';
+      document.getElementById('blog-submit-btn').textContent = 'Ajouter article';
+      document.getElementById('blog-cancel-btn').classList.add('hidden');
+      document.getElementById('blog-image-url').value = '';
+      document.getElementById('blog-error').textContent = '';
+    }
+
+    async function supprimerBlog(id) {
+      if (!confirm('Voulez-vous vraiment supprimer cet article ?')) return;
+      await fetch(`/admin/blog/${id}`, { method: 'DELETE', headers: { 'Authorization': getAdminToken() } });
+      chargerBlog();
+    }
+    document.getElementById('blog-form').addEventListener('submit', sauvegarderBlog);
+
+    // --- RAFRAÎCHISSEMENT AUTOMATIQUE DE LA PAGE ADMIN ---
+    // Écoute les changements dans le localStorage faits par d'autres onglets
+    window.addEventListener('storage', function(e) {
+      if (e.key === 'refreshAdminData') {
+        if (e.newValue.startsWith('subscribers')) {
+          console.log('Rafraîchissement des abonnés demandé...');
+          chargerAbonnes();
+        } else if (e.newValue.startsWith('contacts')) {
+          console.log('Rafraîchissement des contacts demandé...');
+          chargerContacts();
+        } else if (e.newValue.startsWith('orders')) {
+          console.log('Rafraîchissement des commandes demandé...');
+          chargerCommandes();
+        } else if (e.newValue.startsWith('reservations')) {
+          console.log('Rafraîchissement des réservations demandé...');
+          chargerReservations();
+        }
+      }
+    });
+    // --- Gestion des Contacts ---
+    async function chargerContacts() {
+      const res = await fetch('/admin/contacts', { headers: { 'Authorization': getAdminToken() } });
+      if (res.status === 403) { window.location.href = 'admin-login.html'; return; }
+      const data = await res.json();
+      const tbody = document.getElementById('contacts-table'); // Correction: la variable était mal nommée
+      if (data && data.length > 0) { // data est maintenant un tableau
+        tbody.innerHTML = data.map(c => `
+          <tr class="border-b">
+            <td class="p-2 border">${c.prenom || ''}</td>
+            <td class="p-2 border">${c.nom}</td>
+            <td class="p-2 border">${c.email}</td>
+            <td class="p-2 border">${c.sujet || ''}</td>
+            <td class="p-2 border">${c.message}</td>
+            <td class="p-2 border">${new Date(c.createdAt).toLocaleString()}</td>
+            <td class="p-2 border"><button onclick="supprimerContact(${c.id})" class="text-red-600">Supprimer</button></td>
+          </tr>
+        `).join('');
+      } else {
+        tbody.innerHTML = '<tr><td colspan="7" class="p-2 text-center text-gray-500">Aucun message de contact.</td></tr>';
+      }
+    }
+    async function supprimerContact(id) {
+      if (!confirm('Voulez-vous vraiment supprimer ce message ?')) return;
+      await fetch(`/admin/contacts/${id}`, { method: 'DELETE', headers: { 'Authorization': getAdminToken() } });
+      chargerContacts();
+    }
+
+    // --- Gestion des Abonnés ---
+    async function chargerAbonnes() {
+      const res = await fetch('/admin/subscribers', { headers: { 'Authorization': getAdminToken() } });
+      if (res.status === 403) { window.location.href = 'admin-login.html'; return; }
+      const data = await res.json();
+      const tbody = document.getElementById('subscribers-table');
+      tbody.innerHTML = data.map(s => `
+        <tr class="border-b">
+          <td class="p-2 border">${s.email}</td>
+          <td class="p-2 border">${new Date(s.createdAt).toLocaleString()}</td>
+          <td class="p-2 border"><button onclick="supprimerAbonne(${s.id})" class="text-red-600">Supprimer</button></td>
+        </tr>
+      `).join('');
+    }
+
+    async function supprimerAbonne(id) {
+      if (!confirm('Voulez-vous vraiment supprimer cet abonné ?')) return;
+      await fetch(`/admin/subscribers/${id}`, { method: 'DELETE', headers: { 'Authorization': getAdminToken() } });
+      chargerAbonnes();
+    }
+
+    // --- Gestion des Commentaires ---
+    async function chargerCommentaires() {
+        const tbody = document.getElementById('comments-table');
+        try {
+            const res = await fetch('/admin/comments', { headers: { 'Authorization': getAdminToken() } });
+            if (res.status === 403) { window.location.href = 'admin-login.html'; return; }
+            const data = await res.json();
+            if (data && data.length > 0) {
+              tbody.innerHTML = data.map(c => `
+                  <tr class="border-b">
+                      <td class="p-2 border">${c.name || 'Anonyme'}</td>
+                      <td class="p-2 border">${c.Blog ? `<a href="blog-article.html?id=${c.Blog.id}" target="_blank" class="text-blue-600 hover:underline">${c.Blog.titre.substring(0, 30)}...</a>` : 'Article supprimé'}</td>
+                      <td class="p-2 border">${c.text || ''}</td>
+                      <td class="p-2 border">${new Date(c.date).toLocaleString()}</td>
+                      <td class="p-2 border"><button onclick="supprimerCommentaire(${c.id})" class="text-red-600">Supprimer</button></td>
+                  </tr>
+              `).join('');
+            } else {
+              tbody.innerHTML = '<tr><td colspan="5" class="p-2 text-center text-gray-500">Aucun commentaire.</td></tr>';
+            }
+        } catch (err) {
+            tbody.innerHTML = '<tr><td colspan="5" class="p-2 text-center text-gray-500">Impossible de charger les commentaires.</td></tr>';
+        }
+    }
+    async function supprimerCommentaire(id) {
+      if (!confirm('Voulez-vous vraiment supprimer ce commentaire ?')) return;
+      await fetch(`/admin/comments/${id}`, { method: 'DELETE', headers: { 'Authorization': getAdminToken() } });
+      chargerCommentaires();
+    }
+
+    // --- Gestion des Réservations ---
+    async function chargerReservations() {
+      const tbody = document.getElementById('reservations-table');
+      try {
+        const res = await fetch('/admin/reservations', { headers: { 'Authorization': getAdminToken() } });
+        if (!res.ok) throw new Error('Erreur serveur');
+        const reservations = await res.json();
+        if (!reservations || reservations.length === 0) {
+          tbody.innerHTML = '<tr><td colspan="8" class="p-2 text-center text-gray-500">Aucune réservation pour le moment.</td></tr>';
+          return;
+        }
+        tbody.innerHTML = reservations.map(r => { // La variable était déjà correcte ici, mais on s'assure de la cohérence
+          const statusColor = r.status === 'Confirmée' ? 'text-green-600' : (r.status === 'Annulée' ? 'text-red-600' : 'text-yellow-600');
+          return `
+            <tr class="border-b">
+              <td class="p-2 border"><strong>${r.customerName}</strong><br>${r.customerEmail}<br>${r.customerPhone || ''}</td>
+              <td class="p-2 border">${r.roomType} (${r.adults} ad.)</td>
+              <td class="p-2 border">${new Date(r.arrivalDate).toLocaleDateString()}</td>
+              <td class="p-2 border">${new Date(r.departureDate).toLocaleDateString()}</td>
+              <td class="p-2 border text-xs">${r.specialRequests || 'Aucune'}</td>
+              <td class="p-2 border text-xs">${new Date(r.createdAt).toLocaleString()}</td>
+              <td class="p-2 border font-bold ${statusColor}">
+                <select onchange="changerStatutReservation(${r.id}, this.value)" class="p-1 border rounded text-sm">
+                    <option value="En attente" ${r.status === 'En attente' ? 'selected' : ''}>En attente</option>
+                    <option value="Confirmée" ${r.status === 'Confirmée' ? 'selected' : ''}>Confirmée</option>
+                    <option value="Annulée" ${r.status === 'Annulée' ? 'selected' : ''}>Annulée</option>
+                </select>
+              </td>
+              <td class="p-2 border"><button onclick="supprimerReservation(${r.id})" class="text-red-600">Supprimer</button></td>
+            </tr>
+          `;
+        }).join('');
+      } catch (err) {
+        tbody.innerHTML = '<tr><td colspan="8" class="p-2 text-center text-red-500">Impossible de charger les réservations.</td></tr>';
+      }
+    }
+
+    async function changerStatutReservation(id, status) {
+      await fetch(`/admin/reservations/${id}`, {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json', 'Authorization': getAdminToken() },
+        body: JSON.stringify({ status })
+      });
+      chargerReservations();
+    }
+
+    async function supprimerReservation(id) {
+      if (!confirm('Vraiment supprimer cette réservation ?')) return;
+      await fetch(`/admin/reservations/${id}`, { method: 'DELETE', headers: { 'Authorization': getAdminToken() } });
+      chargerReservations();
+    }
+
+    // --- Gestion des Commandes ---
+    async function chargerCommandes() {
+      const tbody = document.getElementById('orders-table');
+      try {
+        const response = await fetch('/admin/orders', { headers: { 'Authorization': getAdminToken() } });
+        if (!response.ok) {
+          throw new Error(`Erreur HTTP: ${response.status}`);
+        }
+        const orders = await response.json();
+
+        if (!orders || orders.length === 0) {
+          tbody.innerHTML = '<tr><td colspan="6" class="p-2 text-center text-gray-500">Aucune commande pour le moment.</td></tr>';
+          return;
+        }
+
+        tbody.innerHTML = orders.map(order => {
+          const statusColor = order.status === 'Terminée' ? 'text-green-600' : (order.status === 'Annulée' ? 'text-red-600' : 'text-yellow-600');
+          return `
+            <tr class="border-b">
+              <td class="p-2 border">${order.itemName || 'N/A'}</td>
+              <td class="p-2 border">${order.quantity || 1}</td>
+              <td class="p-2 border">${order.customerName || 'N/A'}</td>
+              <td class="p-2 border">${order.customerPhone || 'N/A'}</td>
+              <td class="p-2 border">${new Date(order.createdAt).toLocaleString('fr-FR')}</td>
+              <td class="p-2 border">
+                <div class="flex items-center gap-2">
+                  <select onchange="changerStatutCommande(${order.id}, this.value)" class="p-1 border rounded text-sm">
+                      <option value="En attente" ${order.status === 'En attente' ? 'selected' : ''}>En attente</option>
+                      <option value="Terminée" ${order.status === 'Terminée' ? 'selected' : ''}>Terminée</option>
+                      <option value="Annulée" ${order.status === 'Annulée' ? 'selected' : ''}>Annulée</option>
+                  </select>
+                </div>
+              </td>
+            </tr>
+          `;
+        }).join('');
+      } catch (err) {
+        console.error("Erreur lors du chargement des commandes:", err);
+        tbody.innerHTML = `<tr><td colspan="6" class="p-2 text-center text-red-500">Impossible de charger les commandes. Raison: ${err.message}</td></tr>`;
+      }
+    }
+
+    async function changerStatutCommande(id, status) {
+      await fetch(`/admin/orders/${id}`, {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json', 'Authorization': getAdminToken() },
+        body: JSON.stringify({ status })
+      });
+      // On recharge la liste pour voir le changement de statut
+      chargerCommandes();
+    }
+
+    // --- Gestion de l'Équipe ---
+    async function chargerEquipe() {
+      const tbody = document.getElementById('team-table');
+      try {
+        const res = await fetch('/admin/team', { headers: { 'Authorization': getAdminToken() } });
+        if (!res.ok) throw new Error(`Erreur HTTP: ${res.status}`);
+        const members = await res.json();
+        if (!Array.isArray(members)) throw new Error("La réponse n'est pas un tableau.");
+
+        tbody.innerHTML = members.map(m => `
+          <tr class="border-b">
+            <td class="p-2 border">${m.nom}</td>
+            <td class="p-2 border">${m.role}</td>
+            <td class="p-2 border">
+              <button onclick="modifierMembre(${m.id})" class="text-blue-600 mr-2">Modifier</button>
+              <button onclick="supprimerMembre(${m.id})" class="text-red-600">Supprimer</button>
+            </td>
+          </tr>`).join('');
+      } catch (err) {
+        console.error("Erreur lors du chargement de l'équipe:", err);
+        tbody.innerHTML = '<tr><td colspan="3" class="p-2 text-center text-red-500">Impossible de charger les membres de l\'équipe.</td></tr>';
+      }
+    }
+
+    async function sauvegarderMembre(e) {
+      e.preventDefault();
+      const id = document.getElementById('team-id').value;
+      const formData = new FormData();
+      formData.append('nom', document.getElementById('team-nom').value);
+      formData.append('role', document.getElementById('team-role').value);
+      formData.append('description', document.getElementById('team-description').value);
+
+      const imageFile = document.getElementById('team-image').files[0];
+      if (imageFile) {
+        formData.append('image', imageFile);
+      } else if (id) {
+        formData.append('image_url', document.getElementById('team-image-url').value);
+      }
+      const res = await fetch(id ? `/admin/team/${id}` : '/admin/team', { method: id ? 'PUT' : 'POST', headers: { 'Authorization': getAdminToken() }, body: formData });
+      
+      if (res.ok) {
+        annulerModificationEquipe();
+        chargerEquipe();
+      } else {
+        const err = await res.json();
+        alert(`Erreur: ${err.error || 'Impossible de sauvegarder le membre.'}`);
+      }
+    }
+
+    async function modifierMembre(id) {
+      const res = await fetch(`/admin/team/${id}`, { headers: { 'Authorization': getAdminToken() } });
+      const m = await res.json();
+      document.getElementById('team-id').value = m.id;
+      document.getElementById('team-image-url').value = m.image;
+      document.getElementById('team-nom').value = m.nom;
+      document.getElementById('team-role').value = m.role;
+      document.getElementById('team-description').value = m.description;
+      // On ne peut pas pré-remplir un input file
+      document.getElementById('team-submit-btn').textContent = 'Mettre à jour';
+      document.getElementById('team-cancel-btn').classList.remove('hidden');
+    }
+
+    function annulerModificationEquipe() {
+      document.getElementById('team-form').reset();
+      document.getElementById('team-id').value = '';
+      document.getElementById('team-submit-btn').textContent = 'Ajouter';
+      document.getElementById('team-image-url').value = '';
+      document.getElementById('team-cancel-btn').classList.add('hidden');
+    }
+
+    async function supprimerMembre(id) {
+      if (!confirm('Vraiment supprimer ce membre ?')) return;
+      await fetch(`/admin/team/${id}`, { method: 'DELETE', headers: { 'Authorization': getAdminToken() } });
+      chargerEquipe();
+    }
+    document.getElementById('team-form').addEventListener('submit', sauvegarderMembre);
+
+    // --- Gestion des Témoignages ---
+    async function chargerTestimonials() {
+      const tbody = document.getElementById('testimonial-table');
+      try {
+        const res = await fetch('/admin/testimonials', { headers: { 'Authorization': getAdminToken() } });
+        if (res.status === 403) { window.location.href = 'admin-login.html'; return; }
+        const testimonials = await res.json();
+        tbody.innerHTML = testimonials.map(t => `
+          <tr class="border-b">
+            <td class="p-2 border">${t.name}</td>
+            <td class="p-2 border">${t.quote.substring(0, 50)}...</td>
+            <td class="p-2 border">${t.rating || 'N/A'} ★</td>
+            <td class="p-2 border">${t.status === 'approved' ? '<span class="text-green-600 font-bold">Approuvé</span>' : '<span class="text-yellow-600 font-bold">En attente</span>'}</td>
+            <td class="p-2 border">
+              ${t.status === 'pending' ? `<button onclick="approuverTestimonial(${t.id})" class="text-green-600 mr-2">Approuver</button>` : ''}
+              <button onclick="modifierTestimonial(${t.id})" class="text-blue-600 mr-2">Modifier</button>
+              <button onclick="supprimerTestimonial(${t.id})" class="text-red-600">Supprimer</button>
+            </td>
+          </tr>
+        `).join('');
+      } catch (err) {
+        tbody.innerHTML = '<tr><td colspan="5" class="p-2 text-center text-gray-500">Impossible de charger les témoignages.</td></tr>';
+      }
+    }
+
+    async function sauvegarderTestimonial(e) {
+      e.preventDefault();
+      const id = document.getElementById('testimonial-id').value;
+      const formData = new FormData();
+      formData.append('name', document.getElementById('testimonial-name').value);
+      formData.append('quote', document.getElementById('testimonial-quote').value);
+      formData.append('rating', document.getElementById('testimonial-rating').value);
+      formData.append('status', document.getElementById('testimonial-status').value);
+
+      const imageFile = document.getElementById('testimonial-image').files[0];
+      if (imageFile) {
+        formData.append('image', imageFile);
+      } else if (id) {
+        formData.append('image_url', document.getElementById('testimonial-image-url').value);
+      }
+
+      const method = id ? 'PUT' : 'POST';
+      const url = id ? `/admin/testimonials/${id}` : '/admin/testimonials';
+      const res = await fetch(url, { method, headers: { 'Authorization': getAdminToken() }, body: formData });
+
+      if (res.ok) {
+        annulerModificationTestimonial();
+        chargerTestimonials();
+      } else {
+        const err = await res.json();
+        alert(`Erreur: ${err.error || 'Impossible de sauvegarder le témoignage.'}`);
+      }
+    }
+
+    async function modifierTestimonial(id) {
+      const res = await fetch(`/admin/testimonials/${id}`, { headers: { 'Authorization': getAdminToken() } });
+      const t = await res.json();
+      document.getElementById('testimonial-id').value = t.id;
+      document.getElementById('testimonial-image-url').value = t.image;
+      document.getElementById('testimonial-name').value = t.name;
+      document.getElementById('testimonial-quote').value = t.quote;
+      // On ne peut pas pré-remplir un input file
+      document.getElementById('testimonial-status').value = t.status;
+      document.getElementById('testimonial-rating').value = t.rating;
+      document.getElementById('testimonial-submit-btn').textContent = 'Mettre à jour';
+      document.getElementById('testimonial-cancel-btn').classList.remove('hidden');
+      document.getElementById('testimonial-form').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function annulerModificationTestimonial() {
+      document.getElementById('testimonial-form').reset();
+      document.getElementById('testimonial-id').value = '';
+      document.getElementById('testimonial-submit-btn').textContent = 'Ajouter le témoignage';
+      document.getElementById('testimonial-image-url').value = '';
+      document.getElementById('testimonial-cancel-btn').classList.add('hidden');
+      document.getElementById('testimonial-status').value = 'approved';
+    }
+
+    async function supprimerTestimonial(id) {
+      if (!confirm('Vraiment supprimer ce témoignage ?')) return;
+      await fetch(`/admin/testimonials/${id}`, { method: 'DELETE', headers: { 'Authorization': getAdminToken() } });
+      chargerTestimonials();
+    }
+
+    async function approuverTestimonial(id) {
+      const res = await fetch(`/admin/testimonials/${id}`, { headers: { 'Authorization': getAdminToken() } });
+      const testimonial = await res.json();
+      testimonial.status = 'approved';
+      await fetch(`/admin/testimonials/${id}`, {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json', 'Authorization': getAdminToken() },
+        body: JSON.stringify(testimonial)
+      });
+      chargerTestimonials();
+    }
+    document.getElementById('testimonial-form').addEventListener('submit', sauvegarderTestimonial);
+
+    // --- GENERATION AUTOMATIQUE DU SITE STATIQUE ---
+    let generationTimeout;
+    async function generateStaticData() {
+      // Cette fonction est un placeholder pour une future fonctionnalité.
+      console.log("Déclenchement de la génération du site statique...");
+    }
+
+    async function initializeAdminPage() {
+      // S'assurer que le token existe avant de continuer
+      if (!localStorage.getItem('adminToken')) {
+        window.location.href = 'admin-login.html';
+        return;
+      }
+      // On charge toutes les sections en parallèle pour plus de rapidité
+      await Promise.all([
+        chargerBlog(),
+        chargerContacts(),
+        chargerAbonnes(),
+        chargerCommentaires(),
+        chargerCommandes(),
+        chargerReservations(),
+        chargerEquipe(),
+        chargerTestimonials()
+      ]);
+    }
+
+    // Initialisation
+    initializeAdminPage();
+ </script>
+</body>
+</html>
