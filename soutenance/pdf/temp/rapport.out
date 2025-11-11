@@ -1,0 +1,67 @@
+\BOOKMARK [0][-]{chapter.1}{Remerciements}{}% 1
+\BOOKMARK [0][-]{chapter.2}{R\351sum\351}{}% 2
+\BOOKMARK [0][-]{chapter.3}{Abstract}{}% 3
+\BOOKMARK [0][-]{chapter*.4}{Guide de Navigation}{}% 4
+\BOOKMARK [1][-]{section*.5}{Sections Principales}{chapter*.4}% 5
+\BOOKMARK [1][-]{section*.6}{Figures et Tableaux Importants}{chapter*.4}% 6
+\BOOKMARK [2][-]{section*.7}{Figures Cl\351s}{section*.6}% 7
+\BOOKMARK [2][-]{section*.8}{Tableaux de R\351f\351rence}{section*.6}% 8
+\BOOKMARK [1][-]{section.3.1}{Contexte du Projet}{chapter*.4}% 9
+\BOOKMARK [1][-]{section.3.2}{Probl\351matique}{chapter*.4}% 10
+\BOOKMARK [1][-]{section.3.3}{Objectifs du Projet}{chapter*.4}% 11
+\BOOKMARK [2][-]{subsection.3.3.1}{Objectifs G\351n\351raux}{section.3.3}% 12
+\BOOKMARK [2][-]{subsection.3.3.2}{Objectifs Sp\351cifiques}{section.3.3}% 13
+\BOOKMARK [1][-]{section.3.4}{M\351thodologie Adopt\351e}{chapter*.4}% 14
+\BOOKMARK [1][-]{section.3.5}{Structure du Document}{chapter*.4}% 15
+\BOOKMARK [1][-]{section.3.6}{2.1 Analyse du Secteur H\364telier}{chapter*.4}% 16
+\BOOKMARK [2][-]{subsection.3.6.1}{2.1.1 Tendances Actuelles}{section.3.6}% 17
+\BOOKMARK [2][-]{subsection.3.6.2}{2.1.2 Attentes des Clients}{section.3.6}% 18
+\BOOKMARK [1][-]{section.3.7}{2.2 Solutions Existantes}{chapter*.4}% 19
+\BOOKMARK [2][-]{subsection.3.7.1}{2.2.1 Plateformes de R\351servation}{section.3.7}% 20
+\BOOKMARK [2][-]{subsection.3.7.2}{2.2.2 Syst\350mes de Gestion H\364teli\350re}{section.3.7}% 21
+\BOOKMARK [1][-]{section.3.8}{2.3 Technologies Web Modernes}{chapter*.4}% 22
+\BOOKMARK [2][-]{subsection.3.8.1}{2.3.1 Frontend}{section.3.8}% 23
+\BOOKMARK [2][-]{subsection.3.8.2}{2.3.2 Backend}{section.3.8}% 24
+\BOOKMARK [2][-]{subsection.3.8.3}{2.3.3 Cloud et D\351ploiement}{section.3.8}% 25
+\BOOKMARK [1][-]{section.3.9}{2.4 Bonnes Pratiques}{chapter*.4}% 26
+\BOOKMARK [2][-]{subsection.3.9.1}{2.4.1 Exp\351rience Utilisateur}{section.3.9}% 27
+\BOOKMARK [2][-]{subsection.3.9.2}{2.4.2 S\351curit\351}{section.3.9}% 28
+\BOOKMARK [2][-]{subsection.3.9.3}{2.4.3 Maintenabilit\351}{section.3.9}% 29
+\BOOKMARK [1][-]{section.3.10}{2.5 Contraintes L\351gales et R\351glementaires}{chapter*.4}% 30
+\BOOKMARK [2][-]{subsection.3.10.1}{2.5.1 Protection des Donn\351es}{section.3.10}% 31
+\BOOKMARK [2][-]{subsection.3.10.2}{2.5.2 Commerce en Ligne}{section.3.10}% 32
+\BOOKMARK [1][-]{section.3.11}{3.1 Architecture Globale}{chapter*.4}% 33
+\BOOKMARK [1][-]{section.3.12}{3.2 Mod\350le de Donn\351es}{chapter*.4}% 34
+\BOOKMARK [2][-]{subsection.3.12.1}{3.2.1 Diagramme de Classes}{section.3.12}% 35
+\BOOKMARK [2][-]{subsection.3.12.2}{3.2.2 Diagramme Entit\351-Relation}{section.3.12}% 36
+\BOOKMARK [1][-]{section.3.13}{3.3 Mod\350les de Processus}{chapter*.4}% 37
+\BOOKMARK [2][-]{subsection.3.13.1}{3.3.1 Processus de R\351servation}{section.3.13}% 38
+\BOOKMARK [1][-]{section.3.14}{3.4 Diagrammes de S\351quence}{chapter*.4}% 39
+\BOOKMARK [2][-]{subsection.3.14.1}{3.4.1 Processus de Check-in}{section.3.14}% 40
+\BOOKMARK [1][-]{section.3.15}{3.5 Architecture Technique}{chapter*.4}% 41
+\BOOKMARK [2][-]{subsection.3.15.1}{3.5.1 Stack Technologique}{section.3.15}% 42
+\BOOKMARK [2][-]{subsection.3.15.2}{3.5.2 S\351curit\351 et Performance}{section.3.15}% 43
+\BOOKMARK [1][-]{section.3.16}{3.6 Interfaces Utilisateur}{chapter*.4}% 44
+\BOOKMARK [2][-]{subsection.3.16.1}{3.6.1 Maquettes des \311crans Principaux}{section.3.16}% 45
+\BOOKMARK [2][-]{subsection.3.16.2}{3.6.2 Responsive Design}{section.3.16}% 46
+\BOOKMARK [1][-]{section.3.17}{3.7 Tests et Qualit\351}{chapter*.4}% 47
+\BOOKMARK [2][-]{subsection.3.17.1}{3.7.1 Strat\351gie de Test}{section.3.17}% 48
+\BOOKMARK [0][-]{chapter.4}{Diagrammes UML du Projet}{}% 49
+\BOOKMARK [1][-]{section.4.1}{1. Diagramme de Cas d'Utilisation}{chapter.4}% 50
+\BOOKMARK [2][-]{subsection.4.1.1}{1.1 Description des Acteurs}{section.4.1}% 51
+\BOOKMARK [2][-]{subsection.4.1.2}{1.2 Description des Cas d'Utilisation Principaux}{section.4.1}% 52
+\BOOKMARK [1][-]{section.4.2}{2. Diagramme de Classes}{chapter.4}% 53
+\BOOKMARK [2][-]{subsection.4.2.1}{2.1 Description D\351taill\351e des Classes}{section.4.2}% 54
+\BOOKMARK [2][-]{subsection.4.2.2}{2.2 Relations entre Classes}{section.4.2}% 55
+\BOOKMARK [1][-]{section.4.3}{3. Diagramme de S\351quence - Processus de R\351servation}{chapter.4}% 56
+\BOOKMARK [2][-]{subsection.4.3.1}{3.1 Description des Interactions}{section.4.3}% 57
+\BOOKMARK [2][-]{subsection.4.3.2}{3.2 Flux de Donn\351es}{section.4.3}% 58
+\BOOKMARK [1][-]{section.4.4}{4. Diagramme d'\311tat - \311tat d'une R\351servation}{chapter.4}% 59
+\BOOKMARK [2][-]{subsection.4.4.1}{4.1 \311tats Possibles d'une R\351servation}{section.4.4}% 60
+\BOOKMARK [2][-]{subsection.4.4.2}{4.2 Transitions et \311v\351nements}{section.4.4}% 61
+\BOOKMARK [1][-]{section.4.5}{5. Diagramme de Composants}{chapter.4}% 62
+\BOOKMARK [2][-]{subsection.4.5.1}{5.1 Description des Composants}{section.4.5}% 63
+\BOOKMARK [2][-]{subsection.4.5.2}{5.2 Architecture Technique}{section.4.5}% 64
+\BOOKMARK [1][-]{section.4.6}{6. Diagramme de D\351ploiement}{chapter.4}% 65
+\BOOKMARK [2][-]{subsection.4.6.1}{6.1 Infrastructure Physique}{section.4.6}% 66
+\BOOKMARK [2][-]{subsection.4.6.2}{6.2 Infrastructure Cloud}{section.4.6}% 67

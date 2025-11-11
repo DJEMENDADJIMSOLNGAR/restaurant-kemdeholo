@@ -471,19 +471,19 @@ app.get('/admin/testimonials', checkAdminAuth, async (req, res) => {
     const testimonials = await Testimonial.findAll({ order: [['id', 'ASC']] });
     res.json(testimonials);
   } catch (err) {
-    res.status(500).json({ error: err.message });
+    res.status(500).json({ error: "Impossible de charger les témoignages depuis la base de données." });
   }
 });
 
 app.post('/admin/testimonials', checkAdminAuth, upload.single('image'), async (req, res) => {
   try {
-    const { name, quote, rating, status } = req.body;
-    if (!name || !quote) return res.status(400).json({ error: 'Le nom et la citation sont requis.' });
+    const { name, quote, rating, status, category } = req.body;
+    if (!name || !quote || !category) return res.status(400).json({ error: 'Le nom, la citation et la catégorie sont requis.' });
 
     // Récupérer le chemin de l'image si elle a été téléversée
     const image = req.file ? `/images/uploads/${req.file.filename}` : null;
 
-    const testimonial = await Testimonial.create({ name, quote, image, rating, status: status || 'approved' });
+    const testimonial = await Testimonial.create({ name, quote, image, rating, status: status || 'approved', category });
     res.json({ success: true, testimonial });
   } catch (err) {
     res.status(400).json({ error: err.message });
@@ -500,13 +500,13 @@ app.put('/admin/testimonials/:id', checkAdminAuth, upload.single('image'), async
   const testimonial = await Testimonial.findByPk(req.params.id);
   if (!testimonial) return res.status(404).json({ error: 'Témoignage non trouvé.' });
 
-  const { name, quote, rating, status, image_url } = req.body;
-  if (!name || !quote) return res.status(400).json({ error: 'Le nom et la citation sont requis.' });
+  const { name, quote, rating, status, image_url, category } = req.body;
+  if (!name || !quote || !category) return res.status(400).json({ error: 'Le nom, la citation et la catégorie sont requis.' });
 
   // Mettre à jour l'image seulement si une nouvelle est fournie, sinon garder l'ancienne
   const image = req.file ? `/images/uploads/${req.file.filename}` : image_url;
 
-  await testimonial.update({ name, quote, image, rating, status });
+  await testimonial.update({ name, quote, image, rating, status, category });
   res.json({ success: true, testimonial });
 });
 
@@ -524,12 +524,17 @@ app.delete('/admin/testimonials/:id', checkAdminAuth, async (req, res) => {
 
 // --- API Publique pour les témoignages ---
 app.get('/api/testimonials', async (req, res) => {
+  const { category } = req.query;
+  const whereClause = { status: 'approved' };
+  if (category) {
+    whereClause.category = category;
+  }
+
   try {
-    // On limite à 3 témoignages APPROUVES pour l'affichage sur la page
     const testimonials = await Testimonial.findAll({ 
-      where: { status: 'approved' },
+      where: whereClause,
       order: [['id', 'DESC']], 
-      limit: 3 
+      limit: 10 // On augmente la limite pour avoir plus de choix
     });
     res.json(testimonials);
   } catch (err) {
@@ -539,10 +544,10 @@ app.get('/api/testimonials', async (req, res) => {
 
 app.post('/api/testimonials', async (req, res) => {
   try {
-    const { name, quote, rating } = req.body;
-    if (!name || !quote || !rating) return res.status(400).json({ error: 'Le nom, la citation et la note sont requis.' });
-    await Testimonial.create({ name, quote, rating, status: 'pending' });
-    res.status(201).json({ success: true, message: 'Merci ! Votre témoignage est en attente de validation.' });
+    const { name, quote, rating, category } = req.body;
+    if (!name || !quote || !rating || !category) return res.status(400).json({ error: 'Le nom, la citation, la catégorie et la note sont requis.' });
+    await Testimonial.create({ name, quote, rating, category, status: 'pending' });
+    res.status(201).json({ success: true, message: 'Témoignage ajouté avec succès ! Il est en attente de validation.' });
   } catch (err) {
     res.status(400).json({ error: err.message });
   }
@@ -1022,9 +1027,14 @@ async function startServer() {
     if (testimonialCount === 0) {
       console.log('La table Testimonial est vide, ajout des témoignages de base...');
       await Testimonial.bulkCreate([
-        { name: 'Fatimé', quote: 'Une expérience culinaire inoubliable ! Le poisson braisé était divin.', image: 'images/formation-eleve2.jpg', rating: 5, status: 'approved' },
-        { name: 'Moussa', quote: 'Le meilleur poulet DG de la ville. Le service est rapide et le personnel très accueillant.', image: 'images/formation-eleve1.jpg', rating: 5, status: 'approved' },
-        { name: 'Aisha', quote: 'L\'ambiance est parfaite pour un dîner en famille. Les jus locaux sont un délice !', image: 'images/formation-eleve3.jpg', rating: 4, status: 'approved' }
+        { name: 'Fatimé', category: 'Restaurant', quote: 'Une expérience culinaire inoubliable ! Le poisson braisé était divin.', image: 'images/formation-eleve2.jpg', rating: 5, status: 'approved' },
+        { name: 'Moussa D.', category: 'Restaurant', quote: 'Le meilleur poulet DG de la ville. Le service est rapide et le personnel très accueillant.', image: 'images/formation-eleve1.jpg', rating: 5, status: 'approved' },
+        { name: 'Aisha', category: 'Restaurant', quote: 'L\'ambiance est parfaite pour un dîner en famille. Les jus locaux sont un délice !', image: 'images/formation-eleve3.jpg', rating: 4, status: 'approved' },
+        { name: 'Djemenda Clémence', category: 'Hebergement', quote: 'Un séjour inoubliable ! Les chambres sont confortables et le personnel est d\'une gentillesse rare. Je me suis sentie comme à la maison.', image: 'images/placeholder-avatar.png', rating: 5, status: 'approved' },
+        { name: 'Bemadjibeye Ruth', category: 'Restaurant', quote: 'Le restaurant de KemdeHolo est devenu ma cantine. La cuisine est délicieuse, authentique et les prix sont très corrects. Un vrai régal !', image: 'images/placeholder-avatar.png', rating: 5, status: 'approved' },
+        { name: 'Djimarem Roland', category: 'Blanchisserie', quote: 'Le service de blanchisserie est impeccable et rapide. Mon linge est toujours parfait. Un service de grande qualité que je recommande vivement.', image: 'images/placeholder-avatar.png', rating: 5, status: 'approved' },
+        { name: 'Aïcha Mahamat', category: 'Formation', quote: 'La formation en service m\'a ouvert les portes d\'un grand hôtel à N\'Djamena. Merci KemdeHolo !', image: 'images/placeholder-avatar.png', rating: 5, status: 'approved' },
+        { name: 'Moussa Dallah', category: 'Formation', quote: 'Les techniques apprises en cuisine sont directement applicables. J\'ai pu améliorer mes plats et satisfaire mes clients.', image: 'images/placeholder-avatar.png', rating: 5, status: 'approved' }
       ]);
     }
 

@@ -3,19 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Article - KemdeHolo</title>
-    <link href="/css/style.css" rel="stylesheet">
+    <title>Article - KemdeHolo</title>    <link href="css/style.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        :root {
-            --bleu-principal: #C00000;
-            --rouge-accent: #c32e27;
-        }
         .prose {
             color: #374151;
         }
         .prose h1, .prose h2, .prose h3 {
-            color: #C00000;
+            color: #030303; /* black */
         }
         .prose a {
             color: #c32e27;
@@ -27,16 +22,16 @@
 </head>
 <body class="font-sans bg-gray-100">
     <!-- Header Placeholder -->
-    <header id="main-header" class="bg-primary-blue text-white p-4 sticky top-0 z-50"></header>
+    <div id="header-placeholder"></div>
 
     <!-- Contenu de l'article -->
-    <main id="article-container" class="container mx-auto px-4 py-12 max-w-4xl">
+    <main id="article-container" class="container mx-auto px-4 py-12 max-w-4xl scroll-reveal">
         <!-- Le contenu de l'article sera injecté ici -->
         <p class="text-center text-gray-500">Chargement de l'article...</p>
     </main>
 
     <!-- Section Commentaires -->
-    <section id="comments-section" class=" py-12">
+    <section id="comments-section" class=" py-12 scroll-reveal">
         <div class="container mx-auto px-4 max-w-4xl">
             <div id="comment-form-container" class="mb-12">
                 <h2 class="text-2xl font-bold text-primary-blue mb-6">Laissez un commentaire</h2>
@@ -58,7 +53,7 @@
                 </form>
             </div>
 
-            <h3 class="text-2xl font-bold text-primary-blue mb-6">Commentaires</h3>
+            <h3 class="text-2xl font-bold text-black mb-6">Commentaires</h3>
             <div id="comments-list" class="space-y-6">
                 <!-- Les commentaires seront injectés ici -->
                 <p class="text-gray-500">Aucun commentaire pour le moment.</p>
@@ -69,7 +64,7 @@
     <!-- Footer Placeholder -->
     <footer id="main-footer" class="bg-primary-blue text-white py-12 px-4"></footer>
 
-    <script src="/main.js"></script>
+    <script src="main.js"></script> 
     <script>
         document.addEventListener('DOMContentLoaded', async () => {
             const commentFormContainer = document.getElementById('comment-form-container');
@@ -99,10 +94,10 @@
                     commentDiv.className = `border-b border-gray-200 pb-6 ${isReply ? 'ml-8 lg:ml-12' : ''}`;
                     commentDiv.innerHTML = `
                         <div id="comment-${comment.id}">
-                            <p class="font-bold text-primary-blue">${comment.name}</p>
+                            <p class="font-bold text-black">${comment.name}</p>
                             <p class="text-sm text-gray-500 mb-2">${new Date(comment.date).toLocaleString('fr-FR')}</p>
                             <p class="text-gray-700 mb-2">${comment.text}</p>
-                            <button class="reply-btn text-sm text-secondary-red font-semibold" data-comment-id="${comment.id}">Répondre</button>
+                            <button class="reply-btn text-sm text-red-600 font-semibold" data-comment-id="${comment.id}">Répondre</button>
                         </div>
                     `;
                     const repliesContainer = document.createElement('div');
@@ -125,7 +120,7 @@
                     articleContainer.innerHTML = `
                         <article class="prose lg:prose-xl mx-auto bg-white p-8 rounded-lg shadow-lg">
                             <div class="text-sm text-gray-500 mb-4">
-                                <span class="font-semibold text-secondary-red">${article.categorie || 'Non classé'}</span>
+                                <span class="font-semibold text-black">${article.categorie || 'Non classé'}</span>
                                 <span class="mx-2">|</span>
                                 <span>${new Date(article.date).toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' })}</span>
                             </div>

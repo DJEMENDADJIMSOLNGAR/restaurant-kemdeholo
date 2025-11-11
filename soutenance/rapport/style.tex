@@ -1,0 +1,26 @@
+% Style LaTeX personnalisé
+\\usepackage[french]{babel}
+\\usepackage{fancyhdr}
+\\usepackage{caption}
+\\usepackage{float}
+\\usepackage{bookmark}
+\\usepackage{cleveref}
+\\usepackage[hidelinks,unicode,breaklinks=true,bookmarks=true,bookmarksopen=true,bookmarksopenlevel=3,colorlinks=true,linkcolor=blue,urlcolor=blue,citecolor=blue]{hyperref}
+
+\\pagestyle{fancy}
+\\fancyhead[L]{Complexe Hôtelier Kemdeholo}
+\\fancyhead[R]{\\thepage}
+\\fancyfoot[C]{Rapport de Projet - 5 novembre 2025}
+
+\\renewcommand{\\figurename}{Figure}
+\\renewcommand{\\tablename}{Tableau}
+\\renewcommand{\\contentsname}{Table des matières}
+\\renewcommand{\\listfigurename}{Liste des figures}
+\\renewcommand{\\listtablename}{Liste des tableaux}
+
+% Configuration des références croisées
+\\crefformat{chapter}{Chapitre~#2#1#3}
+\\crefformat{section}{Section~#2#1#3}
+\\crefformat{subsection}{Section~#2#1#3}
+\\crefformat{figure}{Figure~#2#1#3}
+\\crefformat{table}{Tableau~#2#1#3}

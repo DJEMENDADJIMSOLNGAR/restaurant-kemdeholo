@@ -1,0 +1,2020 @@
+\documentclass[12pt,french,a4paper]{report}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage[french]{babel}
+\usepackage{amssymb,amsmath}
+\usepackage{fancyhdr}
+\usepackage{caption}
+\usepackage{float}
+\usepackage{graphicx}
+\usepackage[hidelinks]{hyperref}
+\usepackage{textcomp}
+\usepackage{url}
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+% use microtype if available
+\IfFileExists{microtype.sty}{%
+\usepackage[]{microtype}
+\UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\IfFileExists{parskip.sty}{%
+\usepackage{parskip}
+}{% else
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+}
+\usepackage[top=2.5cm,bottom=2.5cm,left=2.5cm,right=2.5cm,headheight=14.5pt]{geometry}
+
+% Paramétrage des liens et références
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+    pdftitle={Rapport de Projet - Complexe Hôtelier Kemdeholo},
+    bookmarks=true,
+    pdfauthor={DJEMENDADJIMSOLNGAR}
+}
+\urlstyle{same}
+
+% Configuration des paragraphes
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{5}
+
+% Configuration des paragraphes et sous-paragraphes
+\ifx\paragraph\undefined\else
+\let\oldparagraph\paragraph
+\renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+\let\oldsubparagraph\subparagraph
+\renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+
+% Configuration des figures
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+
+% Configuration des en-têtes et pieds de page
+\pagestyle{fancy}
+\fancyhead[L]{Complexe Hôtelier Kemdeholo}
+\fancyhead[R]{\thepage}
+\fancyfoot[C]{Rapport de Projet - 5 novembre 2025}
+
+% Configuration des noms en français
+\renewcommand{\figurename}{Figure}
+\renewcommand{\tablename}{Tableau}
+\renewcommand{\contentsname}{Table des matières}
+\renewcommand{\listfigurename}{Liste des figures}
+\renewcommand{\listtablename}{Liste des tableaux}
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[shorthands=off,main=french]{babel}
+\else
+  % load polyglossia as late as possible as it *could* call bidi if RTL lang (e.g. Hebrew or Arabic)
+  \usepackage{polyglossia}
+  \setmainlanguage[]{french}
+\fi
+
+\title{RAPPORT DE PROJET DE FIN D'ÉTUDES\\
+Conception et Développement d'un Site Web\\
+pour le Complexe Hôtelier Kemdeholo}
+\providecommand{\subtitle}[1]{}
+\subtitle{Amélioration de la visibilité et de l'expérience client}
+\author{Présenté par : DJEMENDADJIMSOLNGAR\\
+~\\
+Sous la direction de : {[}Nom du Directeur de mémoire{]}}
+\date{5 novembre 2025}
+
+\begin{document}
+
+% Page de titre
+\maketitle
+\thispagestyle{empty}
+
+% Table des matières et listes
+{
+\setcounter{tocdepth}{2}
+\tableofcontents
+\clearpage
+\listoftables
+\clearpage
+\listoffigures
+\clearpage
+}
+\hypertarget{remerciements}{%
+\chapter{Remerciements}\label{remerciements}}
+
+Je tiens à exprimer ma sincère gratitude envers toutes les personnes qui
+ont contribué à la réalisation de ce projet :
+
+\begin{itemize}
+\tightlist
+\item
+  La direction du Complexe Hôtelier Kemdeholo pour leur confiance et
+  leur collaboration
+\item
+  Mon directeur de mémoire pour son encadrement et ses conseils précieux
+\item
+  L'équipe pédagogique pour leur soutien tout au long de la formation
+\item
+  Ma famille pour son soutien indéfectible
+\end{itemize}
+
+\hypertarget{ruxe9sumuxe9}{%
+\chapter{Résumé}\label{ruxe9sumuxe9}}
+
+Ce projet vise à moderniser la présence numérique du Complexe Hôtelier
+Kemdeholo à travers le développement d'une plateforme web complète.
+L'objectif principal est d'améliorer la visibilité de l'établissement et
+d'optimiser l'expérience client grâce à des outils numériques modernes
+et efficaces.
+
+La solution développée comprend un site web responsive avec système de
+réservation en ligne, une interface d'administration, et une gestion
+centralisée des services (hébergement, restauration, blanchisserie). Le
+projet utilise des technologies modernes (Stack PERN : PostgreSQL,
+Express, React, Node.js) pour garantir performance et maintenabilité.
+
+\textbf{Mots-clés} : Hôtellerie, Développement Web, Experience Client,
+PERN Stack, Responsive Design
+
+\hypertarget{abstract}{%
+\chapter{Abstract}\label{abstract}}
+
+This project aims to modernize the digital presence of the Kemdeholo
+Hotel Complex through the development of a comprehensive web platform.
+The main objective is to improve the establishment's visibility and
+optimize the customer experience through modern and efficient digital
+tools.
+
+The developed solution includes a responsive website with an online
+booking system, an administration interface, and centralized service
+management (accommodation, catering, laundry). The project uses modern
+technologies (PERN Stack: PostgreSQL, Express, React, Node.js) to ensure
+performance and maintainability.
+
+\textbf{Keywords}: Hospitality, Web Development, Customer Experience,
+PERN Stack, Responsive Design
+
+\hypertarget{guide-de-navigation}{%
+\chapter*{Guide de Navigation}\label{guide-de-navigation}}
+\addcontentsline{toc}{chapter}{Guide de Navigation}
+
+Ce document est organisé en plusieurs sections principales. Vous
+trouverez :
+
+\begin{itemize}
+\tightlist
+\item
+  La table des matières au début du document
+\item
+  La liste des figures complète après la table des matières
+\item
+  La liste des tableaux qui suit la liste des figures
+\end{itemize}
+
+\hypertarget{sections-principales}{%
+\section*{Sections Principales}\label{sections-principales}}
+\addcontentsline{toc}{section}{Sections Principales}
+
+Le rapport est structuré en plusieurs chapitres principaux :
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Introduction (\textbackslash{}nameref\{sec:introduction\})
+\item
+  État de l'Art (\textbackslash{}nameref\{sec:etat-art\})
+\item
+  Modélisation du Projet (\textbackslash{}nameref\{sec:modelisation\})
+\end{enumerate}
+
+\hypertarget{figures-et-tableaux-importants}{%
+\section*{Figures et Tableaux
+Importants}\label{figures-et-tableaux-importants}}
+\addcontentsline{toc}{section}{Figures et Tableaux Importants}
+
+\hypertarget{figures-cluxe9s}{%
+\subsection*{Figures Clés}\label{figures-cluxe9s}}
+\addcontentsline{toc}{subsection}{Figures Clés}
+
+\begin{itemize}
+\tightlist
+\item
+  Architecture globale du système : Figure
+  \textbackslash{}ref\{fig:architecture-globale\}
+\item
+  Interface utilisateur : Figure
+  \textbackslash{}ref\{fig:maquette-accueil\}
+\item
+  Processus de réservation : Figure
+  \textbackslash{}ref\{fig:processus-reservation\}
+\end{itemize}
+
+\hypertarget{tableaux-de-ruxe9fuxe9rence}{%
+\subsection*{Tableaux de Référence}\label{tableaux-de-ruxe9fuxe9rence}}
+\addcontentsline{toc}{subsection}{Tableaux de Référence}
+
+\begin{itemize}
+\tightlist
+\item
+  Évolution du secteur hôtelier : Tableau
+  \textbackslash{}ref\{tab:evolution-hotel\}
+\item
+  Types de tests implémentés : Tableau
+  \textbackslash{}ref\{tab:types-tests\}
+\end{itemize}
+
+\textbackslash{}newpage \# Introduction Générale \{-\}
+
+\textbackslash{}label\{sec:introduction\}
+
+\hypertarget{contexte-du-projet}{%
+\section{Contexte du Projet}\label{contexte-du-projet}}
+
+Le secteur hôtelier connaît une transformation numérique majeure,
+marquée par l'évolution des attentes des clients et l'importance
+croissante des plateformes en ligne. Le Complexe Hôtelier Kemdeholo,
+établissement de renom offrant des services d'hébergement, de
+restauration et de blanchisserie, a identifié le besoin de moderniser sa
+présence numérique pour maintenir sa compétitivité et améliorer sa
+relation client.
+
+\hypertarget{probluxe9matique}{%
+\section{Problématique}\label{probluxe9matique}}
+
+Dans un contexte où la visibilité en ligne et l'expérience client
+digitale sont devenues essentielles, comment moderniser et optimiser la
+présence numérique du Complexe Hôtelier Kemdeholo pour : - Améliorer sa
+visibilité sur le web - Faciliter le processus de réservation -
+Optimiser la gestion des services - Renforcer la relation client -
+Augmenter son avantage concurrentiel
+
+\hypertarget{objectifs-du-projet}{%
+\section{Objectifs du Projet}\label{objectifs-du-projet}}
+
+\hypertarget{objectifs-guxe9nuxe9raux}{%
+\subsection{Objectifs Généraux}\label{objectifs-guxe9nuxe9raux}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Concevoir et développer une plateforme web moderne et performante
+\item
+  Améliorer la visibilité en ligne du complexe hôtelier
+\item
+  Optimiser l'expérience client à travers les outils numériques
+\end{enumerate}
+
+\hypertarget{objectifs-spuxe9cifiques}{%
+\subsection{Objectifs Spécifiques}\label{objectifs-spuxe9cifiques}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{Visibilité et Image de Marque}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Créer une présence web professionnelle et attractive
+  \item
+    Optimiser le référencement naturel
+  \item
+    Mettre en valeur les services et installations
+  \end{itemize}
+\item
+  \textbf{Expérience Client}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Implementer un système de réservation en ligne intuitif
+  \item
+    Faciliter l'accès aux informations sur les services
+  \item
+    Permettre une communication directe et efficace
+  \end{itemize}
+\item
+  \textbf{Gestion et Administration}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Centraliser la gestion des réservations
+  \item
+    Automatiser les processus administratifs
+  \item
+    Fournir des outils d'analyse et de reporting
+  \end{itemize}
+\end{enumerate}
+
+\hypertarget{muxe9thodologie-adoptuxe9e}{%
+\section{Méthodologie Adoptée}\label{muxe9thodologie-adoptuxe9e}}
+
+La réalisation de ce projet s'est appuyée sur une méthodologie Agile
+adaptée, permettant une approche itérative et incrémentale :
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{Phase d'Analyse} (2 semaines)
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Étude des besoins
+  \item
+    Analyse de l'existant
+  \item
+    Benchmark concurrentiel
+  \end{itemize}
+\item
+  \textbf{Phase de Conception} (3 semaines)
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Architecture technique
+  \item
+    Conception UX/UI
+  \item
+    Modélisation des données
+  \end{itemize}
+\item
+  \textbf{Phase de Développement} (8 semaines)
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Développement itératif
+  \item
+    Tests continus
+  \item
+    Revues de code
+  \end{itemize}
+\item
+  \textbf{Phase de Déploiement} (2 semaines)
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Tests d'intégration
+  \item
+    Migration des données
+  \item
+    Formation des utilisateurs
+  \end{itemize}
+\end{enumerate}
+
+\hypertarget{structure-du-document}{%
+\section{Structure du Document}\label{structure-du-document}}
+
+Ce rapport est organisé en huit chapitres :
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  \textbf{État de l'Art} : Analyse du secteur hôtelier et des solutions
+  technologiques existantes
+\item
+  \textbf{Analyse des Besoins} : Détail des exigences fonctionnelles et
+  non fonctionnelles
+\item
+  \textbf{Conception} : Architecture technique et conception détaillée
+\item
+  \textbf{Développement} : Implémentation et choix techniques
+\item
+  \textbf{Tests et Validation} : Stratégie de test et résultats
+\item
+  \textbf{Déploiement} : Mise en production et configuration
+\item
+  \textbf{Résultats et Retour d'Expérience} : Analyse des objectifs
+  atteints
+\item
+  \textbf{Conclusion et Perspectives} : Bilan et évolutions futures \#
+  État de l'Art \{-\}
+\end{enumerate}
+
+\textbackslash{}label\{sec:etat-art\}
+
+\hypertarget{analyse-du-secteur-huxf4telier}{%
+\section{2.1 Analyse du Secteur
+Hôtelier}\label{analyse-du-secteur-huxf4telier}}
+
+\begin{table}[h]
+\centering
+\caption{Évolution du secteur hôtelier au Tchad (2020-2025)}
+\label{tab:evolution-hotel}
+\begin{tabular}{|l|c|c|c|}
+\hline
+\textbf{Année} & \textbf{Nombre d'hôtels} & \textbf{Capacité totale} & \textbf{Taux d'occupation} \\
+\hline
+2020 & 150 & 5000 & 45\% \\
+2021 & 165 & 5500 & 50\% \\
+2022 & 180 & 6000 & 55\% \\
+2023 & 200 & 6800 & 60\% \\
+2024 & 220 & 7500 & 65\% \\
+2025 & 250 & 8500 & 70\% \\
+\hline
+\end{tabular}
+\end{table}
+
+\hypertarget{tendances-actuelles}{%
+\subsection{2.1.1 Tendances Actuelles}\label{tendances-actuelles}}
+
+Comme le montre le Tableau \ref{tab:evolution-hotel}, le secteur
+hôtelier au Tchad a connu une croissance significative ces dernières
+années, avec une augmentation constante du nombre d'établissements et du
+taux d'occupation.
+
+\begin{itemize}
+\tightlist
+\item
+  Digitalisation croissante des services
+\item
+  Importance de l'expérience client personnalisée
+\item
+  Automatisation des processus de réservation
+\item
+  Intégration des réseaux sociaux
+\item
+  Importance des avis et témoignages clients
+\end{itemize}
+
+\hypertarget{attentes-des-clients}{%
+\subsection{2.1.2 Attentes des Clients}\label{attentes-des-clients}}
+
+\begin{itemize}
+\tightlist
+\item
+  Réservation en ligne 24/7
+\item
+  Information en temps réel
+\item
+  Services personnalisés
+\item
+  Communication multicanale
+\item
+  Transparence des prix et services
+\end{itemize}
+
+\hypertarget{solutions-existantes}{%
+\section{2.2 Solutions Existantes}\label{solutions-existantes}}
+
+\hypertarget{plateformes-de-ruxe9servation}{%
+\subsection{2.2.1 Plateformes de
+Réservation}\label{plateformes-de-ruxe9servation}}
+
+L'architecture d'une plateforme de réservation moderne est illustrée
+dans la Figure \ref{fig:archi-plateforme}. Cette architecture montre
+l'intégration des différents composants nécessaires pour une expérience
+utilisateur optimale.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.8\textwidth]{./images/feature-box-bg.jpg}
+\caption{Architecture typique d'une plateforme de réservation hôtelière}
+\label{fig:archi-plateforme}
+\end{figure}
+
+\begin{itemize}
+\tightlist
+\item
+  Booking.com
+\item
+  Expedia
+\item
+  Airbnb
+\item
+  Solutions locales
+\end{itemize}
+
+\hypertarget{systuxe8mes-de-gestion-huxf4teliuxe8re}{%
+\subsection{2.2.2 Systèmes de Gestion
+Hôtelière}\label{systuxe8mes-de-gestion-huxf4teliuxe8re}}
+
+\begin{itemize}
+\tightlist
+\item
+  Opera PMS
+\item
+  Cloudbeds
+\item
+  eZee Frontdesk
+\item
+  Solutions sur mesure
+\end{itemize}
+
+\hypertarget{technologies-web-modernes}{%
+\section{2.3 Technologies Web
+Modernes}\label{technologies-web-modernes}}
+
+\hypertarget{frontend}{%
+\subsection{2.3.1 Frontend}\label{frontend}}
+
+\begin{itemize}
+\tightlist
+\item
+  Frameworks JavaScript modernes (React, Vue.js, Angular)
+\item
+  Frameworks CSS (Tailwind, Bootstrap)
+\item
+  Progressive Web Apps (PWA)
+\item
+  Responsive Design
+\end{itemize}
+
+\hypertarget{backend}{%
+\subsection{2.3.2 Backend}\label{backend}}
+
+\begin{itemize}
+\tightlist
+\item
+  APIs RESTful
+\item
+  Node.js et Express
+\item
+  Bases de données SQL et NoSQL
+\item
+  Authentification et sécurité
+\end{itemize}
+
+\hypertarget{cloud-et-duxe9ploiement}{%
+\subsection{2.3.3 Cloud et Déploiement}\label{cloud-et-duxe9ploiement}}
+
+\begin{table}[h]
+\centering
+\caption{Comparaison des solutions de déploiement cloud}
+\begin{tabular}{|l|c|c|c|c|}
+\hline
+\textbf{Service} & \textbf{Coût} & \textbf{Évolutivité} & \textbf{Support} & \textbf{Intégration} \\
+\hline
+AWS & Moyen & Excellente & 24/7 & Complète \\
+Google Cloud & Faible & Bonne & 24/7 & Bonne \\
+Azure & Moyen & Excellente & 24/7 & Complète \\
+Heroku & Élevé & Moyenne & Limité & Simple \\
+\hline
+\end{tabular}
+\end{table}
+
+\begin{itemize}
+\tightlist
+\item
+  Services cloud (AWS, Google Cloud, Azure)
+\item
+  Conteneurisation (Docker)
+\item
+  CI/CD
+\item
+  Monitoring et analytics
+\end{itemize}
+
+\hypertarget{bonnes-pratiques}{%
+\section{2.4 Bonnes Pratiques}\label{bonnes-pratiques}}
+
+\hypertarget{expuxe9rience-utilisateur}{%
+\subsection{2.4.1 Expérience
+Utilisateur}\label{expuxe9rience-utilisateur}}
+
+\begin{itemize}
+\tightlist
+\item
+  Design centré utilisateur
+\item
+  Accessibilité (WCAG)
+\item
+  Performance et optimisation
+\item
+  Mobile-first
+\end{itemize}
+
+\hypertarget{suxe9curituxe9}{%
+\subsection{2.4.2 Sécurité}\label{suxe9curituxe9}}
+
+\begin{itemize}
+\tightlist
+\item
+  Protection des données (RGPD)
+\item
+  Sécurisation des paiements
+\item
+  Authentification robuste
+\item
+  Encryption des données sensibles
+\end{itemize}
+
+\hypertarget{maintenabilituxe9}{%
+\subsection{2.4.3 Maintenabilité}\label{maintenabilituxe9}}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.8\textwidth]{./images/feature-box-bg.jpg}
+\caption{Cycle de développement et maintenance du projet}
+\label{fig:cycle-dev}
+\end{figure}
+
+\begin{itemize}
+\tightlist
+\item
+  Architecture modulaire
+\item
+  Tests automatisés
+\item
+  Documentation
+\item
+  Versioning du code
+\end{itemize}
+
+\hypertarget{contraintes-luxe9gales-et-ruxe9glementaires}{%
+\section{2.5 Contraintes Légales et
+Réglementaires}\label{contraintes-luxe9gales-et-ruxe9glementaires}}
+
+\hypertarget{protection-des-donnuxe9es}{%
+\subsection{2.5.1 Protection des
+Données}\label{protection-des-donnuxe9es}}
+
+\begin{itemize}
+\tightlist
+\item
+  RGPD
+\item
+  Lois locales sur la protection des données
+\item
+  Stockage sécurisé des informations clients
+\end{itemize}
+
+\hypertarget{commerce-en-ligne}{%
+\subsection{2.5.2 Commerce en Ligne}\label{commerce-en-ligne}}
+
+\begin{itemize}
+\tightlist
+\item
+  Réglementation des paiements en ligne
+\item
+  Conditions générales de vente
+\item
+  Droits des consommateurs \# Modélisation du Projet \{-\}
+\end{itemize}
+
+\textbackslash{}label\{sec:modelisation\}
+
+\hypertarget{architecture-globale}{%
+\section{3.1 Architecture Globale}\label{architecture-globale}}
+
+L'architecture du projet est basée sur une approche moderne et
+modulaire, utilisant une stack technologique robuste et évolutive.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.9\textwidth]{./images/feature-box-bg-2.jpg}
+\caption{Architecture globale du système}
+\label{fig:architecture-globale}
+\end{figure}
+
+\hypertarget{moduxe8le-de-donnuxe9es}{%
+\section{3.2 Modèle de Données}\label{moduxe8le-de-donnuxe9es}}
+
+\hypertarget{diagramme-de-classes}{%
+\subsection{3.2.1 Diagramme de Classes}\label{diagramme-de-classes}}
+
+\begin{table}[h]
+\centering
+\caption{Principales entités du système}
+\label{tab:entites-systeme}
+\begin{tabular}{|l|p{10cm}|}
+\hline
+\textbf{Entité} & \textbf{Description} \\
+\hline
+Client & Informations sur les clients (nom, prénom, email, téléphone) \\
+Chambre & Détails des chambres (numéro, type, prix, statut) \\
+Réservation & Gestion des réservations (dates, client, chambre) \\
+Service & Services additionnels (restaurant, blanchisserie) \\
+Personnel & Informations sur les employés de l'hôtel \\
+\hline
+\end{tabular}
+\end{table}
+
+\hypertarget{diagramme-entituxe9-relation}{%
+\subsection{3.2.2 Diagramme
+Entité-Relation}\label{diagramme-entituxe9-relation}}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.9\textwidth]{./images/feature-box-bg-3.jpg}
+\caption{Diagramme Entité-Relation de la base de données}
+\label{fig:diagramme-er}
+\end{figure}
+
+\hypertarget{moduxe8les-de-processus}{%
+\section{3.3 Modèles de Processus}\label{moduxe8les-de-processus}}
+
+\hypertarget{processus-de-ruxe9servation}{%
+\subsection{3.3.1 Processus de
+Réservation}\label{processus-de-ruxe9servation}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{Recherche de disponibilité}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Saisie des dates
+  \item
+    Vérification des chambres disponibles
+  \item
+    Affichage des options
+  \end{itemize}
+\item
+  \textbf{Sélection et réservation}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Choix de la chambre
+  \item
+    Ajout des services optionnels
+  \item
+    Saisie des informations client
+  \end{itemize}
+\item
+  \textbf{Confirmation et paiement}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Récapitulatif de la réservation
+  \item
+    Processus de paiement
+  \item
+    Confirmation par email
+  \end{itemize}
+\end{enumerate}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.8\textwidth]{./images/event-01.jpg}
+\caption{Flux du processus de réservation}
+\label{fig:processus-reservation}
+\end{figure}
+
+\hypertarget{diagrammes-de-suxe9quence}{%
+\section{3.4 Diagrammes de Séquence}\label{diagrammes-de-suxe9quence}}
+
+\hypertarget{processus-de-check-in}{%
+\subsection{3.4.1 Processus de Check-in}\label{processus-de-check-in}}
+
+\begin{table}[h]
+\centering
+\caption{Étapes du processus de check-in}
+\label{tab:etapes-checkin}
+\begin{tabular}{|l|p{10cm}|}
+\hline
+\textbf{Étape} & \textbf{Description} \\
+\hline
+Accueil & Réception du client et vérification de la réservation \\
+Vérification & Contrôle des documents d'identité \\
+Enregistrement & Saisie des informations dans le système \\
+Remise des clés & Attribution de la chambre et explication des services \\
+\hline
+\end{tabular}
+\end{table}
+
+\hypertarget{architecture-technique}{%
+\section{3.5 Architecture Technique}\label{architecture-technique}}
+
+\hypertarget{stack-technologique}{%
+\subsection{3.5.1 Stack Technologique}\label{stack-technologique}}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Frontend} :
+
+  \begin{itemize}
+  \tightlist
+  \item
+    HTML5, CSS3 (Tailwind)
+  \item
+    JavaScript (React)
+  \item
+    PWA pour l'application mobile
+  \end{itemize}
+\item
+  \textbf{Backend} :
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Node.js avec Express
+  \item
+    Base de données MongoDB
+  \item
+    API RESTful
+  \end{itemize}
+\item
+  \textbf{Infrastructure} :
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Hébergement cloud
+  \item
+    CDN pour les assets
+  \item
+    SSL/TLS pour la sécurité
+  \end{itemize}
+\end{itemize}
+
+\hypertarget{suxe9curituxe9-et-performance}{%
+\subsection{3.5.2 Sécurité et
+Performance}\label{suxe9curituxe9-et-performance}}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.8\textwidth]{./images/feature-box-bg.jpg}
+\caption{Architecture de sécurité et performance}
+\label{fig:architecture-securite}
+\end{figure}
+
+\hypertarget{interfaces-utilisateur}{%
+\section{3.6 Interfaces Utilisateur}\label{interfaces-utilisateur}}
+
+\hypertarget{maquettes-des-uxe9crans-principaux}{%
+\subsection{3.6.1 Maquettes des Écrans
+Principaux}\label{maquettes-des-uxe9crans-principaux}}
+
+\begin{itemize}
+\tightlist
+\item
+  Page d'accueil
+\item
+  Système de réservation
+\item
+  Espace client
+\item
+  Interface d'administration
+\end{itemize}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.9\textwidth]{./images/template-screenshot.png}
+\caption{Maquette de la page d'accueil}
+\label{fig:maquette-accueil}
+\end{figure}
+
+\hypertarget{responsive-design}{%
+\subsection{3.6.2 Responsive Design}\label{responsive-design}}
+
+Le site est conçu pour s'adapter à tous les appareils : - Desktop
+(\textgreater{}1200px) - Tablette (768px-1199px) - Mobile
+(\textless{}767px)
+
+\hypertarget{tests-et-qualituxe9}{%
+\section{3.7 Tests et Qualité}\label{tests-et-qualituxe9}}
+
+\hypertarget{stratuxe9gie-de-test}{%
+\subsection{3.7.1 Stratégie de Test}\label{stratuxe9gie-de-test}}
+
+\begin{table}[h]
+\centering
+\caption{Types de tests implémentés}
+\label{tab:types-tests}
+\begin{tabular}{|l|p{10cm}|}
+\hline
+\textbf{Type de Test} & \textbf{Description} \\
+\hline
+Tests unitaires & Vérification des composants individuels \\
+Tests d'intégration & Test des interactions entre modules \\
+Tests end-to-end & Validation des parcours utilisateurs complets \\
+Tests de performance & Évaluation des temps de réponse et de la charge \\
+\hline
+\end{tabular}
+\end{table}
+
+\hypertarget{diagrammes-uml-du-projet}{%
+\chapter{Diagrammes UML du Projet}\label{diagrammes-uml-du-projet}}
+
+\hypertarget{diagramme-de-cas-dutilisation}{%
+\section{1. Diagramme de Cas
+d'Utilisation}\label{diagramme-de-cas-dutilisation}}
+
+\hypertarget{description-des-acteurs}{%
+\subsection{1.1 Description des Acteurs}\label{description-des-acteurs}}
+
+\hypertarget{client}{%
+\subsubsection{Client}\label{client}}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Rôle} : Utilisateur principal du système
+\item
+  \textbf{Responsabilités} :
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Consulter les disponibilités des chambres
+  \item
+    Effectuer des réservations
+  \item
+    Gérer ses réservations existantes
+  \item
+    Accéder aux services de l'hôtel
+  \item
+    Consulter l'historique de ses séjours
+  \end{itemize}
+\end{itemize}
+
+\hypertarget{administrateur}{%
+\subsubsection{Administrateur}\label{administrateur}}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Rôle} : Gestionnaire du système
+\item
+  \textbf{Responsabilités} :
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Gérer les chambres et leurs caractéristiques
+  \item
+    Définir les tarifs et promotions
+  \item
+    Gérer les comptes utilisateurs
+  \item
+    Superviser les réservations
+  \item
+    Accéder aux statistiques et rapports
+  \end{itemize}
+\end{itemize}
+
+\hypertarget{ruxe9ceptionniste}{%
+\subsubsection{Réceptionniste}\label{ruxe9ceptionniste}}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Rôle} : Interface entre l'hôtel et les clients
+\item
+  \textbf{Responsabilités} :
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Gérer les check-in et check-out
+  \item
+    Traiter les demandes spéciales
+  \item
+    Gérer les services additionnels
+  \item
+    Assurer le suivi des réservations
+  \end{itemize}
+\end{itemize}
+
+\hypertarget{description-des-cas-dutilisation-principaux}{%
+\subsection{1.2 Description des Cas d'Utilisation
+Principaux}\label{description-des-cas-dutilisation-principaux}}
+
+\hypertarget{gestion-des-ruxe9servations}{%
+\subsubsection{Gestion des
+Réservations}\label{gestion-des-ruxe9servations}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{Consulter les disponibilités}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Préconditions : Accès au système
+  \item
+    Flux principal :
+
+    \begin{itemize}
+    \tightlist
+    \item
+      Saisie des dates de séjour
+    \item
+      Sélection du type de chambre
+    \item
+      Vérification de la disponibilité
+    \end{itemize}
+  \item
+    Postconditions : Affichage des options disponibles
+  \end{itemize}
+\item
+  \textbf{Effectuer une réservation}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Préconditions : Chambres disponibles
+  \item
+    Flux principal :
+
+    \begin{itemize}
+    \tightlist
+    \item
+      Sélection de la chambre
+    \item
+      Saisie des informations personnelles
+    \item
+      Choix des services additionnels
+    \item
+      Confirmation du paiement
+    \end{itemize}
+  \item
+    Postconditions : Réservation confirmée
+  \end{itemize}
+\item
+  \textbf{Gérer une réservation existante}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Préconditions : Réservation active
+  \item
+    Flux principal :
+
+    \begin{itemize}
+    \tightlist
+    \item
+      Modification des dates
+    \item
+      Ajout/suppression de services
+    \item
+      Mise à jour des informations
+    \end{itemize}
+  \item
+    Postconditions : Réservation mise à jour
+  \end{itemize}
+\end{enumerate}
+
+\begin{verbatim}
+graph TD
+    subgraph Acteurs
+        Client[Client]
+        Admin[Administrateur]
+        Reception[Réceptionniste]
+    end
+
+    subgraph Système de Réservation
+        R1[Consulter disponibilités]
+        R2[Effectuer réservation]
+        R3[Gérer réservation]
+        R4[Annuler réservation]
+    end
+
+    subgraph Gestion Chambres
+        C1[Gérer chambres]
+        C2[Mettre à jour statut]
+        C3[Définir tarifs]
+    end
+
+    subgraph Services
+        S1[Restaurant]
+        S2[Blanchisserie]
+        S3[Services additionnels]
+    end
+
+    Client --> R1
+    Client --> R2
+    Client --> R4
+    Client --> S1
+    Client --> S2
+
+    Admin --> C1
+    Admin --> C2
+    Admin --> C3
+    Admin --> R3
+
+    Reception --> R1
+    Reception --> R2
+    Reception --> C2
+    Reception --> S3
+\end{verbatim}
+
+\hypertarget{diagramme-de-classes-1}{%
+\section{2. Diagramme de Classes}\label{diagramme-de-classes-1}}
+
+\hypertarget{description-duxe9tailluxe9e-des-classes}{%
+\subsection{2.1 Description Détaillée des
+Classes}\label{description-duxe9tailluxe9e-des-classes}}
+
+\hypertarget{client-1}{%
+\subsubsection{Client}\label{client-1}}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Attributs} :
+
+  \begin{itemize}
+  \tightlist
+  \item
+    id : Identifiant unique
+  \item
+    nom : Nom du client
+  \item
+    prenom : Prénom du client
+  \item
+    email : Adresse email
+  \item
+    telephone : Numéro de téléphone
+  \item
+    adresse : Adresse postale
+  \item
+    preferences : Préférences spéciales
+  \end{itemize}
+\item
+  \textbf{Méthodes} :
+
+  \begin{itemize}
+  \tightlist
+  \item
+    creerReservation() : Création d'une nouvelle réservation
+  \item
+    annulerReservation() : Annulation d'une réservation existante
+  \item
+    modifierProfil() : Mise à jour des informations personnelles
+  \item
+    consulterHistorique() : Accès à l'historique des séjours
+  \end{itemize}
+\end{itemize}
+
+\hypertarget{reservation}{%
+\subsubsection{Reservation}\label{reservation}}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Attributs} :
+
+  \begin{itemize}
+  \tightlist
+  \item
+    id : Identifiant unique
+  \item
+    dateArrivee : Date d'arrivée
+  \item
+    dateDepart : Date de départ
+  \item
+    montantTotal : Coût total du séjour
+  \item
+    statut : État de la réservation
+  \item
+    nombrePersonnes : Nombre de personnes
+  \item
+    servicesAdditionnels : Liste des services réservés
+  \end{itemize}
+\item
+  \textbf{Méthodes} :
+
+  \begin{itemize}
+  \tightlist
+  \item
+    calculerMontant() : Calcul du coût total
+  \item
+    confirmerReservation() : Confirmation de la réservation
+  \item
+    annuler() : Annulation avec gestion des remboursements
+  \item
+    modifierDates() : Modification des dates de séjour
+  \end{itemize}
+\end{itemize}
+
+\hypertarget{chambre}{%
+\subsubsection{Chambre}\label{chambre}}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Attributs} :
+
+  \begin{itemize}
+  \tightlist
+  \item
+    numero : Numéro de chambre
+  \item
+    type : Type de chambre (Simple, Double, Suite)
+  \item
+    prixNuit : Tarif par nuit
+  \item
+    disponible : État de disponibilité
+  \item
+    caracteristiques : Équipements et options
+  \item
+    etage : Niveau dans l'hôtel
+  \end{itemize}
+\item
+  \textbf{Méthodes} :
+
+  \begin{itemize}
+  \tightlist
+  \item
+    verifierDisponibilite() : Vérification des dates disponibles
+  \item
+    mettreAJourStatut() : Mise à jour de l'état
+  \item
+    calculerPrix() : Calcul du prix selon la période
+  \item
+    planifierMaintenance() : Programmation de l'entretien
+  \end{itemize}
+\end{itemize}
+
+\hypertarget{relations-entre-classes}{%
+\subsection{2.2 Relations entre Classes}\label{relations-entre-classes}}
+
+\hypertarget{associations}{%
+\subsubsection{Associations}\label{associations}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{Client - Reservation} :
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Cardinalité : 1..* (un client peut avoir plusieurs réservations)
+  \item
+    Attributs d'association : dateCreation, canalReservation
+  \end{itemize}
+\item
+  \textbf{Reservation - Chambre} :
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Cardinalité : *..1 (plusieurs réservations pour une chambre)
+  \item
+    Attributs d'association : dureeOccupation, tarifApplique
+  \end{itemize}
+\item
+  \textbf{Reservation - Service} :
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Cardinalité : \emph{..} (relation many-to-many)
+  \item
+    Classe d'association : ReservationService
+  \end{itemize}
+\end{enumerate}
+
+\hypertarget{hiuxe9rarchies}{%
+\subsubsection{Hiérarchies}\label{hiuxe9rarchies}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{Service (classe abstraite)}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Restaurant (spécialisation)
+  \item
+    Blanchisserie (spécialisation)
+  \item
+    SpaFitness (spécialisation)
+  \end{itemize}
+\end{enumerate}
+
+\begin{verbatim}
+classDiagram
+    class Client {
+        +int id
+        +String nom
+        +String prenom
+        +String email
+        +String telephone
+        +creerReservation()
+        +annulerReservation()
+    }
+
+    class Reservation {
+        +int id
+        +Date dateArrivee
+        +Date dateDepart
+        +double montantTotal
+        +String statut
+        +calculerMontant()
+        +confirmerReservation()
+        +annuler()
+    }
+
+    class Chambre {
+        +int numero
+        +String type
+        +double prixNuit
+        +boolean disponible
+        +verifierDisponibilite()
+        +mettreAJourStatut()
+    }
+
+    class Service {
+        +int id
+        +String nom
+        +String description
+        +double prix
+        +commanderService()
+        +annulerService()
+    }
+
+    class Personnel {
+        +int id
+        +String nom
+        +String role
+        +String service
+        +gererReservation()
+        +gererServices()
+    }
+
+    class Restaurant {
+        +Menu menu
+        +int capacite
+        +creerReservation()
+        +gererCommandes()
+    }
+
+    class Blanchisserie {
+        +List services
+        +double tarifs
+        +traiterCommande()
+        +suiviCommande()
+    }
+
+    Client "1" -- "*" Reservation
+    Reservation "*" -- "1" Chambre
+    Reservation "*" -- "*" Service
+    Personnel "1" -- "*" Service
+    Service <|-- Restaurant
+    Service <|-- Blanchisserie
+\end{verbatim}
+
+\hypertarget{diagramme-de-suxe9quence---processus-de-ruxe9servation}{%
+\section{3. Diagramme de Séquence - Processus de
+Réservation}\label{diagramme-de-suxe9quence---processus-de-ruxe9servation}}
+
+\hypertarget{description-des-interactions}{%
+\subsection{3.1 Description des
+Interactions}\label{description-des-interactions}}
+
+\hypertarget{phase-1-recherche-de-disponibilituxe9}{%
+\subsubsection{Phase 1 : Recherche de
+Disponibilité}\label{phase-1-recherche-de-disponibilituxe9}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{Client → Site Web}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Action : Saisie des critères de recherche
+  \item
+    Données : Dates, type de chambre, nombre de personnes
+  \end{itemize}
+\item
+  \textbf{Site Web → Système Réservation}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Action : Vérification des disponibilités
+  \item
+    Traitement : Filtrage selon critères
+  \end{itemize}
+\item
+  \textbf{Système Réservation → Base de Données}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Action : Requête de disponibilité
+  \item
+    Optimisation : Utilisation de cache Redis
+  \end{itemize}
+\end{enumerate}
+
+\hypertarget{phase-2-processus-de-ruxe9servation}{%
+\subsubsection{Phase 2 : Processus de
+Réservation}\label{phase-2-processus-de-ruxe9servation}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{Sélection et Configuration}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Choix de la chambre
+  \item
+    Sélection des services additionnels
+  \item
+    Calcul du prix total
+  \end{itemize}
+\item
+  \textbf{Validation et Paiement}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Saisie des informations personnelles
+  \item
+    Traitement du paiement
+  \item
+    Confirmation de la réservation
+  \end{itemize}
+\item
+  \textbf{Confirmation et Notification}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Enregistrement en base de données
+  \item
+    Envoi de confirmation par email
+  \item
+    Mise à jour du planning
+  \end{itemize}
+\end{enumerate}
+
+\hypertarget{flux-de-donnuxe9es}{%
+\subsection{3.2 Flux de Données}\label{flux-de-donnuxe9es}}
+
+\begin{verbatim}
+sequenceDiagram
+    participant C as Client
+    participant W as Site Web
+    participant R as Système Réservation
+    participant D as Base de Données
+    participant E as Email Service
+
+    C->>W: Consulte disponibilités
+    W->>R: Vérifie dates
+    R->>D: Requête disponibilités
+    D-->>R: Retourne chambres disponibles
+    R-->>W: Affiche options
+    W-->>C: Montre chambres disponibles
+    
+    C->>W: Sélectionne chambre
+    C->>W: Ajoute services
+    W->>R: Crée réservation
+    R->>D: Enregistre réservation
+    D-->>R: Confirme enregistrement
+    R->>E: Envoie confirmation
+    E->>C: Email confirmation
+\end{verbatim}
+
+\hypertarget{diagramme-duxe9tat---uxe9tat-dune-ruxe9servation}{%
+\section{4. Diagramme d'État - État d'une
+Réservation}\label{diagramme-duxe9tat---uxe9tat-dune-ruxe9servation}}
+
+\hypertarget{uxe9tats-possibles-dune-ruxe9servation}{%
+\subsection{4.1 États Possibles d'une
+Réservation}\label{uxe9tats-possibles-dune-ruxe9servation}}
+
+\hypertarget{en-attente}{%
+\subsubsection{1. En Attente}\label{en-attente}}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Description} : Réservation créée mais non confirmée
+\item
+  \textbf{Conditions de transition} :
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Vers Confirmée : Paiement reçu
+  \item
+    Vers Annulée : Délai de paiement dépassé
+  \end{itemize}
+\item
+  \textbf{Actions associées} :
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Envoi de rappels
+  \item
+    Vérification du paiement
+  \end{itemize}
+\end{itemize}
+
+\hypertarget{confirmuxe9e}{%
+\subsubsection{2. Confirmée}\label{confirmuxe9e}}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Description} : Réservation validée et payée
+\item
+  \textbf{Conditions de transition} :
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Vers Check-in : Arrivée du client
+  \item
+    Vers Annulée : Demande d'annulation
+  \end{itemize}
+\item
+  \textbf{Actions associées} :
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Préparation de la chambre
+  \item
+    Planification des services
+  \end{itemize}
+\end{itemize}
+
+\hypertarget{check-in}{%
+\subsubsection{3. Check-in}\label{check-in}}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Description} : Client arrivé et enregistré
+\item
+  \textbf{Conditions de transition} :
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Vers En Cours : Installation en chambre
+  \end{itemize}
+\item
+  \textbf{Actions associées} :
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Vérification des documents
+  \item
+    Remise des clés
+  \end{itemize}
+\end{itemize}
+
+\hypertarget{en-cours}{%
+\subsubsection{4. En Cours}\label{en-cours}}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Description} : Séjour en cours
+\item
+  \textbf{Conditions de transition} :
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Vers Check-out : Fin du séjour
+  \end{itemize}
+\item
+  \textbf{Actions associées} :
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Suivi des services
+  \item
+    Gestion des demandes
+  \end{itemize}
+\end{itemize}
+
+\hypertarget{check-out}{%
+\subsubsection{5. Check-out}\label{check-out}}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Description} : Fin du séjour
+\item
+  \textbf{Conditions de transition} :
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Vers Terminée : Chambre libérée
+  \end{itemize}
+\item
+  \textbf{Actions associées} :
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Facturation finale
+  \item
+    Retour des clés
+  \end{itemize}
+\end{itemize}
+
+\hypertarget{transitions-et-uxe9vuxe9nements}{%
+\subsection{4.2 Transitions et
+Événements}\label{transitions-et-uxe9vuxe9nements}}
+
+\begin{verbatim}
+stateDiagram-v2
+    [*] --> EnAttente: Création
+    EnAttente --> Confirmée: Paiement reçu
+    EnAttente --> Annulée: Délai dépassé
+    Confirmée --> CheckIn: Arrivée client
+    CheckIn --> EnCours: Occupation chambre
+    EnCours --> CheckOut: Départ client
+    CheckOut --> [*]
+    Annulée --> [*]
+\end{verbatim}
+
+\hypertarget{diagramme-de-composants}{%
+\section{5. Diagramme de Composants}\label{diagramme-de-composants}}
+
+\hypertarget{description-des-composants}{%
+\subsection{5.1 Description des
+Composants}\label{description-des-composants}}
+
+\hypertarget{frontend-1}{%
+\subsubsection{Frontend}\label{frontend-1}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{Interface Utilisateur (UI)}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Technologies : React, Tailwind CSS
+  \item
+    Responsabilités :
+
+    \begin{itemize}
+    \tightlist
+    \item
+      Affichage des pages
+    \item
+      Gestion des formulaires
+    \item
+      Interactions utilisateur
+    \item
+      Responsive design
+    \end{itemize}
+  \end{itemize}
+\item
+  \textbf{State Management}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Technologies : Redux, Context API
+  \item
+    Responsabilités :
+
+    \begin{itemize}
+    \tightlist
+    \item
+      Gestion de l'état global
+    \item
+      Cache local
+    \item
+      Synchronisation des données
+    \end{itemize}
+  \end{itemize}
+\end{enumerate}
+
+\hypertarget{backend-1}{%
+\subsubsection{Backend}\label{backend-1}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{API REST}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Technologies : Express.js
+  \item
+    Endpoints principaux :
+
+    \begin{itemize}
+    \tightlist
+    \item
+      /api/reservations
+    \item
+      /api/chambres
+    \item
+      /api/services
+    \item
+      /api/utilisateurs
+    \end{itemize}
+  \end{itemize}
+\item
+  \textbf{Authentication}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Technologies : JWT, OAuth
+  \item
+    Fonctionnalités :
+
+    \begin{itemize}
+    \tightlist
+    \item
+      Gestion des sessions
+    \item
+      Contrôle d'accès
+    \item
+      Sécurité des données
+    \end{itemize}
+  \end{itemize}
+\end{enumerate}
+
+\hypertarget{base-de-donnuxe9es}{%
+\subsubsection{Base de Données}\label{base-de-donnuxe9es}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{MongoDB}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Collections :
+
+    \begin{itemize}
+    \tightlist
+    \item
+      utilisateurs
+    \item
+      reservations
+    \item
+      chambres
+    \item
+      services
+    \end{itemize}
+  \end{itemize}
+\item
+  \textbf{Redis Cache}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Utilisation :
+
+    \begin{itemize}
+    \tightlist
+    \item
+      Cache de session
+    \item
+      Données temporaires
+    \item
+      Files d'attente
+    \end{itemize}
+  \end{itemize}
+\end{enumerate}
+
+\hypertarget{architecture-technique-1}{%
+\subsection{5.2 Architecture Technique}\label{architecture-technique-1}}
+
+\begin{verbatim}
+graph TB
+    subgraph Frontend
+        UI[Interface Utilisateur]
+        React[React Components]
+        Redux[State Management]
+    end
+
+    subgraph Backend
+        API[API REST]
+        Auth[Authentication]
+        BL[Business Logic]
+    end
+
+    subgraph Database
+        MongoDB[MongoDB]
+        Cache[Redis Cache]
+    end
+
+    subgraph Services
+        Email[Email Service]
+        Payment[Payment Gateway]
+        Storage[File Storage]
+    end
+
+    UI --> React
+    React --> Redux
+    Redux --> API
+    API --> Auth
+    API --> BL
+    BL --> MongoDB
+    BL --> Cache
+    BL --> Email
+    BL --> Payment
+    BL --> Storage
+\end{verbatim}
+
+\hypertarget{diagramme-de-duxe9ploiement}{%
+\section{6. Diagramme de
+Déploiement}\label{diagramme-de-duxe9ploiement}}
+
+\hypertarget{infrastructure-physique}{%
+\subsection{6.1 Infrastructure Physique}\label{infrastructure-physique}}
+
+\hypertarget{environnement-client}{%
+\subsubsection{Environnement Client}\label{environnement-client}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{Navigateur Web}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Support des technologies modernes
+  \item
+    Progressive Web App (PWA)
+  \item
+    Service Workers pour le mode hors ligne
+  \end{itemize}
+\item
+  \textbf{Application Mobile}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Version iOS et Android
+  \item
+    Framework React Native
+  \item
+    Synchronisation locale
+  \end{itemize}
+\end{enumerate}
+
+\hypertarget{serveurs-frontend}{%
+\subsubsection{Serveurs Frontend}\label{serveurs-frontend}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{Nginx Server}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Configuration :
+
+    \begin{itemize}
+    \tightlist
+    \item
+      Load balancing
+    \item
+      SSL/TLS
+    \item
+      Compression gzip
+    \item
+      Cache statique
+    \end{itemize}
+  \end{itemize}
+\item
+  \textbf{CDN}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Distribution globale
+  \item
+    Cache des assets
+  \item
+    Optimisation des performances
+  \end{itemize}
+\end{enumerate}
+
+\hypertarget{serveurs-backend}{%
+\subsubsection{Serveurs Backend}\label{serveurs-backend}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{Application Server}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Spécifications :
+
+    \begin{itemize}
+    \tightlist
+    \item
+      Node.js v18+
+    \item
+      4 CPU cores
+    \item
+      16GB RAM
+    \end{itemize}
+  \item
+    Scaling automatique
+  \end{itemize}
+\item
+  \textbf{Database Server}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Configuration :
+
+    \begin{itemize}
+    \tightlist
+    \item
+      MongoDB cluster
+    \item
+      Réplication
+    \item
+      Backup automatique
+    \end{itemize}
+  \end{itemize}
+\end{enumerate}
+
+\hypertarget{infrastructure-cloud}{%
+\subsection{6.2 Infrastructure Cloud}\label{infrastructure-cloud}}
+
+\begin{verbatim}
+graph TB
+    subgraph Client
+        Browser[Navigateur Web]
+        Mobile[Application Mobile]
+    end
+
+    subgraph Frontend Server
+        Nginx[Nginx Server]
+        React[React App]
+        Static[Static Assets]
+    end
+
+    subgraph Application Server
+        Node[Node.js]
+        Express[Express API]
+    end
+
+    subgraph Database Server
+        Mongo[MongoDB]
+        Redis[Redis Cache]
+    end
+
+    subgraph Services
+        S3[AWS S3]
+        SES[AWS SES]
+        Stripe[Stripe Payment]
+    end
+
+    Browser --> Nginx
+    Mobile --> Nginx
+    Nginx --> React
+    Nginx --> Static
+    React --> Express
+    Express --> Mongo
+    Express --> Redis
+    Express --> S3
+    Express --> SES
+    Express --> Stripe
+\end{verbatim}
+
+\end{document}

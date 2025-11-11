@@ -1,0 +1,90 @@
+\babel@toc {french}{}
+\contentsline {chapter}{\numberline {1}Remerciements}{5}{chapter.1}%
+\contentsline {chapter}{\numberline {2}Résumé}{6}{chapter.2}%
+\contentsline {chapter}{\numberline {3}Abstract}{7}{chapter.3}%
+\contentsline {chapter}{Guide de Navigation}{8}{chapter*.4}%
+\contentsline {section}{Sections Principales}{8}{section*.5}%
+\contentsline {section}{Figures et Tableaux Importants}{8}{section*.6}%
+\contentsline {subsection}{Figures Clés}{8}{section*.7}%
+\contentsline {subsection}{Tableaux de Référence}{8}{section*.8}%
+\contentsline {section}{\numberline {3.1}Contexte du Projet}{8}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Problématique}{9}{section.3.2}%
+\contentsline {section}{\numberline {3.3}Objectifs du Projet}{9}{section.3.3}%
+\contentsline {subsection}{\numberline {3.3.1}Objectifs Généraux}{9}{subsection.3.3.1}%
+\contentsline {subsection}{\numberline {3.3.2}Objectifs Spécifiques}{9}{subsection.3.3.2}%
+\contentsline {section}{\numberline {3.4}Méthodologie Adoptée}{9}{section.3.4}%
+\contentsline {section}{\numberline {3.5}Structure du Document}{10}{section.3.5}%
+\contentsline {section}{\numberline {3.6}2.1 Analyse du Secteur Hôtelier}{10}{section.3.6}%
+\contentsline {subsection}{\numberline {3.6.1}2.1.1 Tendances Actuelles}{10}{subsection.3.6.1}%
+\contentsline {subsection}{\numberline {3.6.2}2.1.2 Attentes des Clients}{11}{subsection.3.6.2}%
+\contentsline {section}{\numberline {3.7}2.2 Solutions Existantes}{11}{section.3.7}%
+\contentsline {subsection}{\numberline {3.7.1}2.2.1 Plateformes de Réservation}{11}{subsection.3.7.1}%
+\contentsline {subsection}{\numberline {3.7.2}2.2.2 Systèmes de Gestion Hôtelière}{11}{subsection.3.7.2}%
+\contentsline {section}{\numberline {3.8}2.3 Technologies Web Modernes}{12}{section.3.8}%
+\contentsline {subsection}{\numberline {3.8.1}2.3.1 Frontend}{12}{subsection.3.8.1}%
+\contentsline {subsection}{\numberline {3.8.2}2.3.2 Backend}{12}{subsection.3.8.2}%
+\contentsline {subsection}{\numberline {3.8.3}2.3.3 Cloud et Déploiement}{12}{subsection.3.8.3}%
+\contentsline {section}{\numberline {3.9}2.4 Bonnes Pratiques}{12}{section.3.9}%
+\contentsline {subsection}{\numberline {3.9.1}2.4.1 Expérience Utilisateur}{12}{subsection.3.9.1}%
+\contentsline {subsection}{\numberline {3.9.2}2.4.2 Sécurité}{12}{subsection.3.9.2}%
+\contentsline {subsection}{\numberline {3.9.3}2.4.3 Maintenabilité}{13}{subsection.3.9.3}%
+\contentsline {section}{\numberline {3.10}2.5 Contraintes Légales et Réglementaires}{13}{section.3.10}%
+\contentsline {subsection}{\numberline {3.10.1}2.5.1 Protection des Données}{13}{subsection.3.10.1}%
+\contentsline {subsection}{\numberline {3.10.2}2.5.2 Commerce en Ligne}{13}{subsection.3.10.2}%
+\contentsline {section}{\numberline {3.11}3.1 Architecture Globale}{14}{section.3.11}%
+\contentsline {section}{\numberline {3.12}3.2 Modèle de Données}{15}{section.3.12}%
+\contentsline {subsection}{\numberline {3.12.1}3.2.1 Diagramme de Classes}{15}{subsection.3.12.1}%
+\contentsline {subsection}{\numberline {3.12.2}3.2.2 Diagramme Entité-Relation}{15}{subsection.3.12.2}%
+\contentsline {section}{\numberline {3.13}3.3 Modèles de Processus}{16}{section.3.13}%
+\contentsline {subsection}{\numberline {3.13.1}3.3.1 Processus de Réservation}{16}{subsection.3.13.1}%
+\contentsline {section}{\numberline {3.14}3.4 Diagrammes de Séquence}{16}{section.3.14}%
+\contentsline {subsection}{\numberline {3.14.1}3.4.1 Processus de Check-in}{16}{subsection.3.14.1}%
+\contentsline {section}{\numberline {3.15}3.5 Architecture Technique}{17}{section.3.15}%
+\contentsline {subsection}{\numberline {3.15.1}3.5.1 Stack Technologique}{17}{subsection.3.15.1}%
+\contentsline {subsection}{\numberline {3.15.2}3.5.2 Sécurité et Performance}{17}{subsection.3.15.2}%
+\contentsline {section}{\numberline {3.16}3.6 Interfaces Utilisateur}{18}{section.3.16}%
+\contentsline {subsection}{\numberline {3.16.1}3.6.1 Maquettes des Écrans Principaux}{18}{subsection.3.16.1}%
+\contentsline {subsection}{\numberline {3.16.2}3.6.2 Responsive Design}{20}{subsection.3.16.2}%
+\contentsline {section}{\numberline {3.17}3.7 Tests et Qualité}{20}{section.3.17}%
+\contentsline {subsection}{\numberline {3.17.1}3.7.1 Stratégie de Test}{20}{subsection.3.17.1}%
+\contentsline {chapter}{\numberline {4}Diagrammes UML du Projet}{21}{chapter.4}%
+\contentsline {section}{\numberline {4.1}1. Diagramme de Cas d'Utilisation}{21}{section.4.1}%
+\contentsline {subsection}{\numberline {4.1.1}1.1 Description des Acteurs}{21}{subsection.4.1.1}%
+\contentsline {subsubsection}{\numberline {4.1.1.1}Client}{21}{subsubsection.4.1.1.1}%
+\contentsline {subsubsection}{\numberline {4.1.1.2}Administrateur}{21}{subsubsection.4.1.1.2}%
+\contentsline {subsubsection}{\numberline {4.1.1.3}Réceptionniste}{21}{subsubsection.4.1.1.3}%
+\contentsline {subsection}{\numberline {4.1.2}1.2 Description des Cas d'Utilisation Principaux}{22}{subsection.4.1.2}%
+\contentsline {subsubsection}{\numberline {4.1.2.1}Gestion des Réservations}{22}{subsubsection.4.1.2.1}%
+\contentsline {section}{\numberline {4.2}2. Diagramme de Classes}{23}{section.4.2}%
+\contentsline {subsection}{\numberline {4.2.1}2.1 Description Détaillée des Classes}{23}{subsection.4.2.1}%
+\contentsline {subsubsection}{\numberline {4.2.1.1}Client}{23}{subsubsection.4.2.1.1}%
+\contentsline {subsubsection}{\numberline {4.2.1.2}Reservation}{23}{subsubsection.4.2.1.2}%
+\contentsline {subsubsection}{\numberline {4.2.1.3}Chambre}{24}{subsubsection.4.2.1.3}%
+\contentsline {subsection}{\numberline {4.2.2}2.2 Relations entre Classes}{24}{subsection.4.2.2}%
+\contentsline {subsubsection}{\numberline {4.2.2.1}Associations}{24}{subsubsection.4.2.2.1}%
+\contentsline {subsubsection}{\numberline {4.2.2.2}Hiérarchies}{24}{subsubsection.4.2.2.2}%
+\contentsline {section}{\numberline {4.3}3. Diagramme de Séquence - Processus de Réservation}{26}{section.4.3}%
+\contentsline {subsection}{\numberline {4.3.1}3.1 Description des Interactions}{26}{subsection.4.3.1}%
+\contentsline {subsubsection}{\numberline {4.3.1.1}Phase 1 : Recherche de Disponibilité}{26}{subsubsection.4.3.1.1}%
+\contentsline {subsubsection}{\numberline {4.3.1.2}Phase 2 : Processus de Réservation}{26}{subsubsection.4.3.1.2}%
+\contentsline {subsection}{\numberline {4.3.2}3.2 Flux de Données}{27}{subsection.4.3.2}%
+\contentsline {section}{\numberline {4.4}4. Diagramme d'État - État d'une Réservation}{27}{section.4.4}%
+\contentsline {subsection}{\numberline {4.4.1}4.1 États Possibles d'une Réservation}{27}{subsection.4.4.1}%
+\contentsline {subsubsection}{\numberline {4.4.1.1}1. En Attente}{27}{subsubsection.4.4.1.1}%
+\contentsline {subsubsection}{\numberline {4.4.1.2}2. Confirmée}{27}{subsubsection.4.4.1.2}%
+\contentsline {subsubsection}{\numberline {4.4.1.3}3. Check-in}{28}{subsubsection.4.4.1.3}%
+\contentsline {subsubsection}{\numberline {4.4.1.4}4. En Cours}{28}{subsubsection.4.4.1.4}%
+\contentsline {subsubsection}{\numberline {4.4.1.5}5. Check-out}{28}{subsubsection.4.4.1.5}%
+\contentsline {subsection}{\numberline {4.4.2}4.2 Transitions et Événements}{28}{subsection.4.4.2}%
+\contentsline {section}{\numberline {4.5}5. Diagramme de Composants}{28}{section.4.5}%
+\contentsline {subsection}{\numberline {4.5.1}5.1 Description des Composants}{28}{subsection.4.5.1}%
+\contentsline {subsubsection}{\numberline {4.5.1.1}Frontend}{28}{subsubsection.4.5.1.1}%
+\contentsline {subsubsection}{\numberline {4.5.1.2}Backend}{29}{subsubsection.4.5.1.2}%
+\contentsline {subsubsection}{\numberline {4.5.1.3}Base de Données}{29}{subsubsection.4.5.1.3}%
+\contentsline {subsection}{\numberline {4.5.2}5.2 Architecture Technique}{29}{subsection.4.5.2}%
+\contentsline {section}{\numberline {4.6}6. Diagramme de Déploiement}{30}{section.4.6}%
+\contentsline {subsection}{\numberline {4.6.1}6.1 Infrastructure Physique}{30}{subsection.4.6.1}%
+\contentsline {subsubsection}{\numberline {4.6.1.1}Environnement Client}{30}{subsubsection.4.6.1.1}%
+\contentsline {subsubsection}{\numberline {4.6.1.2}Serveurs Frontend}{30}{subsubsection.4.6.1.2}%
+\contentsline {subsubsection}{\numberline {4.6.1.3}Serveurs Backend}{31}{subsubsection.4.6.1.3}%
+\contentsline {subsection}{\numberline {4.6.2}6.2 Infrastructure Cloud}{31}{subsection.4.6.2}%

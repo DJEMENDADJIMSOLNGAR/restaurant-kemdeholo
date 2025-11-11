@@ -3,15 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hébergement - KemdeHolo</title>
-    <link href="/css/style.css" rel="stylesheet">
+    <title>Hébergement - KemdeHolo</title>    <link href="css/style.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        :root {
-            --bleu-principal: #C00000;
-            --rouge-accent: #c32e27;
-        }
-        
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
+    <style>        
         /* Style pour les cards de chambres */
         .room-card {
             transition: all 0.3s ease;
@@ -30,7 +26,7 @@
             align-items: center;
             justify-content: center;
             margin-right: 8px;
-            color: #C00000;
+            color: #030303; /* black */
         }
         
         /* Galerie d'images */
@@ -78,10 +74,10 @@
     </style>
 </head>
 <body class="font-sans">
-        <header id="main-header"></header>
+    <div id="header-placeholder"></div>
 
     <!-- Hero Section Hébergement -->
-    <section class="hero-section relative h-[600px] flex items-center justify-center bg-cover bg-center text-white overflow-hidden" style="background-image: url('images/S.jpeg');">
+    <section class="hero-section relative flex items-center justify-center bg-cover bg-center text-white overflow-hidden" style="background-image: url('images/S.jpeg');">
         <div class="absolute inset-0 bg-black bg-opacity-50"></div>
         <div class="container mx-auto px-4 z-10 text-center animate-fade-in-up">
             <h1 class="text-4xl md:text-5xl font-bold mb-4" data-translate-key="accommodation_hero_title">Nos Hébergements</h1>
@@ -94,21 +90,21 @@
         </div>
     </section>
 
-    <!-- Types de chambres -->
+     <!-- Types de chambres -->
     <section class="py-16 px-4 scroll-reveal">
         <div class="container mx-auto">
             <h2 class="text-3xl font-bold text-center mb-12 text-[#050505]" data-translate-key="accommodation_rooms_title">Nos Types de Chambres</h2>
             
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Chambre Standard -->
-                <div class="room-card bg-white rounded-lg shadow-lg overflow-hidden">
+                <div class="room-card bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden transition-all duration-300 hover:shadow-lg hover:-translate-y-2">
                     <div class="relative">
                         <img src="images/S.jpeg" class="w-full h-56 object-cover">
                         <span class="availability-badge bg-black text-white">Disponible</span>
                     </div>
                     <div class="p-6">
                         <h3 class="text-xl font-semibold mb-2" data-translate-key="accommodation_room1_title">Chambre Standard</h3>
-                        <p class="text-gray-600 mb-4" data-translate-key="accommodation_room1_desc">Idéale pour un séjour court et confortable.</p>
+                        <p class="text-gray-600 mb-4" data-translate-key="accommodation_room1_desc">Idéale pour un séjour  et confortable.</p>
                         <div class="mb-4">
                             <div class="flex items-center mb-2">
                                 <div class="amenity-icon"><i class="fas fa-user"></i></div>
@@ -116,19 +112,16 @@
                             </div>
                             <div class="flex items-center mb-2">
                                 <div class="amenity-icon"><i class="fas fa-bed"></i></div>
-                                <span data-translate-key="accommodation_room1_bed">1 lit double</span>
+                                <span data-translate-key="accommodation_room1_bed">1 lit </span>
                             </div>
                             <div class="flex items-center mb-2">
                                 <div class="amenity-icon"><i class="fas fa-bath"></i></div>
                                 <span data-translate-key="accommodation_room_bathroom">Salle de bain privée</span>
                             </div>
-                            <div class="flex items-center">
-                                <div class="amenity-icon"><i class="fas fa-wifi"></i></div>
-                                <span data-translate-key="accommodation_room_wifi">Wi-Fi gratuit</span>
-                            </div>
+                            
                         </div>
                         <div class="flex justify-between items-center">
-                            <p class="text-2xl font-bold text-secondary-red">15,000 FCFA<span class="text-sm font-normal text-gray-500" data-translate-key="accommodation_room_price_unit">/nuit</span></p>
+                            <p class="text-2xl font-bold text-black">15000 FCFA<span class="text-sm font-normal text-gray-500" data-translate-key="accommodation_room_price_unit">/nuit</span></p>
                             <button data-room-type="Chambre Standard" class="reserve-btn bg-primary-blue hover:bg-red-700 text-white px-4 py-2 rounded font-semibold text-sm" data-translate-key="accommodation_room_book_btn">
                                 Réserver
                             </button>
@@ -137,7 +130,7 @@
                 </div>
                 
                 <!-- Chambre Supérieure -->
-                <div class="room-card bg-white rounded-lg shadow-lg overflow-hidden">
+                <div class="room-card bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden transition-all duration-300 hover:shadow-lg hover:-translate-y-2">
                     <div class="relative">
                         <img src="images/S.jpeg" alt="Chambre Supérieure" class="w-full h-56 object-cover">
                         <span class="availability-badge bg-black text-white">Disponible</span>
@@ -148,11 +141,11 @@
                         <div class="mb-4">
                             <div class="flex items-center mb-2">
                                 <div class="amenity-icon"><i class="fas fa-user"></i></div>
-                                <span data-translate-key="accommodation_room2_persons">2-3 personnes</span>
+                                <span data-translate-key="accommodation_room2_persons">1 personne</span>
                             </div>
                             <div class="flex items-center mb-2">
                                 <div class="amenity-icon"><i class="fas fa-bed"></i></div>
-                                <span data-translate-key="accommodation_room2_bed">1 lit double + 1 lit simple</span>
+                                <span data-translate-key="accommodation_room2_bed">1 lit </span>
                             </div>
                             <div class="flex items-center mb-2">
                                 <div class="amenity-icon"><i class="fas fa-bath"></i></div>
@@ -160,15 +153,11 @@
                             </div>
                             <div class="flex items-center mb-2">
                                 <div class="amenity-icon"><i class="fas fa-tv"></i></div>
-                                <span data-translate-key="accommodation_room_tv">Télévision</span>
                             </div>
-                            <div class="flex items-center">
-                                <div class="amenity-icon"><i class="fas fa-wifi"></i></div>
-                                <span data-translate-key="accommodation_room_wifi">Wi-Fi gratuit</span>
-                            </div>
+                           
                         </div>
                         <div class="flex justify-between items-center">
-                            <p class="text-2xl font-bold text-secondary-red">25,000 FCFA<span class="text-sm font-normal text-gray-500" data-translate-key="accommodation_room_price_unit">/nuit</span></p>
+                            <p class="text-2xl font-bold text-black">7000 FCFA<span class="text-sm font-normal text-gray-500" data-translate-key="accommodation_room_price_unit">/nuit</span></p>
                             <button data-room-type="Chambre Supérieure" class="reserve-btn bg-primary-blue hover:bg-red-700 text-white px-4 py-2 rounded font-semibold text-sm" data-translate-key="accommodation_room_book_btn">
                                 Réserver
                             </button>
@@ -177,13 +166,13 @@
                 </div>
                 
                 <!-- Suite -->
-                <div class="room-card bg-white rounded-lg shadow-lg overflow-hidden">
+                <div class="room-card bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden transition-all duration-300 hover:shadow-lg hover:-translate-y-2">
                     <div class="relative">
                         <img src="images/S.jpeg" alt="Suite" class="w-full h-56 object-cover">
                         <span class="availability-badge bg-black text-white">Disponible</span>
                     </div>
                     <div class="p-6">
-                        <h3 class="text-xl font-semibold mb-2" data-translate-key="accommodation_room3_title">Suite</h3>
+                        <h3 class="text-xl font-semibold mb-2" data-translate-key="accommodation_room3_title">chambre standard vip</h3>
                         <p class="text-gray-600 mb-4" data-translate-key="accommodation_room3_desc">Espace luxueux pour un séjour mémorable.</p>
                         <div class="mb-4">
                             <div class="flex items-center mb-2">
@@ -191,9 +180,7 @@
                                 <span data-translate-key="accommodation_room3_persons">2-4 personnes</span>
                             </div>
                             <div class="flex items-center mb-2">
-                                <div class="amenity-icon"><i class="fas fa-bed"></i></div>
-                                <span data-translate-key="accommodation_room3_bed">Chambre séparée + salon</span>
-                            </div>
+                                
                             <div class="flex items-center mb-2">
                                 <div class="amenity-icon"><i class="fas fa-bath"></i></div>
                                 <span data-translate-key="accommodation_room3_bathroom">Salle de bain spacieuse</span>
@@ -206,13 +193,10 @@
                                 <div class="amenity-icon"><i class="fas fa-snowflake"></i></div>
                                 <span data-translate-key="accommodation_room_ac">Climatisation</span>
                             </div>
-                            <div class="flex items-center">
-                                <div class="amenity-icon"><i class="fas fa-wifi"></i></div>
-                                <span data-translate-key="accommodation_room_wifi_high">Wi-Fi haut débit</span>
-                            </div>
+                           
                         </div>
                         <div class="flex justify-between items-center">
-                            <p class="text-2xl font-bold text-secondary-red">40,000 FCFA<span class="text-sm font-normal text-gray-500" data-translate-key="accommodation_room_price_unit">/nuit</span></p>
+                            <p class="text-2xl font-bold text-black">20000 FCFA<span class="text-sm font-normal text-gray-500" data-translate-key="accommodation_room_price_unit">/nuit</span></p>
                             <button data-room-type="Suite" class="reserve-btn bg-primary-blue hover:bg-red-700 text-white px-4 py-2 rounded font-semibold text-sm" data-translate-key="accommodation_room_book_btn">
                                 Réserver
                             </button>
@@ -224,38 +208,38 @@
     </section>
 
     <!-- Équipements et Services -->
-    <section class="py-16  px-4 scroll-reveal">
+    <section class="py-16 bg-gray-50 px-4 scroll-reveal">
         <div class="container mx-auto">
             <h2 class="text-3xl font-bold text-center mb-12 text-[#030303]" data-translate-key="accommodation_amenities_title">Équipements et Services</h2>
             
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                <div class="bg-white p-6 rounded-lg shadow text-center">
-                    <div class="w-16 h-16 bg-primary-blue rounded-full mx-auto mb-4 flex items-center justify-center">
-                        <i class="fas fa-wifi text-white text-2xl"></i>
+                <div class="service-card bg-white rounded-xl shadow-sm border p-6 text-center transition-all duration-300 hover:shadow-lg hover:-translate-y-2">
+                    <div class="w-20 h-20 bg-black rounded-full mx-auto mb-6 flex items-center justify-center">
+                        <i class="fas fa-wifi text-3xl text-white"></i>
                     </div>
                     <h3 class="text-xl font-semibold mb-2" data-translate-key="accommodation_amenity1_title">Wi-Fi Gratuit</h3>
                     <p class="text-gray-600" data-translate-key="accommodation_amenity1_desc">Connexion internet haut débit dans tout l'établissement</p>
                 </div>
                 
-                <div class="bg-white p-6 rounded-lg shadow text-center">
-                    <div class="w-16 h-16 bg-primary-blue rounded-full mx-auto mb-4 flex items-center justify-center">
-                        <i class="fas fa-parking text-white text-2xl"></i>
+                <div class="service-card bg-white rounded-xl shadow-sm border p-6 text-center transition-all duration-300 hover:shadow-lg hover:-translate-y-2">
+                    <div class="w-20 h-20 bg-black rounded-full mx-auto mb-6 flex items-center justify-center">
+                        <i class="fas fa-parking text-3xl text-white"></i>
                     </div>
                     <h3 class="text-xl font-semibold mb-2" data-translate-key="accommodation_amenity2_title">Parking Sécurisé</h3>
                     <p class="text-gray-600" data-translate-key="accommodation_amenity2_desc">Parking gratuit et surveillé 24h/24</p>
                 </div>
                 
-                <div class="bg-white p-6 rounded-lg shadow text-center">
-                    <div class="w-16 h-16 bg-primary-blue rounded-full mx-auto mb-4 flex items-center justify-center">
-                        <i class="fas fa-utensils text-white text-2xl"></i>
+                <div class="service-card bg-white rounded-xl shadow-sm border p-6 text-center transition-all duration-300 hover:shadow-lg hover:-translate-y-2">
+                    <div class="w-20 h-20 bg-black rounded-full mx-auto mb-6 flex items-center justify-center">
+                        <i class="fas fa-utensils text-3xl text-white"></i>
                     </div>
                     <h3 class="text-xl font-semibold mb-2" data-translate-key="accommodation_amenity3_title">Petit-déjeuner</h3>
                     <p class="text-gray-600" data-translate-key="accommodation_amenity3_desc">Petit-déjeuner buffet inclus avec produits locaux</p>
                 </div>
                 
-                <div class="bg-white p-6 rounded-lg shadow text-center">
-                    <div class="w-16 h-16 bg-primary-blue rounded-full mx-auto mb-4 flex items-center justify-center">
-                        <i class="fas fa-concierge-bell text-white text-2xl"></i>
+                <div class="service-card bg-white rounded-xl shadow-sm border p-6 text-center transition-all duration-300 hover:shadow-lg hover:-translate-y-2">
+                    <div class="w-20 h-20 bg-black rounded-full mx-auto mb-6 flex items-center justify-center">
+                        <i class="fas fa-concierge-bell text-3xl text-white"></i>
                     </div>
                     <h3 class="text-xl font-semibold mb-2" data-translate-key="accommodation_amenity4_title">Service de Chambre</h3>
                     <p class="text-gray-600" data-translate-key="accommodation_amenity4_desc">Service de nettoyage quotidien et assistance 24h/24</p>
@@ -264,47 +248,7 @@
         </div>
     </section>
 
-    <!-- Galerie -->
-    <section class="py-16 px-4 scroll-reveal">
-        <div class="container mx-auto">
-            <h2 class="text-3xl font-bold text-center mb-12 text-[#050505]" data-translate-key="accommodation_gallery_title">Galerie</h2>
-            
-            <div class="gallery-grid">
-                <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Chambre">
-                </div>
-                <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Salle de bain">
-                </div>
-                <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1584138787886-4c2e5e1d7c2b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Chambre double">
-                </div>
-                <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1566665797739-1674de7a421a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Suite">
-                </div>
-                <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Hall d'entrée">
-                </div>
-                <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1564501049412-61c2a3083791?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Terrasse">
-                </div>
-                <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Chambre">
-                </div>
-                <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Salle de bain">
-                </div>
-                <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1584138787886-4c2e5e1d7c2b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Chambre double">
-                </div>
-                <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1566665797739-1674de7a421a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Suite">
-                </div>
-               
-            </div>
-        </div>
-    </section>
-
+    
     <!-- Localisation -->
     <section class="py-16 bg-white px-4 scroll-reveal">
         <div class="container mx-auto">
@@ -323,32 +267,34 @@
         </div>
     </section>
 
+   
+
      
 
     <!-- Fenêtre Modale de Réservation -->
-    <div id="reservation-modal" class="hidden fixed inset-0 bg-black bg-opacity-50 z-50 items-center justify-center p-4">
+    <div id="reservation-modal" class="hidden fixed inset-0 bg-black bg-opacity-50 z-50 items-center justify-center p-4" role="dialog" aria-modal="true" aria-labelledby="reservation-modal-title">
       <div class="bg-white rounded-lg shadow-xl p-8 max-w-lg w-full relative">
         <button id="close-modal-btn" class="absolute top-4 right-4 text-gray-500 hover:text-gray-800 text-3xl leading-none">&times;</button>
-        <h2 class="text-2xl font-bold mb-4 text-primary-blue" data-translate-key="modal_reservation_title">Demande de Réservation</h2>
+        <h2 id="reservation-modal-title" class="text-2xl font-bold mb-4 text-black" data-translate-key="modal_reservation_title">Demande de Réservation</h2>
         <p id="modal-message" class="mb-4"></p>
         <form id="reservation-form">
           <input type="hidden" id="room-type-input">
           <div class="mb-4">
             <label for="customer-name" class="block text-gray-700 font-semibold mb-2" data-translate-key="modal_reservation_name">Nom complet</label>
-            <input type="text" id="customer-name" required class="w-full px-3 py-2 rounded border border-gray-300">
+            <input type="text" id="customer-name" required class="w-full px-3 py-2 rounded border border-gray-300" autocomplete="name">
           </div>
           <div class="mb-4">
             <label for="customer-email" class="block text-gray-700 font-semibold mb-2" data-translate-key="modal_reservation_email">Email</label>
-            <input type="email" id="customer-email" required class="w-full px-3 py-2 rounded border border-gray-300">
+            <input type="email" id="customer-email" required class="w-full px-3 py-2 rounded border border-gray-300" autocomplete="email">
           </div>
           <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
             <div>
               <label for="arrival-date" class="block text-gray-700 font-semibold mb-2" data-translate-key="modal_reservation_arrival">Date d'arrivée</label>
-              <input type="date" id="arrival-date" required class="w-full px-3 py-2 rounded border border-gray-300">
+              <input type="date" id="arrival-date" required class="w-full px-3 py-2 rounded border border-gray-300" autocomplete="off">
             </div>
             <div>
               <label for="departure-date" class="block text-gray-700 font-semibold mb-2" data-translate-key="modal_reservation_departure">Date de départ</label>
-              <input type="date" id="departure-date" required class="w-full px-3 py-2 rounded border border-gray-300">
+              <input type="date" id="departure-date" required class="w-full px-3 py-2 rounded border border-gray-300" autocomplete="off">
             </div>
           </div>
           <div class="mb-4">
@@ -361,26 +307,72 @@
     </div>
         <footer id="main-footer"></footer>
 
-    <script src="/main.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 
-    <script src="/script.js"></script>
-    <script src="/translations.js"></script>
-    <script src="/language.js"></script>
+    <script src="main.js"></script>
+
+    <script src="script.js"></script>
+    <script src="translations.js"></script>
+    <script src="language.js"></script>
     <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            const elements = document.querySelectorAll(".scroll-reveal");
-            const revealOnScroll = () => {
-                const windowHeight = window.innerHeight;
-                elements.forEach(el => {
-                    const elementTop = el.getBoundingClientRect().top;
-                    if (elementTop < windowHeight - 50) {
-                        el.classList.add("visible");
-                    }
+        async function chargerTemoignages(categorie) {
+            try {
+                const response = await fetch(`/api/testimonials?category=${categorie}`);
+                if (!response.ok) throw new Error('Erreur de chargement des témoignages.');
+                const testimonials = await response.json();
+
+                const sliderWrapper = document.getElementById('testimonial-slider-wrapper');
+                const sliderContent = document.getElementById('testimonial-slider-content');
+                const sliderNav = document.getElementById('testimonial-slider-nav');
+
+                if (!testimonials || testimonials.length === 0) {
+                    sliderWrapper.innerHTML = `<p class="text-center text-white/70">Aucun témoignage pour la catégorie "${categorie}".</p>`;
+                    sliderWrapper.classList.remove('hidden');
+                    return;
+                }
+
+                sliderContent.innerHTML = testimonials.map(t => `
+                    <div class="testimonial-item">
+                        <p>"${t.quote}"</p>
+                        <div class="author-info">
+                            <span class="author-name">${t.name}</span>
+                        </div>
+                    </div>
+                `).join('');
+
+                sliderNav.innerHTML = testimonials.map(t => `
+                    <div>
+                        <img src="${t.image || 'images/placeholder-avatar.png'}" alt="${t.name}" class="author-image">
+                    </div>
+                `).join('');
+
+                $('#testimonial-slider-content').slick({
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                    arrows: false,
+                    fade: true,
+                    asNavFor: '#testimonial-slider-nav',
+                    autoplay: true, // Activation du défilement automatique
+                    autoplaySpeed: 5000, // Toutes les 5 secondes
+                    pauseOnHover: true // Pause au survol de la souris
                 });
-            };
-            window.addEventListener("scroll", revealOnScroll);
-            revealOnScroll();
-        });
+                $('#testimonial-slider-nav').slick({
+                    slidesToShow: 3,
+                    slidesToScroll: 1,
+                    asNavFor: '#testimonial-slider-content',
+                    dots: false,
+                    centerMode: true,
+                    focusOnSelect: true,
+                    arrows: false
+                });
+                sliderWrapper.classList.remove('hidden');
+            } catch (error) {
+                console.error(error);
+                document.getElementById('testimonial-slider-wrapper').innerHTML = `<p class="text-center text-yellow-400">${error.message}</p>`;
+            }
+        }
+        document.addEventListener('DOMContentLoaded', () => chargerTemoignages('Hebergement'));
 
         document.addEventListener('DOMContentLoaded', () => {
             const modal = document.getElementById('reservation-modal');

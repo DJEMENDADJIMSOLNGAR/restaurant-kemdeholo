@@ -1,0 +1,36 @@
+---
+documentclass: report
+classoption: french
+geometry: 
+  - top=2.5cm
+  - bottom=2.5cm
+  - left=2.5cm
+  - right=2.5cm
+mainfont: DejaVu Sans
+monofont: DejaVu Sans Mono
+fontsize: 12pt
+papersize: a4
+lang: fr-FR
+numbersections: true
+toc: true
+lof: true
+lot: true
+header-includes:
+  - |
+    \\usepackage[french]{babel}
+    \\usepackage{fancyhdr}
+    \\usepackage{caption}
+    \\usepackage{float}
+    \\usepackage[colorlinks,linkcolor=blue]{hyperref}
+    
+    \\pagestyle{fancy}
+    \\fancyhead[L]{Complexe Hôtelier Kemdeholo}
+    \\fancyhead[R]{\\thepage}
+    \\fancyfoot[C]{Rapport de Projet - 5 novembre 2025}
+    
+    \\renewcommand{\\figurename}{Figure}
+    \\renewcommand{\\tablename}{Tableau}
+    \\renewcommand{\\contentsname}{Table des matières}
+    \\renewcommand{\\listfigurename}{Liste des figures}
+    \\renewcommand{\\listtablename}{Liste des tableaux}
+---

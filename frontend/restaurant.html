@@ -4,7 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Restaurant - KemdeHolo</title>
-    <link href="/css/style.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
     <style>
         /* Galerie d'images */
         .gallery-grid {
@@ -34,25 +36,25 @@
         /* Styles pour les filtres du menu */
         .filter-btn {
             padding: 8px 20px;
-            border: 2px solid #C00000;
-            color: #C00000;
+            border: 2px solid #030303; /* black */
+            color: #030303; /* black */
             border-radius: 9999px;
             font-weight: 600;
             transition: all 0.2s ease-in-out;
         }
         .filter-btn:hover, .filter-btn.active {
-            background-color: #C00000;
+            background-color: #D4AF37;
             color: white;
-            border-color: #C00000;
+            border-color: #D4AF37;
         }
 
     </style>
 </head>
 <body class="font-sans">
-        <header id="main-header"></header>
+    <div id="header-placeholder"></div>
 
     <!-- Hero Section Restaurant -->
-    <section class="hero-section relative h-[600px] flex items-center justify-center bg-cover bg-center text-white px-4" style="background-image: url('images/Gemini_Generated_Image_sw4c8rsw4c8rsw4c.png');">
+    <section class="hero-section relative flex items-center justify-center bg-cover bg-center text-white px-4" style="background-image: url('images/Gemini_Generated_Image_sw4c8rsw4c8rsw4c.png');">
         <div class="absolute inset-0 bg-black bg-opacity-60"></div>
         <div class="container mx-auto text-center relative z-10 animate-fade-in-up">
             <h1 class="text-4xl md:text-5xl font-bold mb-6" data-translate-key="restaurant_hero_title">Notre Restaurant</h1>
@@ -82,94 +84,94 @@
 
         <div id="menu-grid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             <!-- Volailles -->
-            <div class="menu-item bg-white rounded-lg shadow-lg overflow-hidden flex flex-col" data-category="volailles"><img src="images/beyti-kebab-served-with-ayran-pickles.jpg" alt="½ Poulet braisé" class="w-full h-48 object-cover"><div class="p-6 flex flex-col flex-grow"><h3 class="text-xl font-bold mb-2 text-secondary-red">½ Poulet braisé</h3><div class="flex justify-between items-center mt-auto"><span class="text-primary-blue font-bold text-xl">3000 FCFA</span><button class="order-btn btn-primary !py-2 !px-5" data-item-name="½ Poulet braisé">Commander</button></div></div></div>
-            <div class="menu-item bg-white rounded-lg shadow-lg overflow-hidden flex flex-col" data-category="volailles"><img src="images/banner-img.png" alt="½ Poulet grillé" class="w-full h-48 object-cover"><div class="p-6 flex flex-col flex-grow"><h3 class="text-xl font-bold mb-2 text-secondary-red">½ Poulet grillé</h3><div class="flex justify-between items-center mt-auto"><span class="text-primary-blue font-bold text-xl">3000 FCFA</span><button class="order-btn btn-primary !py-2 !px-5" data-item-name="½ Poulet grillé">Commander</button></div></div></div>
-            <div class="menu-item bg-white rounded-lg shadow-lg overflow-hidden flex flex-col" data-category="volailles"><img src="images/product-2b.jpg" alt="½ Poulet pané" class="w-full h-48 object-cover"><div class="p-6 flex flex-col flex-grow"><h3 class="text-xl font-bold mb-2 text-secondary-red">½ Poulet pané</h3><div class="flex justify-between items-center mt-auto"><span class="text-primary-blue font-bold text-xl">3000 FCFA</span><button class="order-btn btn-primary !py-2 !px-5" data-item-name="½ Poulet pané">Commander</button></div></div></div>
-            <div class="menu-item bg-white rounded-lg shadow-lg overflow-hidden flex flex-col" data-category="volailles"><img src="images/feature-box-bg-3.jpg" alt="½ Poulet DG" class="w-full h-48 object-cover"><div class="p-6 flex flex-col flex-grow"><h3 class="text-xl font-bold mb-2 text-secondary-red">½ Poulet DG</h3><div class="flex justify-between items-center mt-auto"><span class="text-primary-blue font-bold text-xl">3500 FCFA</span><button class="order-btn btn-primary !py-2 !px-5" data-item-name="½ Poulet DG">Commander</button></div></div></div>
-            <div class="menu-item bg-white rounded-lg shadow-lg overflow-hidden flex flex-col" data-category="volailles"><img src="images/gallery-6.jpg" alt="½ Poulet sauce tomate" class="w-full h-48 object-cover"><div class="p-6 flex flex-col flex-grow"><h3 class="text-xl font-bold mb-2 text-secondary-red">½ Poulet sauce tomate</h3><div class="flex justify-between items-center mt-auto"><span class="text-primary-blue font-bold text-xl">3000 FCFA</span><button class="order-btn btn-primary !py-2 !px-5" data-item-name="½ Poulet sauce tomate">Commander</button></div></div></div>
-            <div class="menu-item bg-white rounded-lg shadow-lg overflow-hidden flex flex-col" data-category="volailles"><img src="images/product-2d.jpg" alt="½ Poulet sauce gombo" class="w-full h-48 object-cover"><div class="p-6 flex flex-col flex-grow"><h3 class="text-xl font-bold mb-2 text-secondary-red">½ Poulet sauce gombo</h3><div class="flex justify-between items-center mt-auto"><span class="text-primary-blue font-bold text-xl">3000 FCFA</span><button class="order-btn btn-primary !py-2 !px-5" data-item-name="½ Poulet sauce gombo">Commander</button></div></div></div>
-            <div class="menu-item bg-white rounded-lg shadow-lg overflow-hidden flex flex-col" data-category="volailles"><img src="https://via.placeholder.com/600x400" alt="½ Poulet sauce jaune" class="w-full h-48 object-cover"><div class="p-6 flex flex-col flex-grow"><h3 class="text-xl font-bold mb-2 text-secondary-red">½ Poulet sauce jaune</h3><div class="flex justify-between items-center mt-auto"><span class="text-primary-blue font-bold text-xl">3000 FCFA</span><button class="order-btn btn-primary !py-2 !px-5" data-item-name="½ Poulet sauce jaune">Commander</button></div></div></div>
+            <div class="menu-item bg-white rounded-lg shadow-lg overflow-hidden flex flex-col" data-category="volailles"><img src="https://images.pexels.com/photos/2338407/pexels-photo-2338407.jpeg?auto=compress&cs=tinysrgb&w=600" alt="½ Poulet braisé" class="w-full h-48 object-cover"><div class="p-6 flex flex-col flex-grow"><h3 class="text-2xl mb-2 text-black" style="font-family: 'Pacifico', cursive;">½ Poulet braisé</h3><div class="flex justify-between items-center mt-auto"><span class="text-black font-bold text-xl">3000 FCFA</span><button class="order-btn btn-primary !py-2 !px-5" data-item-name="½ Poulet braisé">Commander</button></div></div></div>
+            <div class="menu-item bg-white rounded-lg shadow-lg overflow-hidden flex flex-col" data-category="volailles"><img src="https://images.pexels.com/photos/3926133/pexels-photo-3926133.jpeg?auto=compress&cs=tinysrgb&w=600" alt="½ Poulet grillé" class="w-full h-48 object-cover"><div class="p-6 flex flex-col flex-grow"><h3 class="text-2xl mb-2 text-black" style="font-family: 'Pacifico', cursive;">½ Poulet grillé</h3><div class="flex justify-between items-center mt-auto"><span class="text-black font-bold text-xl">3000 FCFA</span><button class="order-btn btn-primary !py-2 !px-5" data-item-name="½ Poulet grillé">Commander</button></div></div></div>
+            <div class="menu-item bg-white rounded-lg shadow-lg overflow-hidden flex flex-col" data-category="volailles"><img src="https://images.pexels.com/photos/6210952/pexels-photo-6210952.jpeg?auto=compress&cs=tinysrgb&w=600" alt="½ Poulet pané" class="w-full h-48 object-cover"><div class="p-6 flex flex-col flex-grow"><h3 class="text-2xl mb-2 text-black" style="font-family: 'Pacifico', cursive;">½ Poulet pané</h3><div class="flex justify-between items-center mt-auto"><span class="text-black font-bold text-xl">3000 FCFA</span><button class="order-btn btn-primary !py-2 !px-5" data-item-name="½ Poulet pané">Commander</button></div></div></div>
+            <div class="menu-item bg-white rounded-lg shadow-lg overflow-hidden flex flex-col" data-category="volailles"><img src="https://images.pexels.com/photos/19542495/pexels-photo-19542495/free-photo-of-poulet-dg-a-specialty-from-cameroon.jpeg?auto=compress&cs=tinysrgb&w=600" alt="½ Poulet DG" class="w-full h-48 object-cover"><div class="p-6 flex flex-col flex-grow"><h3 class="text-2xl mb-2 text-black" style="font-family: 'Pacifico', cursive;">½ Poulet DG</h3><div class="flex justify-between items-center mt-auto"><span class="text-black font-bold text-xl">3500 FCFA</span><button class="order-btn btn-primary !py-2 !px-5" data-item-name="½ Poulet DG">Commander</button></div></div></div>
+            <div class="menu-item bg-white rounded-lg shadow-lg overflow-hidden flex flex-col" data-category="volailles"><img src="https://images.pexels.com/photos/1410236/pexels-photo-1410236.jpeg?auto=compress&cs=tinysrgb&w=600" alt="½ Poulet sauce tomate" class="w-full h-48 object-cover"><div class="p-6 flex flex-col flex-grow"><h3 class="text-2xl mb-2 text-black" style="font-family: 'Pacifico', cursive;">½ Poulet sauce tomate</h3><div class="flex justify-between items-center mt-auto"><span class="text-black font-bold text-xl">3000 FCFA</span><button class="order-btn btn-primary !py-2 !px-5" data-item-name="½ Poulet sauce tomate">Commander</button></div></div></div>
+            <div class="menu-item bg-white rounded-lg shadow-lg overflow-hidden flex flex-col" data-category="volailles"><img src="https://images.pexels.com/photos/12840330/pexels-photo-12840330.jpeg?auto=compress&cs=tinysrgb&w=600" alt="½ Poulet sauce gombo" class="w-full h-48 object-cover"><div class="p-6 flex flex-col flex-grow"><h3 class="text-2xl mb-2 text-black" style="font-family: 'Pacifico', cursive;">½ Poulet sauce gombo</h3><div class="flex justify-between items-center mt-auto"><span class="text-black font-bold text-xl">3000 FCFA</span><button class="order-btn btn-primary !py-2 !px-5" data-item-name="½ Poulet sauce gombo">Commander</button></div></div></div>
+            <div class="menu-item bg-white rounded-lg shadow-lg overflow-hidden flex flex-col" data-category="volailles"><img src="https://images.pexels.com/photos/5743253/pexels-photo-5743253.jpeg?auto=compress&cs=tinysrgb&w=600" alt="½ Poulet sauce jaune" class="w-full h-48 object-cover"><div class="p-6 flex flex-col flex-grow"><h3 class="text-2xl mb-2 text-black" style="font-family: 'Pacifico', cursive;">½ Poulet sauce jaune</h3><div class="flex justify-between items-center mt-auto"><span class="text-black font-bold text-xl">3000 FCFA</span><button class="order-btn btn-primary !py-2 !px-5" data-item-name="½ Poulet sauce jaune">Commander</button></div></div></div>
             
             <!-- Poissons -->
-            <div class="menu-item bg-white rounded-lg shadow-lg overflow-hidden flex flex-col" data-category="poissons"><img src="https://via.placeholder.com/600x400" alt="Carpe braisée" class="w-full h-48 object-cover"><div class="p-6 flex flex-col flex-grow"><h3 class="text-xl font-bold mb-2 text-primary-blue">Carpe braisée</h3><div class="flex justify-between items-center mt-auto"><span class="text-primary-blue font-bold text-xl">3000 FCFA</span><button class="order-btn btn-primary !py-2 !px-5" data-item-name="Carpe braisée">Commander</button></div></div></div>
-            <div class="menu-item bg-white rounded-lg shadow-lg overflow-hidden flex flex-col" data-category="poissons"><img src="https://via.placeholder.com/600x400" alt="Carpe grillée" class="w-full h-48 object-cover"><div class="p-6 flex flex-col flex-grow"><h3 class="text-xl font-bold mb-2 text-primary-blue">Carpe grillée</h3><div class="flex justify-between items-center mt-auto"><span class="text-primary-blue font-bold text-xl">3000 FCFA</span><button class="order-btn btn-primary !py-2 !px-5" data-item-name="Carpe grillée">Commander</button></div></div></div>
-            <div class="menu-item bg-white rounded-lg shadow-lg overflow-hidden flex flex-col" data-category="poissons"><img src="https://via.placeholder.com/600x400" alt="Carpe panée" class="w-full h-48 object-cover"><div class="p-6 flex flex-col flex-grow"><h3 class="text-xl font-bold mb-2 text-primary-blue">Carpe panée</h3><div class="flex justify-between items-center mt-auto"><span class="text-primary-blue font-bold text-xl">3000 FCFA</span><button class="order-btn btn-primary !py-2 !px-5" data-item-name="Carpe panée">Commander</button></div></div></div>
-            <div class="menu-item bg-white rounded-lg shadow-lg overflow-hidden flex flex-col" data-category="poissons"><img src="https://via.placeholder.com/600x400" alt="Carpe DG" class="w-full h-48 object-cover"><div class="p-6 flex flex-col flex-grow"><h3 class="text-xl font-bold mb-2 text-primary-blue">Carpe DG</h3><div class="flex justify-between items-center mt-auto"><span class="text-primary-blue font-bold text-xl">3500 FCFA</span><button class="order-btn btn-primary !py-2 !px-5" data-item-name="Carpe DG">Commander</button></div></div></div>
-            <div class="menu-item bg-white rounded-lg shadow-lg overflow-hidden flex flex-col" data-category="poissons"><img src="https://via.placeholder.com/600x400" alt="Carpe sauce tomate" class="w-full h-48 object-cover"><div class="p-6 flex flex-col flex-grow"><h3 class="text-xl font-bold mb-2 text-primary-blue">Carpe sauce tomate</h3><div class="flex justify-between items-center mt-auto"><span class="text-primary-blue font-bold text-xl">3000 FCFA</span><button class="order-btn btn-primary !py-2 !px-5" data-item-name="Carpe sauce tomate">Commander</button></div></div></div>
-            <div class="menu-item bg-white rounded-lg shadow-lg overflow-hidden flex flex-col" data-category="poissons"><img src="https://via.placeholder.com/600x400" alt="Carpe sauce gombo" class="w-full h-48 object-cover"><div class="p-6 flex flex-col flex-grow"><h3 class="text-xl font-bold mb-2 text-primary-blue">Carpe sauce gombo</h3><div class="flex justify-between items-center mt-auto"><span class="text-primary-blue font-bold text-xl">3000 FCFA</span><button class="order-btn btn-primary !py-2 !px-5" data-item-name="Carpe sauce gombo">Commander</button></div></div></div>
-            <div class="menu-item bg-white rounded-lg shadow-lg overflow-hidden flex flex-col" data-category="poissons"><img src="https://via.placeholder.com/600x400" alt="Carpe sauce jaune" class="w-full h-48 object-cover"><div class="p-6 flex flex-col flex-grow"><h3 class="text-xl font-bold mb-2 text-primary-blue">Carpe sauce jaune</h3><div class="flex justify-between items-center mt-auto"><span class="text-primary-blue font-bold text-xl">3000 FCFA</span><button class="order-btn btn-primary !py-2 !px-5" data-item-name="Carpe sauce jaune">Commander</button></div></div></div>
+            <div class="menu-item bg-white rounded-lg shadow-lg overflow-hidden flex flex-col" data-category="poissons"><img src="https://images.pexels.com/photos/2122294/pexels-photo-2122294.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Carpe braisée" class="w-full h-48 object-cover"><div class="p-6 flex flex-col flex-grow"><h3 class="text-2xl mb-2 text-black" style="font-family: 'Pacifico', cursive;">Carpe braisée</h3><div class="flex justify-between items-center mt-auto"><span class="text-black font-bold text-xl">3000 FCFA</span><button class="order-btn btn-primary !py-2 !px-5" data-item-name="Carpe braisée">Commander</button></div></div></div>
+            <div class="menu-item bg-white rounded-lg shadow-lg overflow-hidden flex flex-col" data-category="poissons"><img src="https://images.pexels.com/photos/842142/pexels-photo-842142.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Carpe grillée" class="w-full h-48 object-cover"><div class="p-6 flex flex-col flex-grow"><h3 class="text-2xl mb-2 text-black" style="font-family: 'Pacifico', cursive;">Carpe grillée</h3><div class="flex justify-between items-center mt-auto"><span class="text-black font-bold text-xl">3000 FCFA</span><button class="order-btn btn-primary !py-2 !px-5" data-item-name="Carpe grillée">Commander</button></div></div></div>
+            <div class="menu-item bg-white rounded-lg shadow-lg overflow-hidden flex flex-col" data-category="poissons"><img src="https://images.pexels.com/photos/327158/pexels-photo-327158.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Carpe panée" class="w-full h-48 object-cover"><div class="p-6 flex flex-col flex-grow"><h3 class="text-2xl mb-2 text-black" style="font-family: 'Pacifico', cursive;">Carpe panée</h3><div class="flex justify-between items-center mt-auto"><span class="text-black font-bold text-xl">3000 FCFA</span><button class="order-btn btn-primary !py-2 !px-5" data-item-name="Carpe panée">Commander</button></div></div></div>
+            <div class="menu-item bg-white rounded-lg shadow-lg overflow-hidden flex flex-col" data-category="poissons"><img src="https://images.pexels.com/photos/19542495/pexels-photo-19542495/free-photo-of-poulet-dg-a-specialty-from-cameroon.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Carpe DG" class="w-full h-48 object-cover"><div class="p-6 flex flex-col flex-grow"><h3 class="text-2xl mb-2 text-black" style="font-family: 'Pacifico', cursive;">Carpe DG</h3><div class="flex justify-between items-center mt-auto"><span class="text-black font-bold text-xl">3500 FCFA</span><button class="order-btn btn-primary !py-2 !px-5" data-item-name="Carpe DG">Commander</button></div></div></div>
+            <div class="menu-item bg-white rounded-lg shadow-lg overflow-hidden flex flex-col" data-category="poissons"><img src="https://images.pexels.com/photos/2454515/pexels-photo-2454515.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Carpe sauce tomate" class="w-full h-48 object-cover"><div class="p-6 flex flex-col flex-grow"><h3 class="text-2xl mb-2 text-black" style="font-family: 'Pacifico', cursive;">Carpe sauce tomate</h3><div class="flex justify-between items-center mt-auto"><span class="text-black font-bold text-xl">3000 FCFA</span><button class="order-btn btn-primary !py-2 !px-5" data-item-name="Carpe sauce tomate">Commander</button></div></div></div>
+            <div class="menu-item bg-white rounded-lg shadow-lg overflow-hidden flex flex-col" data-category="poissons"><img src="https://images.pexels.com/photos/12840330/pexels-photo-12840330.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Carpe sauce gombo" class="w-full h-48 object-cover"><div class="p-6 flex flex-col flex-grow"><h3 class="text-2xl mb-2 text-black" style="font-family: 'Pacifico', cursive;">Carpe sauce gombo</h3><div class="flex justify-between items-center mt-auto"><span class="text-black font-bold text-xl">3000 FCFA</span><button class="order-btn btn-primary !py-2 !px-5" data-item-name="Carpe sauce gombo">Commander</button></div></div></div>
+            <div class="menu-item bg-white rounded-lg shadow-lg overflow-hidden flex flex-col" data-category="poissons"><img src="https://images.pexels.com/photos/5743253/pexels-photo-5743253.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Carpe sauce jaune" class="w-full h-48 object-cover"><div class="p-6 flex flex-col flex-grow"><h3 class="text-2xl mb-2 text-black" style="font-family: 'Pacifico', cursive;">Carpe sauce jaune</h3><div class="flex justify-between items-center mt-auto"><span class="text-black font-bold text-xl">3000 FCFA</span><button class="order-btn btn-primary !py-2 !px-5" data-item-name="Carpe sauce jaune">Commander</button></div></div></div>
 
             <!-- Viandes -->
-            <div class="menu-item bg-white rounded-lg shadow-lg overflow-hidden flex flex-col" data-category="viandes"><img src="https://via.placeholder.com/600x400" alt="Viande braisée" class="w-full h-48 object-cover"><div class="p-6 flex flex-col flex-grow"><h3 class="text-xl font-bold mb-2 text-primary-blue">Viande braisée</h3><div class="flex justify-between items-center mt-auto"><span class="text-primary-blue font-bold text-xl">3000 FCFA</span><button class="order-btn btn-primary !py-2 !px-5" data-item-name="Viande braisée">Commander</button></div></div></div>
-            <div class="menu-item bg-white rounded-lg shadow-lg overflow-hidden flex flex-col" data-category="viandes"><img src="https://via.placeholder.com/600x400" alt="Viande grillée" class="w-full h-48 object-cover"><div class="p-6 flex flex-col flex-grow"><h3 class="text-xl font-bold mb-2 text-primary-blue">Viande grillée</h3><div class="flex justify-between items-center mt-auto"><span class="text-primary-blue font-bold text-xl">3000 FCFA</span><button class="order-btn btn-primary !py-2 !px-5" data-item-name="Viande grillée">Commander</button></div></div></div>
-            <div class="menu-item bg-white rounded-lg shadow-lg overflow-hidden flex flex-col" data-category="viandes"><img src="https://via.placeholder.com/600x400" alt="Viande panée" class="w-full h-48 object-cover"><div class="p-6 flex flex-col flex-grow"><h3 class="text-xl font-bold mb-2 text-primary-blue">Viande panée</h3><div class="flex justify-between items-center mt-auto"><span class="text-primary-blue font-bold text-xl">3000 FCFA</span><button class="order-btn btn-primary !py-2 !px-5" data-item-name="Viande panée">Commander</button></div></div></div>
-            <div class="menu-item bg-white rounded-lg shadow-lg overflow-hidden flex flex-col" data-category="viandes"><img src="https://via.placeholder.com/600x400" alt="Viande DG" class="w-full h-48 object-cover"><div class="p-6 flex flex-col flex-grow"><h3 class="text-xl font-bold mb-2 text-primary-blue">Viande DG</h3><div class="flex justify-between items-center mt-auto"><span class="text-primary-blue font-bold text-xl">3500 FCFA</span><button class="order-btn btn-primary !py-2 !px-5" data-item-name="Viande DG">Commander</button></div></div></div>
-            <div class="menu-item bg-white rounded-lg shadow-lg overflow-hidden flex flex-col" data-category="viandes"><img src="https://via.placeholder.com/600x400" alt="Viande sauce tomate" class="w-full h-48 object-cover"><div class="p-6 flex flex-col flex-grow"><h3 class="text-xl font-bold mb-2 text-primary-blue">Viande sauce tomate</h3><div class="flex justify-between items-center mt-auto"><span class="text-primary-blue font-bold text-xl">3000 FCFA</span><button class="order-btn btn-primary !py-2 !px-5" data-item-name="Viande sauce tomate">Commander</button></div></div></div>
-            <div class="menu-item bg-white rounded-lg shadow-lg overflow-hidden flex flex-col" data-category="viandes"><img src="https://via.placeholder.com/600x400" alt="Viande sauce gombo" class="w-full h-48 object-cover"><div class="p-6 flex flex-col flex-grow"><h3 class="text-xl font-bold mb-2 text-primary-blue">Viande sauce gombo</h3><div class="flex justify-between items-center mt-auto"><span class="text-primary-blue font-bold text-xl">3000 FCFA</span><button class="order-btn btn-primary !py-2 !px-5" data-item-name="Viande sauce gombo">Commander</button></div></div></div>
-            <div class="menu-item bg-white rounded-lg shadow-lg overflow-hidden flex flex-col" data-category="viandes"><img src="https://via.placeholder.com/600x400" alt="Viande sauce jaune" class="w-full h-48 object-cover"><div class="p-6 flex flex-col flex-grow"><h3 class="text-xl font-bold mb-2 text-primary-blue">Viande sauce jaune</h3><div class="flex justify-between items-center mt-auto"><span class="text-primary-blue font-bold text-xl">3000 FCFA</span><button class="order-btn btn-primary !py-2 !px-5" data-item-name="Viande sauce jaune">Commander</button></div></div></div>
+            <div class="menu-item bg-white rounded-lg shadow-lg overflow-hidden flex flex-col" data-category="viandes"><img src="https://images.pexels.com/photos/941864/pexels-photo-941864.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Viande braisée" class="w-full h-48 object-cover"><div class="p-6 flex flex-col flex-grow"><h3 class="text-2xl mb-2 text-black" style="font-family: 'Pacifico', cursive;">Viande braisée</h3><div class="flex justify-between items-center mt-auto"><span class="text-black font-bold text-xl">3000 FCFA</span><button class="order-btn btn-primary !py-2 !px-5" data-item-name="Viande braisée">Commander</button></div></div></div>
+            <div class="menu-item bg-white rounded-lg shadow-lg overflow-hidden flex flex-col" data-category="viandes"><img src="https://images.pexels.com/photos/2097090/pexels-photo-2097090.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Viande grillée" class="w-full h-48 object-cover"><div class="p-6 flex flex-col flex-grow"><h3 class="text-2xl mb-2 text-black" style="font-family: 'Pacifico', cursive;">Viande grillée</h3><div class="flex justify-between items-center mt-auto"><span class="text-black font-bold text-xl">3000 FCFA</span><button class="order-btn btn-primary !py-2 !px-5" data-item-name="Viande grillée">Commander</button></div></div></div>
+            <div class="menu-item bg-white rounded-lg shadow-lg overflow-hidden flex flex-col" data-category="viandes"><img src="https://images.pexels.com/photos/1251198/pexels-photo-1251198.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Viande panée" class="w-full h-48 object-cover"><div class="p-6 flex flex-col flex-grow"><h3 class="text-2xl mb-2 text-black" style="font-family: 'Pacifico', cursive;">Viande panée</h3><div class="flex justify-between items-center mt-auto"><span class="text-black font-bold text-xl">3000 FCFA</span><button class="order-btn btn-primary !py-2 !px-5" data-item-name="Viande panée">Commander</button></div></div></div>
+            <div class="menu-item bg-white rounded-lg shadow-lg overflow-hidden flex flex-col" data-category="viandes"><img src="https://images.pexels.com/photos/19542495/pexels-photo-19542495/free-photo-of-poulet-dg-a-specialty-from-cameroon.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Viande DG" class="w-full h-48 object-cover"><div class="p-6 flex flex-col flex-grow"><h3 class="text-2xl mb-2 text-black" style="font-family: 'Pacifico', cursive;">Viande DG</h3><div class="flex justify-between items-center mt-auto"><span class="text-black font-bold text-xl">3500 FCFA</span><button class="order-btn btn-primary !py-2 !px-5" data-item-name="Viande DG">Commander</button></div></div></div>
+            <div class="menu-item bg-white rounded-lg shadow-lg overflow-hidden flex flex-col" data-category="viandes"><img src="https://images.pexels.com/photos/1881323/pexels-photo-1881323.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Viande sauce tomate" class="w-full h-48 object-cover"><div class="p-6 flex flex-col flex-grow"><h3 class="text-2xl mb-2 text-black" style="font-family: 'Pacifico', cursive;">Viande sauce tomate</h3><div class="flex justify-between items-center mt-auto"><span class="text-black font-bold text-xl">3000 FCFA</span><button class="order-btn btn-primary !py-2 !px-5" data-item-name="Viande sauce tomate">Commander</button></div></div></div>
+            <div class="menu-item bg-white rounded-lg shadow-lg overflow-hidden flex flex-col" data-category="viandes"><img src="https://images.pexels.com/photos/12840330/pexels-photo-12840330.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Viande sauce gombo" class="w-full h-48 object-cover"><div class="p-6 flex flex-col flex-grow"><h3 class="text-2xl mb-2 text-black" style="font-family: 'Pacifico', cursive;">Viande sauce gombo</h3><div class="flex justify-between items-center mt-auto"><span class="text-black font-bold text-xl">3000 FCFA</span><button class="order-btn btn-primary !py-2 !px-5" data-item-name="Viande sauce gombo">Commander</button></div></div></div>
+            <div class="menu-item bg-white rounded-lg shadow-lg overflow-hidden flex flex-col" data-category="viandes"><img src="https://images.pexels.com/photos/5743253/pexels-photo-5743253.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Viande sauce jaune" class="w-full h-48 object-cover"><div class="p-6 flex flex-col flex-grow"><h3 class="text-2xl mb-2 text-black" style="font-family: 'Pacifico', cursive;">Viande sauce jaune</h3><div class="flex justify-between items-center mt-auto"><span class="text-black font-bold text-xl">3000 FCFA</span><button class="order-btn btn-primary !py-2 !px-5" data-item-name="Viande sauce jaune">Commander</button></div></div></div>
 
             <!-- Pâtes et Riz -->
-            <div class="menu-item bg-white rounded-lg shadow-lg overflow-hidden flex flex-col" data-category="pates-riz"><img src="https://via.placeholder.com/600x400" alt="Spaghetti nature" class="w-full h-48 object-cover"><div class="p-6 flex flex-col flex-grow"><h3 class="text-xl font-bold mb-2 text-primary-blue">Spaghetti nature</h3><div class="flex justify-between items-center mt-auto"><span class="text-primary-blue font-bold text-xl">1000 FCFA</span><button class="order-btn btn-primary !py-2 !px-5" data-item-name="Spaghetti nature">Commander</button></div></div></div>
-            <div class="menu-item bg-white rounded-lg shadow-lg overflow-hidden flex flex-col" data-category="pates-riz"><img src="https://via.placeholder.com/600x400" alt="Spaghetti sautés" class="w-full h-48 object-cover"><div class="p-6 flex flex-col flex-grow"><h3 class="text-xl font-bold mb-2 text-primary-blue">Spaghetti sautés</h3><div class="flex justify-between items-center mt-auto"><span class="text-primary-blue font-bold text-xl">1500 FCFA</span><button class="order-btn btn-primary !py-2 !px-5" data-item-name="Spaghetti sautés">Commander</button></div></div></div>
-            <div class="menu-item bg-white rounded-lg shadow-lg overflow-hidden flex flex-col" data-category="pates-riz"><img src="https://via.placeholder.com/600x400" alt="Spaghetti à la viande" class="w-full h-48 object-cover"><div class="p-6 flex flex-col flex-grow"><h3 class="text-xl font-bold mb-2 text-primary-blue">Spaghetti à la viande</h3><div class="flex justify-between items-center mt-auto"><span class="text-primary-blue font-bold text-xl">2000 FCFA</span><button class="order-btn btn-primary !py-2 !px-5" data-item-name="Spaghetti à la viande">Commander</button></div></div></div>
-            <div class="menu-item bg-white rounded-lg shadow-lg overflow-hidden flex flex-col" data-category="pates-riz"><img src="https://via.placeholder.com/600x400" alt="Spaghetti au poisson" class="w-full h-48 object-cover"><div class="p-6 flex flex-col flex-grow"><h3 class="text-xl font-bold mb-2 text-primary-blue">Spaghetti au poisson</h3><div class="flex justify-between items-center mt-auto"><span class="text-primary-blue font-bold text-xl">2000 FCFA</span><button class="order-btn btn-primary !py-2 !px-5" data-item-name="Spaghetti au poisson">Commander</button></div></div></div>
-            <div class="menu-item bg-white rounded-lg shadow-lg overflow-hidden flex flex-col" data-category="pates-riz"><img src="https://via.placeholder.com/600x400" alt="Spaghetti au poulet" class="w-full h-48 object-cover"><div class="p-6 flex flex-col flex-grow"><h3 class="text-xl font-bold mb-2 text-primary-blue">Spaghetti au poulet</h3><div class="flex justify-between items-center mt-auto"><span class="text-primary-blue font-bold text-xl">2000 FCFA</span><button class="order-btn btn-primary !py-2 !px-5" data-item-name="Spaghetti au poulet">Commander</button></div></div></div>
-            <div class="menu-item bg-white rounded-lg shadow-lg overflow-hidden flex flex-col" data-category="pates-riz"><img src="https://via.placeholder.com/600x400" alt="Riz nature" class="w-full h-48 object-cover"><div class="p-6 flex flex-col flex-grow"><h3 class="text-xl font-bold mb-2 text-primary-blue">Riz nature</h3><div class="flex justify-between items-center mt-auto"><span class="text-primary-blue font-bold text-xl">1000 FCFA</span><button class="order-btn btn-primary !py-2 !px-5" data-item-name="Riz nature">Commander</button></div></div></div>
-            <div class="menu-item bg-white rounded-lg shadow-lg overflow-hidden flex flex-col" data-category="pates-riz"><img src="https://via.placeholder.com/600x400" alt="Riz sauté" class="w-full h-48 object-cover"><div class="p-6 flex flex-col flex-grow"><h3 class="text-xl font-bold mb-2 text-primary-blue">Riz sauté</h3><div class="flex justify-between items-center mt-auto"><span class="text-primary-blue font-bold text-xl">1500 FCFA</span><button class="order-btn btn-primary !py-2 !px-5" data-item-name="Riz sauté">Commander</button></div></div></div>
-            <div class="menu-item bg-white rounded-lg shadow-lg overflow-hidden flex flex-col" data-category="pates-riz"><img src="https://via.placeholder.com/600x400" alt="Riz à la viande" class="w-full h-48 object-cover"><div class="p-6 flex flex-col flex-grow"><h3 class="text-xl font-bold mb-2 text-primary-blue">Riz à la viande</h3><div class="flex justify-between items-center mt-auto"><span class="text-primary-blue font-bold text-xl">2000 FCFA</span><button class="order-btn btn-primary !py-2 !px-5" data-item-name="Riz à la viande">Commander</button></div></div></div>
-            <div class="menu-item bg-white rounded-lg shadow-lg overflow-hidden flex flex-col" data-category="pates-riz"><img src="https://via.placeholder.com/600x400" alt="Riz au poisson" class="w-full h-48 object-cover"><div class="p-6 flex flex-col flex-grow"><h3 class="text-xl font-bold mb-2 text-primary-blue">Riz au poisson</h3><div class="flex justify-between items-center mt-auto"><span class="text-primary-blue font-bold text-xl">2000 FCFA</span><button class="order-btn btn-primary !py-2 !px-5" data-item-name="Riz au poisson">Commander</button></div></div></div>
-            <div class="menu-item bg-white rounded-lg shadow-lg overflow-hidden flex flex-col" data-category="pates-riz"><img src="https://via.placeholder.com/600x400" alt="Riz au poulet" class="w-full h-48 object-cover"><div class="p-6 flex flex-col flex-grow"><h3 class="text-xl font-bold mb-2 text-primary-blue">Riz au poulet</h3><div class="flex justify-between items-center mt-auto"><span class="text-primary-blue font-bold text-xl">2000 FCFA</span><button class="order-btn btn-primary !py-2 !px-5" data-item-name="Riz au poulet">Commander</button></div></div></div>
+            <div class="menu-item bg-white rounded-lg shadow-lg overflow-hidden flex flex-col" data-category="pates-riz"><img src="https://images.pexels.com/photos/1437267/pexels-photo-1437267.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Spaghetti nature" class="w-full h-48 object-cover"><div class="p-6 flex flex-col flex-grow"><h3 class="text-2xl mb-2 text-black" style="font-family: 'Pacifico', cursive;">Spaghetti nature</h3><div class="flex justify-between items-center mt-auto"><span class="text-black font-bold text-xl">1000 FCFA</span><button class="order-btn btn-primary !py-2 !px-5" data-item-name="Spaghetti nature">Commander</button></div></div></div>
+            <div class="menu-item bg-white rounded-lg shadow-lg overflow-hidden flex flex-col" data-category="pates-riz"><img src="https://images.pexels.com/photos/1279330/pexels-photo-1279330.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Spaghetti sautés" class="w-full h-48 object-cover"><div class="p-6 flex flex-col flex-grow"><h3 class="text-2xl mb-2 text-black" style="font-family: 'Pacifico', cursive;">Spaghetti sautés</h3><div class="flex justify-between items-center mt-auto"><span class="text-black font-bold text-xl">1500 FCFA</span><button class="order-btn btn-primary !py-2 !px-5" data-item-name="Spaghetti sautés">Commander</button></div></div></div>
+            <div class="menu-item bg-white rounded-lg shadow-lg overflow-hidden flex flex-col" data-category="pates-riz"><img src="https://images.pexels.com/photos/1438672/pexels-photo-1438672.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Spaghetti à la viande" class="w-full h-48 object-cover"><div class="p-6 flex flex-col flex-grow"><h3 class="text-2xl mb-2 text-black" style="font-family: 'Pacifico', cursive;">Spaghetti à la viande</h3><div class="flex justify-between items-center mt-auto"><span class="text-black font-bold text-xl">2000 FCFA</span><button class="order-btn btn-primary !py-2 !px-5" data-item-name="Spaghetti à la viande">Commander</button></div></div></div>
+            <div class="menu-item bg-white rounded-lg shadow-lg overflow-hidden flex flex-col" data-category="pates-riz"><img src="https://images.pexels.com/photos/2347311/pexels-photo-2347311.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Spaghetti au poisson" class="w-full h-48 object-cover"><div class="p-6 flex flex-col flex-grow"><h3 class="text-2xl mb-2 text-black" style="font-family: 'Pacifico', cursive;">Spaghetti au poisson</h3><div class="flex justify-between items-center mt-auto"><span class="text-black font-bold text-xl">2000 FCFA</span><button class="order-btn btn-primary !py-2 !px-5" data-item-name="Spaghetti au poisson">Commander</button></div></div></div>
+            <div class="menu-item bg-white rounded-lg shadow-lg overflow-hidden flex flex-col" data-category="pates-riz"><img src="https://images.pexels.com/photos/2703468/pexels-photo-2703468.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Spaghetti au poulet" class="w-full h-48 object-cover"><div class="p-6 flex flex-col flex-grow"><h3 class="text-2xl mb-2 text-black" style="font-family: 'Pacifico', cursive;">Spaghetti au poulet</h3><div class="flex justify-between items-center mt-auto"><span class="text-black font-bold text-xl">2000 FCFA</span><button class="order-btn btn-primary !py-2 !px-5" data-item-name="Spaghetti au poulet">Commander</button></div></div></div>
+            <div class="menu-item bg-white rounded-lg shadow-lg overflow-hidden flex flex-col" data-category="pates-riz"><img src="https://images.pexels.com/photos/1624487/pexels-photo-1624487.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Riz nature" class="w-full h-48 object-cover"><div class="p-6 flex flex-col flex-grow"><h3 class="text-2xl mb-2 text-black" style="font-family: 'Pacifico', cursive;">Riz nature</h3><div class="flex justify-between items-center mt-auto"><span class="text-black font-bold text-xl">1000 FCFA</span><button class="order-btn btn-primary !py-2 !px-5" data-item-name="Riz nature">Commander</button></div></div></div>
+            <div class="menu-item bg-white rounded-lg shadow-lg overflow-hidden flex flex-col" data-category="pates-riz"><img src="https://images.pexels.com/photos/723198/pexels-photo-723198.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Riz sauté" class="w-full h-48 object-cover"><div class="p-6 flex flex-col flex-grow"><h3 class="text-2xl mb-2 text-black" style="font-family: 'Pacifico', cursive;">Riz sauté</h3><div class="flex justify-between items-center mt-auto"><span class="text-black font-bold text-xl">1500 FCFA</span><button class="order-btn btn-primary !py-2 !px-5" data-item-name="Riz sauté">Commander</button></div></div></div>
+            <div class="menu-item bg-white rounded-lg shadow-lg overflow-hidden flex flex-col" data-category="pates-riz"><img src="https://images.pexels.com/photos/1527603/pexels-photo-1527603.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Riz à la viande" class="w-full h-48 object-cover"><div class="p-6 flex flex-col flex-grow"><h3 class="text-2xl mb-2 text-black" style="font-family: 'Pacifico', cursive;">Riz à la viande</h3><div class="flex justify-between items-center mt-auto"><span class="text-black font-bold text-xl">2000 FCFA</span><button class="order-btn btn-primary !py-2 !px-5" data-item-name="Riz à la viande">Commander</button></div></div></div>
+            <div class="menu-item bg-white rounded-lg shadow-lg overflow-hidden flex flex-col" data-category="pates-riz"><img src="https://images.pexels.com/photos/3926124/pexels-photo-3926124.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Riz au poisson" class="w-full h-48 object-cover"><div class="p-6 flex flex-col flex-grow"><h3 class="text-2xl mb-2 text-black" style="font-family: 'Pacifico', cursive;">Riz au poisson</h3><div class="flex justify-between items-center mt-auto"><span class="text-black font-bold text-xl">2000 FCFA</span><button class="order-btn btn-primary !py-2 !px-5" data-item-name="Riz au poisson">Commander</button></div></div></div>
+            <div class="menu-item bg-white rounded-lg shadow-lg overflow-hidden flex flex-col" data-category="pates-riz"><img src="https://images.pexels.com/photos/130858/pexels-photo-130858.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Riz au poulet" class="w-full h-48 object-cover"><div class="p-6 flex flex-col flex-grow"><h3 class="text-2xl mb-2 text-black" style="font-family: 'Pacifico', cursive;">Riz au poulet</h3><div class="flex justify-between items-center mt-auto"><span class="text-black font-bold text-xl">2000 FCFA</span><button class="order-btn btn-primary !py-2 !px-5" data-item-name="Riz au poulet">Commander</button></div></div></div>
 
             <!-- Sauces -->
-            <div class="menu-item bg-white rounded-lg shadow-lg overflow-hidden flex flex-col" data-category="sauces"><img src="https://via.placeholder.com/600x400" alt="Sauce tomate" class="w-full h-48 object-cover"><div class="p-6 flex flex-col flex-grow"><h3 class="text-xl font-bold mb-2 text-primary-blue">Sauce tomate</h3><div class="flex justify-between items-center mt-auto"><span class="text-primary-blue font-bold text-xl">1000 FCFA</span><button class="order-btn btn-primary !py-2 !px-5" data-item-name="Sauce tomate">Commander</button></div></div></div>
-            <div class="menu-item bg-white rounded-lg shadow-lg overflow-hidden flex flex-col" data-category="sauces"><img src="https://via.placeholder.com/600x400" alt="Sauce gombo" class="w-full h-48 object-cover"><div class="p-6 flex flex-col flex-grow"><h3 class="text-xl font-bold mb-2 text-primary-blue">Sauce gombo</h3><div class="flex justify-between items-center mt-auto"><span class="text-primary-blue font-bold text-xl">1000 FCFA</span><button class="order-btn btn-primary !py-2 !px-5" data-item-name="Sauce gombo">Commander</button></div></div></div>
-            <div class="menu-item bg-white rounded-lg shadow-lg overflow-hidden flex flex-col" data-category="sauces"><img src="https://via.placeholder.com/600x400" alt="Sauce jaune" class="w-full h-48 object-cover"><div class="p-6 flex flex-col flex-grow"><h3 class="text-xl font-bold mb-2 text-primary-blue">Sauce jaune</h3><div class="flex justify-between items-center mt-auto"><span class="text-primary-blue font-bold text-xl">1000 FCFA</span><button class="order-btn btn-primary !py-2 !px-5" data-item-name="Sauce jaune">Commander</button></div></div></div>
+            <div class="menu-item bg-white rounded-lg shadow-lg overflow-hidden flex flex-col" data-category="sauces"><img src="https://images.pexels.com/photos/2619970/pexels-photo-2619970.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Sauce tomate" class="w-full h-48 object-cover"><div class="p-6 flex flex-col flex-grow"><h3 class="text-2xl mb-2 text-black" style="font-family: 'Pacifico', cursive;">Sauce tomate</h3><div class="flex justify-between items-center mt-auto"><span class="text-black font-bold text-xl">1000 FCFA</span><button class="order-btn btn-primary !py-2 !px-5" data-item-name="Sauce tomate">Commander</button></div></div></div>
+            <div class="menu-item bg-white rounded-lg shadow-lg overflow-hidden flex flex-col" data-category="sauces"><img src="https://images.pexels.com/photos/12840330/pexels-photo-12840330.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Sauce gombo" class="w-full h-48 object-cover"><div class="p-6 flex flex-col flex-grow"><h3 class="text-2xl mb-2 text-black" style="font-family: 'Pacifico', cursive;">Sauce gombo</h3><div class="flex justify-between items-center mt-auto"><span class="text-black font-bold text-xl">1000 FCFA</span><button class="order-btn btn-primary !py-2 !px-5" data-item-name="Sauce gombo">Commander</button></div></div></div>
+            <div class="menu-item bg-white rounded-lg shadow-lg overflow-hidden flex flex-col" data-category="sauces"><img src="https://images.pexels.com/photos/5743253/pexels-photo-5743253.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Sauce jaune" class="w-full h-48 object-cover"><div class="p-6 flex flex-col flex-grow"><h3 class="text-2xl mb-2 text-black" style="font-family: 'Pacifico', cursive;">Sauce jaune</h3><div class="flex justify-between items-center mt-auto"><span class="text-black font-bold text-xl">1000 FCFA</span><button class="order-btn btn-primary !py-2 !px-5" data-item-name="Sauce jaune">Commander</button></div></div></div>
 
             <!-- Desserts -->
-            <div class="menu-item bg-white rounded-lg shadow-lg overflow-hidden flex flex-col" data-category="desserts"><img src="https://via.placeholder.com/600x400" alt="Glace" class="w-full h-48 object-cover"><div class="p-6 flex flex-col flex-grow"><h3 class="text-xl font-bold mb-2 text-primary-blue">Glace</h3><div class="flex justify-between items-center mt-auto"><span class="text-primary-blue font-bold text-xl">1000 FCFA</span><button class="order-btn btn-primary !py-2 !px-5" data-item-name="Glace">Commander</button></div></div></div>
-            <div class="menu-item bg-white rounded-lg shadow-lg overflow-hidden flex flex-col" data-category="desserts"><img src="https://via.placeholder.com/600x400" alt="Yaourt nature" class="w-full h-48 object-cover"><div class="p-6 flex flex-col flex-grow"><h3 class="text-xl font-bold mb-2 text-primary-blue">Yaourt nature</h3><div class="flex justify-between items-center mt-auto"><span class="text-primary-blue font-bold text-xl">1000 FCFA</span><button class="order-btn btn-primary !py-2 !px-5" data-item-name="Yaourt nature">Commander</button></div></div></div>
-            <div class="menu-item bg-white rounded-lg shadow-lg overflow-hidden flex flex-col" data-category="desserts"><img src="https://via.placeholder.com/600x400" alt="Yaourt aromatisé" class="w-full h-48 object-cover"><div class="p-6 flex flex-col flex-grow"><h3 class="text-xl font-bold mb-2 text-primary-blue">Yaourt aromatisé</h3><div class="flex justify-between items-center mt-auto"><span class="text-primary-blue font-bold text-xl">1500 FCFA</span><button class="order-btn btn-primary !py-2 !px-5" data-item-name="Yaourt aromatisé">Commander</button></div></div></div>
-            <div class="menu-item bg-white rounded-lg shadow-lg overflow-hidden flex flex-col" data-category="desserts"><img src="https://via.placeholder.com/600x400" alt="Coupe de fruits" class="w-full h-48 object-cover"><div class="p-6 flex flex-col flex-grow"><h3 class="text-xl font-bold mb-2 text-primary-blue">Coupe de fruits</h3><div class="flex justify-between items-center mt-auto"><span class="text-primary-blue font-bold text-xl">1500 FCFA</span><button class="order-btn btn-primary !py-2 !px-5" data-item-name="Coupe de fruits">Commander</button></div></div></div>
-            <div class="menu-item bg-white rounded-lg shadow-lg overflow-hidden flex flex-col" data-category="desserts"><img src="https://via.placeholder.com/600x400" alt="Cocktail de fruits" class="w-full h-48 object-cover"><div class="p-6 flex flex-col flex-grow"><h3 class="text-xl font-bold mb-2 text-primary-blue">Cocktail de fruits</h3><div class="flex justify-between items-center mt-auto"><span class="text-primary-blue font-bold text-xl">1500 FCFA</span><button class="order-btn btn-primary !py-2 !px-5" data-item-name="Cocktail de fruits">Commander</button></div></div></div>
-            <div class="menu-item bg-white rounded-lg shadow-lg overflow-hidden flex flex-col" data-category="desserts"><img src="https://via.placeholder.com/600x400" alt="Crêpes au chocolat" class="w-full h-48 object-cover"><div class="p-6 flex flex-col flex-grow"><h3 class="text-xl font-bold mb-2 text-primary-blue">Crêpes au chocolat</h3><div class="flex justify-between items-center mt-auto"><span class="text-primary-blue font-bold text-xl">1500 FCFA</span><button class="order-btn btn-primary !py-2 !px-5" data-item-name="Crêpes au chocolat">Commander</button></div></div></div>
+            <div class="menu-item bg-white rounded-lg shadow-lg overflow-hidden flex flex-col" data-category="desserts"><img src="https://images.pexels.com/photos/1362534/pexels-photo-1362534.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Glace" class="w-full h-48 object-cover"><div class="p-6 flex flex-col flex-grow"><h3 class="text-2xl mb-2 text-black" style="font-family: 'Pacifico', cursive;">Glace</h3><div class="flex justify-between items-center mt-auto"><span class="text-black font-bold text-xl">1000 FCFA</span><button class="order-btn btn-primary !py-2 !px-5" data-item-name="Glace">Commander</button></div></div></div>
+            <div class="menu-item bg-white rounded-lg shadow-lg overflow-hidden flex flex-col" data-category="desserts"><img src="https://images.pexels.com/photos/2373520/pexels-photo-2373520.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Yaourt nature" class="w-full h-48 object-cover"><div class="p-6 flex flex-col flex-grow"><h3 class="text-2xl mb-2 text-black" style="font-family: 'Pacifico', cursive;">Yaourt nature</h3><div class="flex justify-between items-center mt-auto"><span class="text-black font-bold text-xl">1000 FCFA</span><button class="order-btn btn-primary !py-2 !px-5" data-item-name="Yaourt nature">Commander</button></div></div></div>
+            <div class="menu-item bg-white rounded-lg shadow-lg overflow-hidden flex flex-col" data-category="desserts"><img src="https://images.pexels.com/photos/824635/pexels-photo-824635.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Yaourt aromatisé" class="w-full h-48 object-cover"><div class="p-6 flex flex-col flex-grow"><h3 class="text-2xl mb-2 text-black" style="font-family: 'Pacifico', cursive;">Yaourt aromatisé</h3><div class="flex justify-between items-center mt-auto"><span class="text-black font-bold text-xl">1500 FCFA</span><button class="order-btn btn-primary !py-2 !px-5" data-item-name="Yaourt aromatisé">Commander</button></div></div></div>
+            <div class="menu-item bg-white rounded-lg shadow-lg overflow-hidden flex flex-col" data-category="desserts"><img src="https://images.pexels.com/photos/1099680/pexels-photo-1099680.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Coupe de fruits" class="w-full h-48 object-cover"><div class="p-6 flex flex-col flex-grow"><h3 class="text-2xl mb-2 text-black" style="font-family: 'Pacifico', cursive;">Coupe de fruits</h3><div class="flex justify-between items-center mt-auto"><span class="text-black font-bold text-xl">1500 FCFA</span><button class="order-btn btn-primary !py-2 !px-5" data-item-name="Coupe de fruits">Commander</button></div></div></div>
+            <div class="menu-item bg-white rounded-lg shadow-lg overflow-hidden flex flex-col" data-category="desserts"><img src="https://images.pexels.com/photos/3186637/pexels-photo-3186637.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Cocktail de fruits" class="w-full h-48 object-cover"><div class="p-6 flex flex-col flex-grow"><h3 class="text-2xl mb-2 text-black" style="font-family: 'Pacifico', cursive;">Cocktail de fruits</h3><div class="flex justify-between items-center mt-auto"><span class="text-black font-bold text-xl">1500 FCFA</span><button class="order-btn btn-primary !py-2 !px-5" data-item-name="Cocktail de fruits">Commander</button></div></div></div>
+            <div class="menu-item bg-white rounded-lg shadow-lg overflow-hidden flex flex-col" data-category="desserts"><img src="https://images.pexels.com/photos/3026808/pexels-photo-3026808.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Crêpes au chocolat" class="w-full h-48 object-cover"><div class="p-6 flex flex-col flex-grow"><h3 class="text-2xl mb-2 text-black" style="font-family: 'Pacifico', cursive;">Crêpes au chocolat</h3><div class="flex justify-between items-center mt-auto"><span class="text-black font-bold text-xl">1500 FCFA</span><button class="order-btn btn-primary !py-2 !px-5" data-item-name="Crêpes au chocolat">Commander</button></div></div></div>
 
             <!-- Boissons (existantes) -->
             <div class="menu-item bg-white rounded-lg shadow-lg overflow-hidden flex flex-col transition-all duration-300 hover:-translate-y-1 hover:shadow-xl" data-category="boissons">
-                <img src="https://via.placeholder.com/600x400" alt="Jus de fruit naturel" class="w-full h-48 object-cover">
+                <img src="https://images.pexels.com/photos/4113831/pexels-photo-4113831.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Jus de fruit naturel" class="w-full h-48 object-cover">
                 <div class="p-6 flex flex-col flex-grow">
-                  <h3 class="text-xl font-bold mb-2 text-primary-blue">Jus de fruit naturel</h3>
+                  <h3 class="text-2xl mb-2 text-black" style="font-family: 'Pacifico', cursive;">Jus de fruit naturel</h3>
                   <div class="flex justify-between items-center mt-auto">
-                    <span class="text-primary-blue font-bold text-xl">1500 FCFA</span>
+                    <span class="text-black font-bold text-xl">1500 FCFA</span>
                     <button class="order-btn btn-primary !py-2 !px-5" data-item-name="Jus de fruit naturel">Commander</button>
                   </div>
                 </div>
             </div>
             <div class="menu-item bg-white rounded-lg shadow-lg overflow-hidden flex flex-col transition-all duration-300 hover:-translate-y-1 hover:shadow-xl" data-category="boissons">
-                <img src="https://via.placeholder.com/600x400" alt="Castel" class="w-full h-48 object-cover">
+                <img src="https://images.pexels.com/photos/1283219/pexels-photo-1283219.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Castel" class="w-full h-48 object-cover">
                 <div class="p-6 flex flex-col flex-grow">
-                  <h3 class="text-xl font-bold mb-2 text-primary-blue">Castel</h3>
+                  <h3 class="text-2xl mb-2 text-black" style="font-family: 'Pacifico', cursive;">Castel</h3>
                   <div class="flex justify-between items-center mt-auto">
-                    <span class="text-primary-blue font-bold text-xl">1000 FCFA</span>
+                    <span class="text-black font-bold text-xl">1000 FCFA</span>
                     <button class="order-btn btn-primary !py-2 !px-5" data-item-name="Castel">Commander</button>
                   </div>
                 </div>
             </div>
             <div class="menu-item bg-white rounded-lg shadow-lg overflow-hidden flex flex-col transition-all duration-300 hover:-translate-y-1 hover:shadow-xl" data-category="boissons">
-                <img src="https://via.placeholder.com/600x400" alt="Chivas Regal 12cl" class="w-full h-48 object-cover">
+                <img src="https://images.pexels.com/photos/2795025/pexels-photo-2795025.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Chivas Regal 12cl" class="w-full h-48 object-cover">
                 <div class="p-6 flex flex-col flex-grow">
-                  <h3 class="text-xl font-bold mb-2 text-primary-blue">Chivas Regal 12cl</h3>
+                  <h3 class="text-2xl mb-2 text-black" style="font-family: 'Pacifico', cursive;">Chivas Regal 12cl</h3>
                   <div class="flex justify-between items-center mt-auto">
-                    <span class="text-primary-blue font-bold text-xl">12000 FCFA</span>
+                    <span class="text-black font-bold text-xl">12000 FCFA</span>
                     <button class="order-btn btn-primary !py-2 !px-5" data-item-name="Chivas Regal 12cl">Commander</button>
                   </div>
                 </div>
             </div>
             <div class="menu-item bg-white rounded-lg shadow-lg overflow-hidden flex flex-col transition-all duration-300 hover:-translate-y-1 hover:shadow-xl" data-category="boissons">
-                <img src="https://via.placeholder.com/600x400" alt="William Peel 12cl" class="w-full h-48 object-cover">
+                <img src="https://images.pexels.com/photos/950710/pexels-photo-950710.jpeg?auto=compress&cs=tinysrgb&w=600" alt="William Peel 12cl" class="w-full h-48 object-cover">
                 <div class="p-6 flex flex-col flex-grow">
-                  <h3 class="text-xl font-bold mb-2 text-primary-blue">William Peel 12cl</h3>
+                  <h3 class="text-2xl mb-2 text-black" style="font-family: 'Pacifico', cursive;">William Peel 12cl</h3>
                   <div class="flex justify-between items-center mt-auto">
-                    <span class="text-primary-blue font-bold text-xl">10000 FCFA</span>
+                    <span class="text-black font-bold text-xl">10000 FCFA</span>
                     <button class="order-btn btn-primary !py-2 !px-5" data-item-name="William Peel 12cl">Commander</button>
                   </div>
                 </div>
@@ -232,6 +234,7 @@
             </div>
         </div>
     </section>
+
 <!-- Localisation -->
     <section class="py-16 bg-white px-4 scroll-reveal">
         <div class="container mx-auto">
@@ -250,11 +253,13 @@
         </div>
     </section>
 
+    
+
     <!-- Modal de Commande -->
-    <div id="orderModal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden items-center justify-center p-4">
+    <div id="orderModal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden items-center justify-center p-4" role="dialog" aria-modal="true" aria-labelledby="order-modal-title">
         <div class="bg-white rounded-lg shadow-xl p-6 md:p-8 max-w-md w-full">
             <div class="flex justify-between items-start mb-4">
-                <h3 class="text-2xl font-bold text-[#004aad]">Passer une commande</h3>
+                <h3 id="order-modal-title" class="text-2xl font-bold text-[#004aad]">Passer une commande</h3>
                 <button id="closeModalBtn" class="text-gray-500 hover:text-gray-800 text-3xl leading-none">&times;</button>
             </div>
             <p class="mb-6">Vous êtes sur le point de commander : <strong id="modalItemName" class="text-[#c32e27]"></strong></p>
@@ -265,11 +270,11 @@
                 </div>
                 <div class="mb-4">
                     <label for="customerName" class="block text-gray-700 mb-2 font-semibold">Votre Nom</label>
-                    <input type="text" id="customerName" name="customerName" required class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#004aad]">
+                    <input type="text" id="customerName" name="customerName" required class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#004aad]" autocomplete="name">
                 </div>
                 <div class="mb-6">
                     <label for="customerPhone" class="block text-gray-700 mb-2 font-semibold">Votre Téléphone</label>
-                    <input type="tel" id="customerPhone" name="customerPhone" required class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#004aad]">
+                    <input type="tel" id="customerPhone" name="customerPhone" required class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#004aad]" autocomplete="tel">
                 </div>
                 <button type="submit" class="w-full bg-primary-blue hover:bg-blue-800 text-white px-6 py-3 rounded-lg font-semibold transition-colors duration-300">Confirmer la commande</button>
             </form>
@@ -278,27 +283,16 @@
 
         <footer id="main-footer"></footer>
 
-    <script src="/main.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 
-    <script src="/script.js"></script>
-    <script src="/translations.js"></script>
-    <script src="/language.js"></script>
+    <script src="main.js"></script>
+
+    <script src="script.js"></script>
+    <script src="translations.js"></script>
+    <script src="language.js"></script>
     <script>
-      document.addEventListener("DOMContentLoaded", function () {
-          const elements = document.querySelectorAll(".scroll-reveal");
-          const revealOnScroll = () => {
-              const windowHeight = window.innerHeight;
-              elements.forEach(el => {
-                  const elementTop = el.getBoundingClientRect().top;
-                  if (elementTop < windowHeight - 50) {
-                      el.classList.add("visible");
-                  }
-              });
-          };
-          window.addEventListener("scroll", revealOnScroll);
-          revealOnScroll();
-      });
-
+      // Logique spécifique à la page restaurant (menu statique)
       document.addEventListener('DOMContentLoaded', () => {
         const menuItems = document.querySelectorAll('#menu-grid .menu-item');
         const filterButtons = document.querySelectorAll('#menu-filters .filter-btn');
@@ -409,7 +403,117 @@
             alert(`Erreur: ${error.message}`);
           }
         });
+
+        async function chargerTemoignages(categorie) {
+            try {
+                const response = await fetch(`/api/testimonials?category=${categorie}`);
+                if (!response.ok) throw new Error('Erreur de chargement des témoignages.');
+                const testimonials = await response.json();
+
+                const sliderWrapper = document.getElementById('testimonial-slider-wrapper');
+                const sliderContent = document.getElementById('testimonial-slider-content');
+                const sliderNav = document.getElementById('testimonial-slider-nav');
+
+                if (!testimonials || testimonials.length === 0) {
+                    sliderWrapper.innerHTML = `<p class="text-center text-white/70">Aucun témoignage pour la catégorie "${categorie}".</p>`;
+                    sliderWrapper.classList.remove('hidden');
+                    return;
+                }
+
+                sliderContent.innerHTML = testimonials.map(t => `
+                    <div class="testimonial-item">
+                        <p>"${t.quote}"</p>
+                        <div class="author-info">
+                            <span class="author-name">${t.name}</span>
+                        </div>
+                    </div>
+                `).join('');
+
+                sliderNav.innerHTML = testimonials.map(t => `
+                    <div>
+                        <img src="${t.image || 'images/placeholder-avatar.png'}" alt="${t.name}" class="author-image">
+                    </div>
+                `).join('');
+
+                $('#testimonial-slider-content').slick({
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                    arrows: false,
+                    fade: true,
+                    asNavFor: '#testimonial-slider-nav',
+                    autoplay: true,
+                    autoplaySpeed: 5000,
+                    pauseOnHover: true
+                });
+                $('#testimonial-slider-nav').slick({
+                    slidesToShow: 3,
+                    slidesToScroll: 1,
+                    asNavFor: '#testimonial-slider-content',
+                    dots: false,
+                    centerMode: true,
+                    focusOnSelect: true,
+                    arrows: false
+                });
+                sliderWrapper.classList.remove('hidden');
+            } catch (error) {
+                console.error(error);
+                document.getElementById('testimonial-slider-wrapper').innerHTML = `<p class="text-center text-yellow-400">${error.message}</p>`;
+            }
+        }
+        chargerTemoignages('Restaurant');
       });
+      ocument.addEventListener('DOMContentLoaded', () => chargerTemoignages());
+
+document.addEventListener('DOMContentLoaded', () => { // Correction: DOMContentLoaded au lieu de DOMContentLoaded
+    const showFormBtn = document.getElementById('show-testimonial-form-btn');
+    const testimonialModal = document.getElementById('testimonial-modal');
+    const closeBtn = document.getElementById('close-testimonial-modal-btn');
+
+    if (showFormBtn && testimonialModal && closeBtn) {
+        showFormBtn.addEventListener('click', () => {
+            testimonialModal.classList.remove('hidden');
+            testimonialModal.classList.add('flex');
+        });
+        closeBtn.addEventListener('click', () => {
+            testimonialModal.classList.add('hidden');
+            testimonialModal.classList.remove('flex');
+        });
+    }
+});
+
+document.getElementById('public-testimonial-form').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const messageDiv = document.getElementById('testimonial-form-message');
+    const formData = {
+        name: document.getElementById('public-testimonial-name').value,
+        category: document.getElementById('public-testimonial-category').value,
+        quote: document.getElementById('public-testimonial-quote').value,
+        rating: document.querySelector('input[name="rating"]:checked').value
+    };
+
+    try {
+        const response = await fetch('/api/testimonials', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(formData)
+        });
+        const result = await response.json();
+        if (!response.ok) throw new Error(result.error || 'Une erreur est survenue.');
+        
+        messageDiv.textContent = result.message;
+        messageDiv.className = 'bg-green-100 text-green-800 p-3 rounded-md text-center font-bold';
+        messageDiv.classList.remove('hidden');
+        document.getElementById('public-testimonial-form').reset();
+    } catch (error) {
+        messageDiv.textContent = `Erreur: ${error.message}`;
+        messageDiv.className = 'bg-red-100 text-red-800 p-3 rounded-md text-center font-bold';
+        messageDiv.classList.remove('hidden');
+    }
+});
+    </script>
+</body>
+</html>
+
     </script>
 </body>
 </html>

@@ -3,16 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mentions Légales - KemdeHolo</title>
-    <link href="/css/style.css" rel="stylesheet">
+    <title>Mentions Légales - KemdeHolo</title>    <link href="css/style.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        :root {
-            --bleu-principal: #C00000;
-            --rouge-accent: #c32e27;
-        }
         .prose h2 {
-            color: var(--bleu-principal);
+            color: #000000; /* noir */
             font-size: 1.5rem;
             font-weight: 700;
             margin-top: 2em;
@@ -25,33 +20,33 @@
             font-weight: 600;
             margin-top: 1.5em;
             margin-bottom: 0.5em;
-            color: #374151;
+            color: #000000; /* noir */
         }
     </style>
 </head>
 <body class="font-sans">
     <!-- Navigation -->
-    <header id="main-header"></header>
+    <div id="header-placeholder"></div>
 
     <!-- Contenu des Mentions Légales -->
     <main class="container mx-auto px-4 py-12">
         <div class="max-w-4xl mx-auto bg-white p-8 rounded-lg shadow-md">
-            <h1 class="text-3xl font-bold text-center mb-8 text-primary-blue">Mentions Légales</h1>
-            <article class="prose lg:prose-lg max-w-none">
-                <p class="text-center text-gray-500 mb-8">En vigueur au [DATE DE MISE EN VIGUEUR]</p>
+            <h1 class="text-3xl font-bold text-center mb-8 text-black">Mentions Légales</h1>
+            <article class="prose lg:prose-xl max-w-none">
+                <p class="text-center text-gray-500 mb-8">En vigueur au 1er Août 2024</p>
 
                 <p>Conformément aux dispositions des lois en vigueur, il est précisé aux utilisateurs du site kemdeholo.td l'identité des différents intervenants dans le cadre de sa réalisation et de son suivi.</p>
 
                 <h2>1. Édition du site</h2>
                 <p>Le présent site, accessible à l’URL www.kemdeholo.td (le « Site »), est édité par :</p>
-                <p><strong>[Nom de l'entreprise ou de la personne]</strong>, société au capital de [Montant] euros, inscrite au R.C.S. de [Ville] sous le numéro [Numéro RCS], dont le siège social est situé au [Adresse du siège social].</p>
-                <p>Le numéro individuel de TVA est : [Numéro de TVA].</p>
+                <p><strong>KemdeHolo SARL</strong>, société au capital de 1,000,000 FCFA, inscrite au R.C.S. de Moundou sous le numéro TCH-MOU-2003-B-123, dont le siège social est situé au 123 Avenue du Sahel, Moundou, Tchad.</p>
+                <p>Le numéro d'identification fiscale (NIF) est : [Numéro NIF à compléter].</p>
 
                 <h2>2. Hébergement</h2>
-                <p>Le Site est hébergé par la société [Nom de l'hébergeur], situé [Adresse de l'hébergeur], (contact téléphonique ou email : [Contact hébergeur]).</p>
+                <p>Le Site est hébergé par la société Vercel Inc., située au 340 S Lemon Ave #4133, Walnut, CA 91789, USA.</p>
 
                 <h2>3. Directeur de publication</h2>
-                <p>Le Directeur de la publication du Site est [Nom du directeur].</p>
+                <p>Le Directeur de la publication du Site est [Nom du Directeur/de la Directrice à compléter].</p>
 
                 <h2>4. Nous contacter</h2>
                 <ul>
@@ -65,6 +60,12 @@
 
                 <h2>6. Propriété intellectuelle</h2>
                 <p>L'ensemble de ce site relève de la législation tchadienne et internationale sur le droit d'auteur et la propriété intellectuelle. Tous les droits de reproduction sont réservés, y compris pour les documents téléchargeables et les représentations iconographiques et photographiques.</p>
+                
+                <h2>7. Utilisation des cookies</h2>
+                <p>Le Site peut collecter automatiquement des informations standards telles que les données de navigation. Toutes les informations collectées indirectement ne seront utilisées que pour suivre le volume, le type et la configuration du trafic utilisant ce Site, pour en développer la conception et l'agencement et à d'autres fins administratives et de planification.</p>
+
+                <h2>8. Limitation de responsabilité</h2>
+                <p>Les informations contenues sur ce site sont aussi précises que possible et le site est périodiquement remis à jour, mais peut toutefois contenir des inexactitudes, des omissions ou des lacunes. Si vous constatez une lacune, erreur ou ce qui parait être un dysfonctionnement, merci de bien vouloir le signaler par email, à l’adresse kemdeholo@gmail.com, en décrivant le problème de la manière la plus précise possible.</p>
 
             </article>
         </div>
@@ -73,8 +74,9 @@
     <!-- Footer -->
     <footer id="main-footer"></footer>
 
-    <script src="/main.js"></script>
-    <script src="/translations.js"></script>
-    <script src="/language.js"></script>
+    <script src="main.js"></script>
+    <script src="translations.js"></script>
+    <script src="language.js"></script>
+
 </body>
 </html>

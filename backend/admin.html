@@ -6,25 +6,25 @@
   <title>Admin - KemdeHolo</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
   <link href="/css/style.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
-<body class="bg-gray-100 font-sans">
-  <header class="bg-white shadow-md sticky top-0 z-50 mb-8">
+<body class="bg-black text-white font-sans">
+  <header class="bg-black shadow-md sticky top-0 z-50 mb-8">
     <div class="container mx-auto px-4 py-4 flex justify-between items-center">
-      <span class="text-2xl font-bold text-gray-800">Admin KemdeHolo</span>
-      <a href="index.html" class="btn-primary">Retour au site</a>
+      <span class="text-2xl font-bold text-white">Admin KemdeHolo</span>
+      <a href="index.html" class="bg-white hover:bg-opacity-90 text-black font-bold px-4 py-2 rounded-lg transition-colors">Retour au site</a>
     </div>
   </header>
   <main class="container mx-auto px-4">
-    <h1 class="text-3xl font-bold text-primary-blue mb-6">Gestion du site</h1>
+    <h1 class="text-3xl font-bold text-white mb-6">Gestion du site</h1>
     <section id="blog-section" class="mb-12">
-      <h2 class="text-2xl font-bold mb-4">Articles de blog</h2>
-      <form id="blog-form" class="flex flex-col gap-4 mb-4 bg-white p-4 rounded-lg shadow">
-        <div id="blog-error" class="text-red-600 font-bold"></div>
-        <input id="blog-titre" type="text" placeholder="Titre de l'article" required class="w-full px-3 py-2 rounded border border-gray-300 focus:border-primary-blue focus:ring-1 focus:ring-primary-blue">
-        <textarea id="blog-contenu" placeholder="Contenu de l'article" required rows="5" class="w-full px-3 py-2 rounded border border-gray-300 focus:border-primary-blue focus:ring-1 focus:ring-primary-blue"></textarea>
-        <input id="blog-image" type="file" accept="image/*" class="w-full px-3 py-2 rounded border border-gray-300 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-primary-blue file:text-white hover:file:bg-blue-800">
+      <h2 class="text-2xl font-bold mb-4 text-white flex items-center gap-3"><i class="fas fa-newspaper text-white/70"></i>Articles de blog</h2>
+      <form id="blog-form" class="flex flex-col gap-4 mb-4 bg-black p-4 rounded-lg shadow">
+        <div id="blog-error" class="text-yellow-400 font-bold"></div>
+        <input id="blog-titre" type="text" placeholder="Titre de l'article" required class="w-full px-3 py-2 rounded bg-black text-white border border-white/20 focus:border-white focus:ring-1 focus:ring-white">
+        <textarea id="blog-contenu" placeholder="Contenu de l'article" required rows="5" class="w-full px-3 py-2 rounded bg-black text-white border border-white/20 focus:border-white focus:ring-1 focus:ring-white"></textarea>        <input id="blog-image" type="file" accept="image/*" class="w-full px-3 py-2 rounded bg-black text-white border border-white/20 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-white file:text-black hover:file:bg-gray-200">
         <input id="blog-image-url" type="hidden">
-        <select id="blog-categorie" required class="w-full px-3 py-2 rounded border border-gray-300 focus:border-primary-blue focus:ring-1 focus:ring-primary-blue">
+        <select id="blog-categorie" required class="w-full px-3 py-2 rounded bg-black text-white border border-white/20 focus:border-white focus:ring-1 focus:ring-white">
           <option value="">-- Catégorie --</option>
           <option value="Cuisine">Cuisine</option>
           <option value="Tourisme">Tourisme</option>
@@ -32,136 +32,149 @@
         </select>
         <input type="hidden" id="blog-id">
         <div>
-          <button type="submit" id="blog-submit-btn" class="btn-primary">Ajouter l'article</button>
-          <button type="button" id="blog-cancel-btn" class="hidden ml-2 text-gray-600 hover:text-gray-900" onclick="annulerModificationBlog()">Annuler</button>
+          <button type="submit" id="blog-submit-btn" class="bg-white hover:bg-opacity-90 text-black font-bold px-4 py-2 rounded-lg transition-colors">Ajouter l'article</button>
+          <button type="button" id="blog-cancel-btn" class="hidden ml-4 text-black bg-gray-300 hover:bg-gray-400 font-semibold px-4 py-2 rounded-lg" onclick="annulerModificationBlog()">Annuler</button>
         </div>
       </form>
-      <input type="search" id="search-blog" onkeyup="filterContent('search-blog', 'blog-list', 'li')" placeholder="Rechercher un article..." class="w-full mb-4 px-3 py-2 rounded border border-gray-300">
+      <input type="search" id="search-blog" onkeyup="filterContent('search-blog', 'blog-list', 'li')" placeholder="Rechercher un article..." class="w-full mb-4 px-3 py-2 rounded bg-black text-white border border-white/20">
       <ul id="blog-list" class="mb-8"></ul>
+      <div id="blog-pagination" class="pagination-controls"></div>
     </section>
     <section class="mb-12">
-      <h2 class="text-2xl font-bold mb-4">Commandes reçues</h2>
-      <input type="search" id="search-orders" onkeyup="filterContent('search-orders', 'orders-table', 'tr')" placeholder="Rechercher une commande..." class="w-full mb-4 px-3 py-2 rounded border border-gray-300">
-      <table class="w-full bg-white rounded shadow">
-        <thead class="bg-primary-blue text-white">
+      <h2 class="text-2xl font-bold mb-4 text-white flex items-center gap-3"><i class="fas fa-receipt text-white/70"></i>Commandes reçues</h2>
+      <input type="search" id="search-orders" onkeyup="filterContent('search-orders', 'orders-table', 'tr')" placeholder="Rechercher une commande..." class="w-full mb-4 px-3 py-2 rounded bg-black text-white border border-white/20">
+      <table class="w-full bg-black rounded shadow">
+        <thead class="bg-white/10 text-white border-b-2 border-white/30">
           <tr>
-            <th class="p-2">Plat</th>
-            <th class="p-2">Quantité</th>
-            <th class="p-2">Client</th>
-            <th class="p-2">Téléphone</th>
-            <th class="p-2">Date</th>
-            <th class="p-2">Statut / Action</th>
+            <th class="p-3 text-left">Plat</th>
+            <th class="p-3 text-left">Quantité</th>
+            <th class="p-3 text-left">Client</th>
+            <th class="p-3 text-left">Téléphone</th>
+            <th class="p-3 text-left">Date</th>
+            <th class="p-3 text-left">Statut / Action</th>
           </tr>
         </thead>
         <tbody id="orders-table">
           <!-- Les commandes seront chargées ici -->
         </tbody>
       </table>
+      <div id="orders-pagination" class="pagination-controls"></div>
     </section>
     <section class="mb-12">
-      <h2 class="text-2xl font-bold mb-4">Messages de contact reçus</h2>
-      <input type="search" id="search-contacts" onkeyup="filterContent('search-contacts', 'contacts-table', 'tr')" placeholder="Rechercher un message..." class="w-full mb-4 px-3 py-2 rounded border border-gray-300">
-      <table class="w-full bg-white rounded shadow">
-        <thead class="bg-primary-blue text-white">
+      <h2 class="text-2xl font-bold mb-4 text-white flex items-center gap-3"><i class="fas fa-inbox text-white/70"></i>Messages de contact reçus</h2>
+      <input type="search" id="search-contacts" onkeyup="filterContent('search-contacts', 'contacts-table', 'tr')" placeholder="Rechercher un message..." class="w-full mb-4 px-3 py-2 rounded bg-black text-white border border-white/20">
+      <table class="w-full bg-black rounded shadow">
+        <thead class="bg-white/10 text-white border-b-2 border-white/30">
           <tr>
-            <th class="p-2">Prénom</th>
-            <th class="p-2">Nom</th>
-            <th class="p-2">Email</th>
-            <th class="p-2">Sujet</th>
-            <th class="p-2">Message</th>
-            <th class="p-2">Date</th>
-            <th class="p-2">Action</th>
+            <th class="p-3 text-left">Prénom</th>
+            <th class="p-3 text-left">Nom</th>
+            <th class="p-3 text-left">Email</th>
+            <th class="p-3 text-left">Sujet</th>
+            <th class="p-3 text-left">Message</th>
+            <th class="p-3 text-left">Date</th>
+            <th class="p-3 text-left">Action</th>
           </tr>
         </thead>
         <tbody id="contacts-table"></tbody>
       </table>
+      <div id="contacts-pagination" class="pagination-controls"></div>
     </section>
     <section class="mb-12">
-      <h2 class="text-2xl font-bold mb-4">Commentaires du blog</h2>
-      <input type="search" id="search-comments" onkeyup="filterContent('search-comments', 'comments-table', 'tr')" placeholder="Rechercher un commentaire..." class="w-full mb-4 px-3 py-2 rounded border border-gray-300">
-      <table class="w-full bg-white rounded shadow">
-        <thead class="bg-primary-blue text-white">
+      <h2 class="text-2xl font-bold mb-4 text-white flex items-center gap-3"><i class="fas fa-comments text-white/70"></i>Commentaires du blog</h2>
+      <input type="search" id="search-comments" onkeyup="filterContent('search-comments', 'comments-table', 'tr')" placeholder="Rechercher un commentaire..." class="w-full mb-4 px-3 py-2 rounded bg-black text-white border border-white/20">
+      <table class="w-full bg-black rounded shadow">
+        <thead class="bg-white/10 text-white border-b-2 border-white/30">
           <tr>
-            <th class="p-2">Nom</th>
-            <th class="p-2">Article</th>
-            <th class="p-2">Commentaire</th>
-            <th class="p-2">Date</th>
-            <th class="p-2">Action</th>
+            <th class="p-3 text-left">Nom</th>
+            <th class="p-3 text-left">Article</th>
+            <th class="p-3 text-left">Commentaire</th>
+            <th class="p-3 text-left">Date</th>
+            <th class="p-3 text-left">Action</th>
           </tr>
         </thead>
         <tbody id="comments-table"></tbody>
       </table>
+      <div id="comments-pagination" a="pagination-controls"></div>
     </section>
     <section class="mb-12">
-      <h2 class="text-2xl font-bold mb-4">Abonnés à la newsletter</h2>
-      <input type="search" id="search-subscribers" onkeyup="filterContent('search-subscribers', 'subscribers-table', 'tr')" placeholder="Rechercher un email..." class="w-full mb-4 px-3 py-2 rounded border border-gray-300">
-      <table class="w-full bg-white rounded shadow">
-        <thead class="bg-primary-blue text-white">
+      <h2 class="text-2xl font-bold mb-4 text-white flex items-center gap-3"><i class="fas fa-at text-white/70"></i>Abonnés à la newsletter</h2>
+      <input type="search" id="search-subscribers" onkeyup="filterContent('search-subscribers', 'subscribers-table', 'tr')" placeholder="Rechercher un email..." class="w-full mb-4 px-3 py-2 rounded bg-black text-white border border-white/20">
+      <table class="w-full bg-black rounded shadow">
+        <thead class="bg-white/10 text-white border-b-2 border-white/30">
           <tr>
-            <th class="p-2">Email</th>
-            <th class="p-2">Date d'abonnement</th>
-            <th class="p-2">Action</th>
+            <th class="p-3 text-left">Email</th>
+            <th class="p-3 text-left">Date d'abonnement</th>
+            <th class="p-3 text-left">Action</th>
           </tr>
         </thead>
         <tbody id="subscribers-table"></tbody>
       </table>
+      <div id="subscribers-pagination" class="pagination-controls"></div>
     </section>
     <section class="mb-12">
-      <h2 class="text-2xl font-bold mb-4">Réservations de chambres</h2>
-      <input type="search" id="search-reservations" onkeyup="filterContent('search-reservations', 'reservations-table', 'tr')" placeholder="Rechercher une réservation..." class="w-full mb-4 px-3 py-2 rounded border border-gray-300">
-      <table class="w-full bg-white rounded shadow text-sm">
-        <thead class="bg-primary-blue text-white">
+      <h2 class="text-2xl font-bold mb-4 text-white flex items-center gap-3"><i class="fas fa-bed text-white/70"></i>Réservations de chambres</h2>
+      <input type="search" id="search-reservations" onkeyup="filterContent('search-reservations', 'reservations-table', 'tr')" placeholder="Rechercher une réservation..." class="w-full mb-4 px-3 py-2 rounded bg-black text-white border border-white/20">
+      <table class="w-full bg-black rounded shadow text-sm">
+        <thead class="bg-white/10 text-white border-b-2 border-white/30">
           <tr>
-            <th class="p-2">Client</th>
-            <th class="p-2">Chambre</th>
-            <th class="p-2">Arrivée</th>
-            <th class="p-2">Départ</th>
-            <th class="p-2">Demandes</th>
-            <th class="p-2">Date Demande</th>
-            <th class="p-2">Statut</th>
-            <th class="p-2">Action</th>
+            <th class="p-3 text-left">Client</th>
+            <th class="p-3 text-left">Chambre</th>
+            <th class="p-3 text-left">Arrivée</th>
+            <th class="p-3 text-left">Départ</th>
+            <th class="p-3 text-left">Demandes</th>
+            <th class="p-3 text-left">Date Demande</th>
+            <th class="p-3 text-left">Statut</th>
+            <th class="p-3 text-left">Action</th>
           </tr>
         </thead>
         <tbody id="reservations-table">
           <!-- Les réservations seront chargées ici -->
         </tbody>
       </table>
+      <div id="reservations-pagination" class="pagination-controls"></div>
     </section>
     <section class="mb-12">
-      <h2 class="text-2xl font-bold mb-4">Gestion des Membres de l'Équipe</h2>
-      <form id="team-form" class="flex flex-col gap-4 mb-4 bg-white p-4 rounded-lg shadow">
+      <h2 class="text-2xl font-bold mb-4 text-white flex items-center gap-3"><i class="fas fa-users text-white/70"></i>Gestion des Membres de l'Équipe</h2>
+      <form id="team-form" class="flex flex-col gap-4 mb-4 bg-black p-4 rounded-lg shadow">
         <input type="hidden" id="team-id">
         <input type="hidden" id="team-image-url">
-        <input id="team-nom" type="text" placeholder="Nom du membre" required class="w-full px-3 py-2 rounded border border-gray-300">
-        <input id="team-role" type="text" placeholder="Rôle" required class="w-full px-3 py-2 rounded border border-gray-300">
-        <textarea id="team-description" placeholder="Description" rows="2" class="w-full px-3 py-2 rounded border border-gray-300"></textarea>
-        <input id="team-image" type="file" accept="image/*" class="w-full px-3 py-2 rounded border border-gray-300 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-primary-blue file:text-white hover:file:bg-blue-800">
+        <input id="team-nom" type="text" placeholder="Nom du membre" required class="w-full px-3 py-2 rounded bg-black text-white border border-white/20">
+        <input id="team-role" type="text" placeholder="Rôle" required class="w-full px-3 py-2 rounded bg-black text-white border border-white/20">
+        <textarea id="team-description" placeholder="Description" rows="2" class="w-full px-3 py-2 rounded bg-black text-white border border-white/20"></textarea>
+        <input id="team-image" type="file" accept="image/*" class="w-full px-3 py-2 rounded bg-black text-white border border-white/20 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-white file:text-black hover:file:bg-gray-200">
         <div>
-          <button type="submit" id="team-submit-btn" class="btn-primary">Ajouter</button>
-          <button type="button" id="team-cancel-btn" class="hidden ml-2 text-gray-600 hover:text-gray-900" onclick="annulerModificationEquipe()">Annuler</button>
+          <button type="submit" id="team-submit-btn" class="bg-white hover:bg-opacity-90 text-black font-bold px-4 py-2 rounded-lg transition-colors">Ajouter</button>
+          <button type="button" id="team-cancel-btn" class="hidden ml-4 text-black bg-gray-300 hover:bg-gray-400 font-semibold px-4 py-2 rounded-lg" onclick="annulerModificationEquipe()">Annuler</button>
         </div>
       </form>
-      <input type="search" id="search-team" onkeyup="filterContent('search-team', 'team-table', 'tr')" placeholder="Rechercher un membre..." class="w-full mb-4 px-3 py-2 rounded border border-gray-300">
-      <table class="w-full bg-white rounded shadow">
-        <thead class="bg-primary-blue text-white">
+      <input type="search" id="search-team" onkeyup="filterContent('search-team', 'team-table', 'tr')" placeholder="Rechercher un membre..." class="w-full mb-4 px-3 py-2 rounded bg-black text-white border border-white/20">
+      <table class="w-full bg-black rounded shadow">
+        <thead class="bg-white/10 text-white border-b-2 border-white/30">
           <tr>
-            <th class="p-2">Nom</th>
-            <th class="p-2">Rôle</th>
-            <th class="p-2">Action</th>
+            <th class="p-3 text-left">Nom</th>
+            <th class="p-3 text-left">Rôle</th>
+            <th class="p-3 text-left">Action</th>
           </tr>
         </thead>
         <tbody id="team-table"></tbody>
       </table>
+      <div id="team-pagination" class="pagination-controls"></div>
     </section>
     <section class="mb-12">
-      <h2 class="text-2xl font-bold mb-4">Gestion des Témoignages</h2>
-      <form id="testimonial-form" class="flex flex-col gap-4 mb-4 bg-white p-4 rounded-lg shadow">
+      <h2 class="text-2xl font-bold mb-4 text-white flex items-center gap-3"><i class="fas fa-star text-white/70"></i>Gestion des Témoignages</h2>
+      <form id="testimonial-form" class="flex flex-col gap-4 mb-4 bg-black p-4 rounded-lg shadow">
         <input type="hidden" id="testimonial-id">
         <input type="hidden" id="testimonial-image-url">
-        <input id="testimonial-name" type="text" placeholder="Nom du client" required class="w-full px-3 py-2 rounded border border-gray-300">
-        <textarea id="testimonial-quote" placeholder="Citation du client" required rows="3" class="w-full px-3 py-2 rounded border border-gray-300"></textarea>
-        <input id="testimonial-image" type="file" accept="image/*" class="w-full px-3 py-2 rounded border border-gray-300 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-primary-blue file:text-white hover:file:bg-blue-800">
-        <select id="testimonial-rating" required class="w-full px-3 py-2 rounded border border-gray-300">
+        <input id="testimonial-name" type="text" placeholder="Nom du client" required class="w-full px-3 py-2 rounded bg-black text-white border border-white/20">
+        <select id="testimonial-category" required class="w-full px-3 py-2 rounded bg-black text-white border border-white/20">
+          <option value="">-- Catégorie du témoignage --</option>
+          <option value="Restaurant">Restaurant</option>
+          <option value="Hebergement">Hébergement</option>
+          <option value="Formation">Formation</option>
+          <option value="Blanchisserie">Blanchisserie</option>
+        </select>
+        <textarea id="testimonial-quote" placeholder="Citation du client" required rows="3" class="w-full px-3 py-2 rounded bg-black text-white border border-white/20"></textarea>        <input id="testimonial-image" type="file" accept="image/*" class="w-full px-3 py-2 rounded bg-black text-white border border-white/20 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-white file:text-black hover:file:bg-gray-200">
+        <select id="testimonial-rating" required class="w-full px-3 py-2 rounded bg-black text-white border border-white/20">
           <option value="">-- Note --</option>
           <option value="5">5 étoiles</option>
           <option value="4">4 étoiles</option>
@@ -169,35 +182,54 @@
           <option value="2">2 étoiles</option>
           <option value="1">1 étoile</option>
         </select>
-        <select id="testimonial-status" class="w-full px-3 py-2 rounded border border-gray-300">
+        <select id="testimonial-status" class="w-full px-3 py-2 rounded bg-black text-white border border-white/20">
           <option value="approved">Approuvé</option>
           <option value="pending">En attente</option>
         </select>
         <div>
-          <button type="submit" id="testimonial-submit-btn" class="btn-primary">Ajouter le témoignage</button>
-          <button type="button" id="testimonial-cancel-btn" class="hidden ml-2 text-gray-600 hover:text-gray-900" onclick="annulerModificationTestimonial()">Annuler</button>
+          <button type="submit" id="testimonial-submit-btn" class="bg-white hover:bg-opacity-90 text-black font-bold px-4 py-2 rounded-lg transition-colors">Ajouter le témoignage</button>
+          <button type="button" id="testimonial-cancel-btn" class="hidden ml-4 text-black bg-gray-300 hover:bg-gray-400 font-semibold px-4 py-2 rounded-lg" onclick="annulerModificationTestimonial()">Annuler</button>
         </div>
       </form>
-      <input type="search" id="search-testimonials" onkeyup="filterContent('search-testimonials', 'testimonial-table', 'tr')" placeholder="Rechercher un témoignage..." class="w-full mb-4 px-3 py-2 rounded border border-gray-300">
-      <table class="w-full bg-white rounded shadow">
-        <thead class="bg-primary-blue text-white">
+      <input type="search" id="search-testimonials" onkeyup="filterContent('search-testimonials', 'testimonial-table', 'tr')" placeholder="Rechercher un témoignage..." class="w-full mb-4 px-3 py-2 rounded bg-black text-white border border-white/20">
+      <table class="w-full bg-black rounded shadow">
+        <thead class="bg-white/10 text-white border-b-2 border-white/30">
           <tr>
-            <th class="p-2">Nom</th>
-            <th class="p-2">Citation</th>
-            <th class="p-2">Note</th>
-            <th class="p-2">Statut</th>
-            <th class="p-2">Action</th>
+            <th class="p-3 text-left">Nom</th>
+            <th class="p-3 text-left">Citation</th>
+            <th class="p-3 text-left">Note</th>
+            <th class="p-3 text-left">Catégorie</th>
+            <th class="p-3 text-left">Statut</th>
+            <th class="p-3 text-left">Action</th>
           </tr>
         </thead>
         <tbody id="testimonial-table">
           <!-- Les témoignages seront chargés ici -->
         </tbody>
       </table>
+      <div id="testimonial-pagination" class="pagination-controls"></div>
+    </section>
+       <section class="mb-12">
+      <h2 class="text-2xl font-bold mb-4 text-white flex items-center gap-3"><i class="fas fa-graduation-cap text-white/70"></i>Inscriptions à la formation</h2>
+      <input type="search" id="search-formation-registrations" onkeyup="filterContent('search-formation-registrations', 'formation-registrations-table', 'tr')" placeholder="Rechercher une inscription..." class="w-full mb-4 px-3 py-2 rounded bg-black text-white border border-white/20">
+      <table class="w-full bg-black rounded shadow">
+        <thead class="bg-white/10 text-white border-b-2 border-white/30">
+          <tr>
+            <th class="p-3 text-left">Nom</th>
+            <th class="p-3 text-left">Email</th>
+            <th class="p-3 text-left">Téléphone</th>
+            <th class="p-3 text-left">Formation</th>
+            <th class="p-3 text-left">Date d'inscription</th>
+          </tr>
+        </thead>
+        <tbody id="formation-registrations-table"></tbody>
+      </table>
+      <div id="formation-registrations-pagination" class="pagination-controls"></div>
     </section>
 
 </main>
   <script>
-    // Gestion admin complète
+    // --- CONFIGURATION ET UTILITAIRES ---
    function getAdminToken() {
       const token = localStorage.getItem('adminToken') || '';
       return `Bearer ${token}`;
@@ -239,38 +271,98 @@
       }
     }
 
+    // --- GESTION DE LA PAGINATION ---
+    const pageState = {
+      blog: { data: [], currentPage: 1, itemsPerPage: 5 },
+      orders: { data: [], currentPage: 1, itemsPerPage: 10, render: renderCommandes },
+      contacts: { data: [], currentPage: 1, itemsPerPage: 10, render: renderContacts },
+      comments: { data: [], currentPage: 1, itemsPerPage: 10, render: renderCommentaires },
+      subscribers: { data: [], currentPage: 1, itemsPerPage: 10, render: renderAbonnes },
+      reservations: { data: [], currentPage: 1, itemsPerPage: 5, render: renderReservations },
+      team: { data: [], currentPage: 1, itemsPerPage: 5, render: renderEquipe },
+      testimonials: { data: [], currentPage: 1, itemsPerPage: 5, render: renderTestimonials },
+            formationRegistrations: { data: [], currentPage: 1, itemsPerPage: 10, render: renderFormationRegistrations },
+    };
+
+    function renderPaginationControls(section, totalItems) {
+      const { currentPage, itemsPerPage } = pageState[section];
+      const totalPages = Math.ceil(totalItems / itemsPerPage);
+      const container = document.getElementById(`${section}-pagination`);
+      if (!container || totalPages <= 1) {
+        if(container) container.innerHTML = '';
+        return;
+      }
+
+      let html = '<div class="flex justify-center items-center gap-2 mt-4">';
+      // Bouton Précédent
+      html += `<button onclick="changePage('${section}', ${currentPage - 1})" class="px-3 py-1 rounded-md bg-white text-black font-bold ${currentPage === 1 ? 'opacity-50 cursor-not-allowed' : 'hover:bg-opacity-80'}" ${currentPage === 1 ? 'disabled' : ''}>Précédent</button>`;
+
+      // Numéros de page
+      for (let i = 1; i <= totalPages; i++) {
+        html += `<button onclick="changePage('${section}', ${i})" class="px-3 py-1 rounded-md font-bold ${i === currentPage ? 'bg-white/30 text-white' : 'bg-white text-black hover:bg-opacity-80'}">${i}</button>`;
+      }
+
+      // Bouton Suivant
+      html += `<button onclick="changePage('${section}', ${currentPage + 1})" class="px-3 py-1 rounded-md bg-white text-black font-bold ${currentPage === totalPages ? 'opacity-50 cursor-not-allowed' : 'hover:bg-opacity-80'}" ${currentPage === totalPages ? 'disabled' : ''}>Suivant</button>`;
+      html += '</div>';
+      container.innerHTML = html;
+    }
+
+    function changePage(section, newPage) {
+      pageState[section].currentPage = newPage;
+      // Chaque section a sa propre fonction pour redessiner ses données
+      const state = pageState[section];
+      if (state && typeof state.render === 'function') {
+        state.render();
+      }
+    }
+
+    function getPaginatedData(section) {
+        const { data, currentPage, itemsPerPage } = pageState[section];
+        const startIndex = (currentPage - 1) * itemsPerPage;
+        const endIndex = startIndex + itemsPerPage;
+        return data.slice(startIndex, endIndex);
+    }
+
     // --- Gestion du Blog ---
     async function chargerBlog() {
       const res = await fetch('/admin/blog', { headers: { 'Authorization': getAdminToken() } });
       if (res.status === 403) { window.location.href = 'admin-login.html'; return; }
       
-      const ul = document.getElementById('blog-list');
       try { // Correction du bloc try-catch
         if (!res.ok) { // Gestion d'erreur améliorée
           throw new Error(`Erreur HTTP: ${res.status}`);
         }
-        const data = await res.json();
-        if (!data || data.length === 0) {
-          ul.innerHTML = '<li class="text-gray-500">Aucun article de blog trouvé.</li>';
+        pageState.blog.data = await res.json();
+        pageState.blog.currentPage = 1;
+        renderBlog();
+      } catch (err) {
+        console.error('Erreur lors du chargement du blog:', err);
+        document.getElementById('blog-list').innerHTML = `<li class="text-red-500">Erreur lors du chargement des articles: ${err.message}</li>`;
+      }
+    }
+
+    function renderBlog() {
+        const ul = document.getElementById('blog-list');
+        const paginatedData = getPaginatedData('blog');
+        if (!paginatedData || paginatedData.length === 0) {
+          ul.innerHTML = '<li class="text-gray-400">Aucun article de blog trouvé.</li>';
         } else {
-          ul.innerHTML = data.map(a => `
-            <li class="mb-4 p-4 bg-white rounded-lg shadow flex justify-between items-start" id="article-${a.id}">
+          ul.innerHTML = paginatedData.map(a => `
+            <li class="mb-4 p-4 bg-black rounded-lg shadow border border-white/10 flex justify-between items-start" id="article-${a.id}">
                 <div>
-                    <h3 class="text-xl font-bold">${a.titre}</h3>
-                    <p class="text-sm text-gray-500">Catégorie: ${a.categorie || 'Non classé'} | Publié le: ${new Date(a.date || a.createdAt).toLocaleDateString()}</p>
+                    <h3 class="text-xl font-bold text-white">${a.titre}</h3>
+                    <p class="text-sm text-white/50">Catégorie: ${a.categorie || 'Non classé'} | Publié le: ${new Date(a.date || a.createdAt).toLocaleDateString()}</p>
                     <p class="mt-2">${(a.contenu || '').substring(0, 150)}...</p>
                 </div>
                 <div class="flex-shrink-0 ml-4">
-                    <button onclick="modifierBlog(${a.id})" class="text-blue-600 hover:text-blue-800 mr-2">Modifier</button>
-                    <button onclick="supprimerBlog(${a.id})" class="text-red-600 hover:text-red-800">Supprimer</button>
+                    <button onclick="modifierBlog(${a.id})" class="bg-white text-black px-3 py-1 rounded-md text-sm hover:bg-opacity-90 transition-colors font-bold mr-2">Modifier</button>
+                    <button onclick="supprimerBlog(${a.id})" class="bg-white text-black px-3 py-1 rounded-md text-sm hover:bg-opacity-90 transition-colors font-bold">Supprimer</button>
                 </div>
             </li>
           `).join('');
         }
-      } catch (err) {
-        console.error('Erreur lors du chargement du blog:', err);
-        ul.innerHTML = `<li class="text-red-500">Erreur lors du chargement des articles: ${err.message}</li>`;
-      }
+        renderPaginationControls('blog', pageState.blog.data.length);
     }
 
     async function sauvegarderBlog(e) {
@@ -332,7 +424,7 @@
     function annulerModificationBlog() {
       document.getElementById('blog-form').reset();
       document.getElementById('blog-id').value = '';
-      document.getElementById('blog-submit-btn').textContent = 'Ajouter article';
+      document.getElementById('blog-submit-btn').textContent = 'Ajouter l\'article';
       document.getElementById('blog-cancel-btn').classList.add('hidden');
       document.getElementById('blog-image-url').value = '';
       document.getElementById('blog-error').textContent = '';
@@ -368,23 +460,31 @@
     async function chargerContacts() {
       const res = await fetch('/admin/contacts', { headers: { 'Authorization': getAdminToken() } });
       if (res.status === 403) { window.location.href = 'admin-login.html'; return; }
-      const data = await res.json();
-      const tbody = document.getElementById('contacts-table'); // Correction: la variable était mal nommée
-      if (data && data.length > 0) { // data est maintenant un tableau
-        tbody.innerHTML = data.map(c => `
-          <tr class="border-b">
-            <td class="p-2 border">${c.prenom || ''}</td>
-            <td class="p-2 border">${c.nom}</td>
-            <td class="p-2 border">${c.email}</td>
-            <td class="p-2 border">${c.sujet || ''}</td>
-            <td class="p-2 border">${c.message}</td>
-            <td class="p-2 border">${new Date(c.createdAt).toLocaleString()}</td>
-            <td class="p-2 border"><button onclick="supprimerContact(${c.id})" class="text-red-600">Supprimer</button></td>
+      pageState.contacts.data = await res.json();
+      pageState.contacts.currentPage = 1;
+      renderContacts();
+    }
+
+    function renderContacts() {
+      const tbody = document.getElementById('contacts-table');
+      const paginatedData = getPaginatedData('contacts');
+
+      if (paginatedData && paginatedData.length > 0) {
+        tbody.innerHTML = paginatedData.map((c, index) => `
+          <tr class="border-b border-white/10 hover:bg-white/5 ${index % 2 === 0 ? 'bg-black' : 'bg-white/5'}">
+            <td class="p-3">${c.prenom || ''}</td>
+            <td class="p-3">${c.nom}</td>
+            <td class="p-3">${c.email}</td>
+            <td class="p-3">${c.sujet || ''}</td>
+            <td class="p-3">${c.message}</td>
+            <td class="p-3">${new Date(c.createdAt).toLocaleString()}</td>
+            <td class="p-3"><button onclick="supprimerContact(${c.id})" class="bg-white text-black px-3 py-1 rounded-md text-sm hover:bg-opacity-90 transition-colors font-bold">Supprimer</button></td>
           </tr>
         `).join('');
       } else {
-        tbody.innerHTML = '<tr><td colspan="7" class="p-2 text-center text-gray-500">Aucun message de contact.</td></tr>';
+        tbody.innerHTML = '<tr><td colspan="7" class="p-3 text-center text-gray-500">Aucun message de contact.</td></tr>';
       }
+      renderPaginationControls('contacts', pageState.contacts.data.length);
     }
     async function supprimerContact(id) {
       if (!confirm('Voulez-vous vraiment supprimer ce message ?')) return;
@@ -396,15 +496,26 @@
     async function chargerAbonnes() {
       const res = await fetch('/admin/subscribers', { headers: { 'Authorization': getAdminToken() } });
       if (res.status === 403) { window.location.href = 'admin-login.html'; return; }
-      const data = await res.json();
+      pageState.subscribers.data = await res.json();
+      pageState.subscribers.currentPage = 1;
+      renderAbonnes();
+    }
+
+    function renderAbonnes() {
       const tbody = document.getElementById('subscribers-table');
-      tbody.innerHTML = data.map(s => `
-        <tr class="border-b">
-          <td class="p-2 border">${s.email}</td>
-          <td class="p-2 border">${new Date(s.createdAt).toLocaleString()}</td>
-          <td class="p-2 border"><button onclick="supprimerAbonne(${s.id})" class="text-red-600">Supprimer</button></td>
-        </tr>
-      `).join('');
+      const paginatedData = getPaginatedData('subscribers');
+      if (paginatedData && paginatedData.length > 0) {
+        tbody.innerHTML = paginatedData.map((s, index) => `
+          <tr class="border-b border-white/10 hover:bg-white/5 ${index % 2 === 0 ? 'bg-black' : 'bg-white/5'}">
+            <td class="p-3">${s.email}</td>
+            <td class="p-3">${new Date(s.date).toLocaleString()}</td>
+            <td class="p-3"><button onclick="supprimerAbonne(${s.id})" class="bg-white text-black px-3 py-1 rounded-md text-sm hover:bg-opacity-90 transition-colors font-bold">Supprimer</button></td>
+          </tr>
+        `).join('');
+      } else {
+        tbody.innerHTML = '<tr><td colspan="3" class="p-3 text-center text-gray-500">Aucun abonné trouvé.</td></tr>';
+      }
+      renderPaginationControls('subscribers', pageState.subscribers.data.length);
     }
 
     async function supprimerAbonne(id) {
@@ -419,23 +530,30 @@
         try {
             const res = await fetch('/admin/comments', { headers: { 'Authorization': getAdminToken() } });
             if (res.status === 403) { window.location.href = 'admin-login.html'; return; }
-            const data = await res.json();
-            if (data && data.length > 0) {
-              tbody.innerHTML = data.map(c => `
-                  <tr class="border-b">
-                      <td class="p-2 border">${c.name || 'Anonyme'}</td>
-                      <td class="p-2 border">${c.Blog ? `<a href="blog-article.html?id=${c.Blog.id}" target="_blank" class="text-blue-600 hover:underline">${c.Blog.titre.substring(0, 30)}...</a>` : 'Article supprimé'}</td>
-                      <td class="p-2 border">${c.text || ''}</td>
-                      <td class="p-2 border">${new Date(c.date).toLocaleString()}</td>
-                      <td class="p-2 border"><button onclick="supprimerCommentaire(${c.id})" class="text-red-600">Supprimer</button></td>
+            pageState.comments.data = await res.json();
+            pageState.comments.currentPage = 1;
+            renderCommentaires();
+        } catch (err) {
+            tbody.innerHTML = '<tr><td colspan="5" class="p-3 text-center text-gray-500">Impossible de charger les commentaires.</td></tr>';
+        }
+    }
+    function renderCommentaires() {
+        const tbody = document.getElementById('comments-table');
+        const paginatedData = getPaginatedData('comments');
+        if (paginatedData && paginatedData.length > 0) {
+            tbody.innerHTML = paginatedData.map((c, index) => `
+                  <tr class="border-b border-white/10 hover:bg-white/5 ${index % 2 === 0 ? 'bg-black' : 'bg-white/5'}">
+                      <td class="p-3">${c.name || 'Anonyme'}</td>
+                      <td class="p-3">${c.Blog ? `<a href="blog-article.html?id=${c.Blog.id}" target="_blank" class="text-white/70 hover:underline">${c.Blog.titre.substring(0, 30)}...</a>` : 'Article supprimé'}</td>
+                      <td class="p-3">${c.text || ''}</td>
+                      <td class="p-3">${new Date(c.date).toLocaleString()}</td>
+                      <td class="p-3"><button onclick="supprimerCommentaire(${c.id})" class="bg-white text-black px-3 py-1 rounded-md text-sm hover:bg-opacity-90 transition-colors font-bold">Supprimer</button></td>
                   </tr>
               `).join('');
-            } else {
-              tbody.innerHTML = '<tr><td colspan="5" class="p-2 text-center text-gray-500">Aucun commentaire.</td></tr>';
-            }
-        } catch (err) {
-            tbody.innerHTML = '<tr><td colspan="5" class="p-2 text-center text-gray-500">Impossible de charger les commentaires.</td></tr>';
+        } else {
+            tbody.innerHTML = '<tr><td colspan="5" class="p-3 text-center text-gray-500">Aucun commentaire.</td></tr>';
         }
+        renderPaginationControls('comments', pageState.comments.data.length);
     }
     async function supprimerCommentaire(id) {
       if (!confirm('Voulez-vous vraiment supprimer ce commentaire ?')) return;
@@ -449,35 +567,43 @@
       try {
         const res = await fetch('/admin/reservations', { headers: { 'Authorization': getAdminToken() } });
         if (!res.ok) throw new Error('Erreur serveur');
-        const reservations = await res.json();
-        if (!reservations || reservations.length === 0) {
-          tbody.innerHTML = '<tr><td colspan="8" class="p-2 text-center text-gray-500">Aucune réservation pour le moment.</td></tr>';
+        pageState.reservations.data = await res.json();
+        pageState.reservations.currentPage = 1;
+        renderReservations();
+      } catch (err) {
+        tbody.innerHTML = '<tr><td colspan="8" class="p-3 text-center text-yellow-500">Impossible de charger les réservations.</td></tr>';
+      }
+    }
+
+    function renderReservations() {
+        const tbody = document.getElementById('reservations-table');
+        const paginatedData = getPaginatedData('reservations');
+        if (!paginatedData || paginatedData.length === 0) {
+          tbody.innerHTML = '<tr><td colspan="8" class="p-3 text-center text-gray-500">Aucune réservation pour le moment.</td></tr>';
           return;
         }
-        tbody.innerHTML = reservations.map(r => { // La variable était déjà correcte ici, mais on s'assure de la cohérence
-          const statusColor = r.status === 'Confirmée' ? 'text-green-600' : (r.status === 'Annulée' ? 'text-red-600' : 'text-yellow-600');
+        tbody.innerHTML = paginatedData.map((r, index) => {
+          const statusColor = r.status === 'Confirmée' ? 'text-green-400' : (r.status === 'Annulée' ? 'text-gray-500' : 'text-yellow-400');
           return `
-            <tr class="border-b">
-              <td class="p-2 border"><strong>${r.customerName}</strong><br>${r.customerEmail}<br>${r.customerPhone || ''}</td>
-              <td class="p-2 border">${r.roomType} (${r.adults} ad.)</td>
-              <td class="p-2 border">${new Date(r.arrivalDate).toLocaleDateString()}</td>
-              <td class="p-2 border">${new Date(r.departureDate).toLocaleDateString()}</td>
-              <td class="p-2 border text-xs">${r.specialRequests || 'Aucune'}</td>
-              <td class="p-2 border text-xs">${new Date(r.createdAt).toLocaleString()}</td>
-              <td class="p-2 border font-bold ${statusColor}">
-                <select onchange="changerStatutReservation(${r.id}, this.value)" class="p-1 border rounded text-sm">
+            <tr class="border-b border-white/10 hover:bg-white/5 ${index % 2 === 0 ? 'bg-black' : 'bg-white/5'}">
+              <td class="p-3"><strong>${r.customerName}</strong><br>${r.customerEmail}<br>${r.customerPhone || ''}</td>
+              <td class="p-3">${r.roomType} (${r.adults} ad.)</td>
+              <td class="p-3">${new Date(r.arrivalDate).toLocaleDateString()}</td>
+              <td class="p-3">${new Date(r.departureDate).toLocaleDateString()}</td>
+              <td class="p-3 text-xs">${r.specialRequests || 'Aucune'}</td>
+              <td class="p-3 text-xs">${new Date(r.createdAt).toLocaleString()}</td>
+              <td class="p-3 font-bold ${statusColor}">
+                <select onchange="changerStatutReservation(${r.id}, this.value)" class="p-1 border rounded text-sm bg-black border-white/20 text-white">
                     <option value="En attente" ${r.status === 'En attente' ? 'selected' : ''}>En attente</option>
                     <option value="Confirmée" ${r.status === 'Confirmée' ? 'selected' : ''}>Confirmée</option>
                     <option value="Annulée" ${r.status === 'Annulée' ? 'selected' : ''}>Annulée</option>
                 </select>
               </td>
-              <td class="p-2 border"><button onclick="supprimerReservation(${r.id})" class="text-red-600">Supprimer</button></td>
+              <td class="p-3"><button onclick="supprimerReservation(${r.id})" class="bg-white text-black px-3 py-1 rounded-md text-sm hover:bg-opacity-90 transition-colors font-bold">Supprimer</button></td>
             </tr>
           `;
         }).join('');
-      } catch (err) {
-        tbody.innerHTML = '<tr><td colspan="8" class="p-2 text-center text-red-500">Impossible de charger les réservations.</td></tr>';
-      }
+        renderPaginationControls('reservations', pageState.reservations.data.length);
     }
 
     async function changerStatutReservation(id, status) {
@@ -503,25 +629,34 @@
         if (!response.ok) {
           throw new Error(`Erreur HTTP: ${response.status}`);
         }
-        const orders = await response.json();
+        pageState.orders.data = await response.json();
+        pageState.orders.currentPage = 1;
+        renderCommandes();
+      } catch (err) {
+        console.error("Erreur lors du chargement des commandes:", err);
+        tbody.innerHTML = `<tr><td colspan="6" class="p-3 text-center text-yellow-500">Impossible de charger les commandes. Raison: ${err.message}</td></tr>`;
+      }
+    }
 
-        if (!orders || orders.length === 0) {
-          tbody.innerHTML = '<tr><td colspan="6" class="p-2 text-center text-gray-500">Aucune commande pour le moment.</td></tr>';
+    function renderCommandes() {
+        const tbody = document.getElementById('orders-table');
+        const paginatedData = getPaginatedData('orders');
+        if (!paginatedData || paginatedData.length === 0) {
+          tbody.innerHTML = '<tr><td colspan="6" class="p-3 text-center text-gray-500">Aucune commande pour le moment.</td></tr>';
           return;
         }
-
-        tbody.innerHTML = orders.map(order => {
-          const statusColor = order.status === 'Terminée' ? 'text-green-600' : (order.status === 'Annulée' ? 'text-red-600' : 'text-yellow-600');
+        tbody.innerHTML = paginatedData.map((order, index) => {
+          const statusColor = order.status === 'Terminée' ? 'text-green-400' : (order.status === 'Annulée' ? 'text-gray-500' : 'text-yellow-400');
           return `
-            <tr class="border-b">
-              <td class="p-2 border">${order.itemName || 'N/A'}</td>
-              <td class="p-2 border">${order.quantity || 1}</td>
-              <td class="p-2 border">${order.customerName || 'N/A'}</td>
-              <td class="p-2 border">${order.customerPhone || 'N/A'}</td>
-              <td class="p-2 border">${new Date(order.createdAt).toLocaleString('fr-FR')}</td>
-              <td class="p-2 border">
+            <tr class="border-b border-white/10 hover:bg-white/5 ${index % 2 === 0 ? 'bg-black' : 'bg-white/5'}">
+              <td class="p-3">${order.itemName || 'N/A'}</td>
+              <td class="p-3">${order.quantity || 1}</td>
+              <td class="p-3">${order.customerName || 'N/A'}</td>
+              <td class="p-3">${order.customerPhone || 'N/A'}</td>
+              <td class="p-3">${new Date(order.createdAt).toLocaleString('fr-FR')}</td>
+              <td class="p-3">
                 <div class="flex items-center gap-2">
-                  <select onchange="changerStatutCommande(${order.id}, this.value)" class="p-1 border rounded text-sm">
+                  <select onchange="changerStatutCommande(${order.id}, this.value)" class="p-1 border rounded text-sm bg-black border-white/20 text-white">
                       <option value="En attente" ${order.status === 'En attente' ? 'selected' : ''}>En attente</option>
                       <option value="Terminée" ${order.status === 'Terminée' ? 'selected' : ''}>Terminée</option>
                       <option value="Annulée" ${order.status === 'Annulée' ? 'selected' : ''}>Annulée</option>
@@ -531,10 +666,7 @@
             </tr>
           `;
         }).join('');
-      } catch (err) {
-        console.error("Erreur lors du chargement des commandes:", err);
-        tbody.innerHTML = `<tr><td colspan="6" class="p-2 text-center text-red-500">Impossible de charger les commandes. Raison: ${err.message}</td></tr>`;
-      }
+        renderPaginationControls('orders', pageState.orders.data.length);
     }
 
     async function changerStatutCommande(id, status) {
@@ -553,24 +685,28 @@
       try {
         const res = await fetch('/admin/team', { headers: { 'Authorization': getAdminToken() } });
         if (!res.ok) throw new Error(`Erreur HTTP: ${res.status}`);
-        const members = await res.json();
-        if (!Array.isArray(members)) throw new Error("La réponse n'est pas un tableau.");
-
-        tbody.innerHTML = members.map(m => `
-          <tr class="border-b">
-            <td class="p-2 border">${m.nom}</td>
-            <td class="p-2 border">${m.role}</td>
-            <td class="p-2 border">
-              <button onclick="modifierMembre(${m.id})" class="text-blue-600 mr-2">Modifier</button>
-              <button onclick="supprimerMembre(${m.id})" class="text-red-600">Supprimer</button>
-            </td>
-          </tr>`).join('');
+        pageState.team.data = await res.json();
+        pageState.team.currentPage = 1;
+        renderEquipe();
       } catch (err) {
         console.error("Erreur lors du chargement de l'équipe:", err);
-        tbody.innerHTML = '<tr><td colspan="3" class="p-2 text-center text-red-500">Impossible de charger les membres de l\'équipe.</td></tr>';
+        tbody.innerHTML = '<tr><td colspan="3" class="p-3 text-center text-yellow-500">Impossible de charger les membres de l\'équipe.</td></tr>';
       }
     }
-
+    function renderEquipe() {
+        const tbody = document.getElementById('team-table');
+        const paginatedData = getPaginatedData('team');
+        tbody.innerHTML = paginatedData.map((m, index) => `
+          <tr class="border-b border-white/10 hover:bg-white/5 ${index % 2 === 0 ? 'bg-black' : 'bg-white/5'}">
+            <td class="p-3">${m.nom}</td>
+            <td class="p-3">${m.role}</td>
+            <td class="p-3">
+              <button onclick="modifierMembre(${m.id})" class="bg-white text-black px-3 py-1 rounded-md text-sm hover:bg-opacity-90 transition-colors font-bold mr-2">Modifier</button>
+              <button onclick="supprimerMembre(${m.id})" class="bg-white text-black px-3 py-1 rounded-md text-sm hover:bg-opacity-90 transition-colors font-bold">Supprimer</button>
+            </td>
+          </tr>`).join('');
+        renderPaginationControls('team', pageState.team.data.length);
+    }
     async function sauvegarderMembre(e) {
       e.preventDefault();
       const id = document.getElementById('team-id').value;
@@ -630,25 +766,32 @@
       try {
         const res = await fetch('/admin/testimonials', { headers: { 'Authorization': getAdminToken() } });
         if (res.status === 403) { window.location.href = 'admin-login.html'; return; }
-        const testimonials = await res.json();
-        tbody.innerHTML = testimonials.map(t => `
-          <tr class="border-b">
-            <td class="p-2 border">${t.name}</td>
-            <td class="p-2 border">${t.quote.substring(0, 50)}...</td>
-            <td class="p-2 border">${t.rating || 'N/A'} ★</td>
-            <td class="p-2 border">${t.status === 'approved' ? '<span class="text-green-600 font-bold">Approuvé</span>' : '<span class="text-yellow-600 font-bold">En attente</span>'}</td>
-            <td class="p-2 border">
-              ${t.status === 'pending' ? `<button onclick="approuverTestimonial(${t.id})" class="text-green-600 mr-2">Approuver</button>` : ''}
-              <button onclick="modifierTestimonial(${t.id})" class="text-blue-600 mr-2">Modifier</button>
-              <button onclick="supprimerTestimonial(${t.id})" class="text-red-600">Supprimer</button>
+        pageState.testimonials.data = await res.json();
+        pageState.testimonials.currentPage = 1;
+        renderTestimonials();
+      } catch (err) {
+        tbody.innerHTML = '<tr><td colspan="5" class="p-3 text-center text-gray-500">Impossible de charger les témoignages.</td></tr>';
+      }
+    }
+    function renderTestimonials() {
+        const tbody = document.getElementById('testimonial-table');
+        const paginatedData = getPaginatedData('testimonials');
+        tbody.innerHTML = paginatedData.map((t, index) => `
+          <tr class="border-b border-white/10 hover:bg-white/5 ${index % 2 === 0 ? 'bg-black' : 'bg-white/5'}">
+            <td class="p-3">${t.name}</td>
+            <td class="p-3">${t.quote.substring(0, 50)}...</td>
+            <td class="p-3">${t.rating || 'N/A'} ★</td>
+            <td class="p-3">${t.category || 'N/A'}</td>
+            <td class="p-3">${t.status === 'approved' ? '<span class="text-green-400 font-bold">Approuvé</span>' : '<span class="text-yellow-400 font-bold">En attente</span>'}</td>
+            <td class="p-3 flex flex-col gap-2 items-start">
+              ${t.status === 'pending' ? `<button onclick="approuverTestimonial(${t.id})" class="bg-green-600 hover:bg-green-500 text-white px-3 py-1 rounded-md text-sm font-bold transition-colors">Approuver</button>` : ''}
+              <button onclick="modifierTestimonial(${t.id})" class="bg-white text-black px-3 py-1 rounded-md text-sm hover:bg-opacity-90 transition-colors font-bold">Modifier</button>
+              <button onclick="supprimerTestimonial(${t.id})" class="bg-white text-black px-3 py-1 rounded-md text-sm hover:bg-opacity-90 transition-colors font-bold">Supprimer</button>
             </td>
           </tr>
         `).join('');
-      } catch (err) {
-        tbody.innerHTML = '<tr><td colspan="5" class="p-2 text-center text-gray-500">Impossible de charger les témoignages.</td></tr>';
-      }
+        renderPaginationControls('testimonials', pageState.testimonials.data.length); // Correction: testimonials au lieu de testimonials
     }
-
     async function sauvegarderTestimonial(e) {
       e.preventDefault();
       const id = document.getElementById('testimonial-id').value;
@@ -656,6 +799,7 @@
       formData.append('name', document.getElementById('testimonial-name').value);
       formData.append('quote', document.getElementById('testimonial-quote').value);
       formData.append('rating', document.getElementById('testimonial-rating').value);
+      formData.append('category', document.getElementById('testimonial-category').value);
       formData.append('status', document.getElementById('testimonial-status').value);
 
       const imageFile = document.getElementById('testimonial-image').files[0];
@@ -685,6 +829,7 @@
       document.getElementById('testimonial-image-url').value = t.image;
       document.getElementById('testimonial-name').value = t.name;
       document.getElementById('testimonial-quote').value = t.quote;
+      document.getElementById('testimonial-category').value = t.category;
       // On ne peut pas pré-remplir un input file
       document.getElementById('testimonial-status').value = t.status;
       document.getElementById('testimonial-rating').value = t.rating;
@@ -699,6 +844,7 @@
       document.getElementById('testimonial-submit-btn').textContent = 'Ajouter le témoignage';
       document.getElementById('testimonial-image-url').value = '';
       document.getElementById('testimonial-cancel-btn').classList.add('hidden');
+      document.getElementById('testimonial-category').value = '';
       document.getElementById('testimonial-status').value = 'approved';
     }
 
@@ -712,14 +858,49 @@
       const res = await fetch(`/admin/testimonials/${id}`, { headers: { 'Authorization': getAdminToken() } });
       const testimonial = await res.json();
       testimonial.status = 'approved';
+      const formData = new FormData();
+      for (const key in testimonial) { formData.append(key, testimonial[key]); }
       await fetch(`/admin/testimonials/${id}`, {
         method: 'PUT',
-        headers: { 'Content-Type': 'application/json', 'Authorization': getAdminToken() },
-        body: JSON.stringify(testimonial)
+        headers: { 'Authorization': getAdminToken() },
+        body: formData
       });
       chargerTestimonials();
     }
     document.getElementById('testimonial-form').addEventListener('submit', sauvegarderTestimonial);
+
+       // --- Gestion des Inscriptions à la Formation ---
+    async function chargerFormationRegistrations() {
+      try {
+        const res = await fetch('/admin/formation-registrations', { headers: { 'Authorization': getAdminToken() } });
+        if (res.status === 403) { window.location.href = 'admin-login.html'; return; }
+        pageState.formationRegistrations.data = await res.json();
+        pageState.formationRegistrations.currentPage = 1;
+        renderFormationRegistrations();
+      } catch (err) {
+        console.error("Erreur lors du chargement des inscriptions à la formation:", err);
+        document.getElementById('formation-registrations-table').innerHTML = '<tr><td colspan="5" class="p-3 text-center text-yellow-500">Impossible de charger les inscriptions.</td></tr>';
+      }
+    }
+
+    function renderFormationRegistrations() {
+      const tbody = document.getElementById('formation-registrations-table');
+      const paginatedData = getPaginatedData('formationRegistrations');
+
+      tbody.innerHTML = paginatedData.map(reg => `
+        <tr class="border-b border-white/10 hover:bg-white/5">
+          <td class="p-3">${reg.nom}</td>
+          <td class="p-3">${reg.email}</td>
+          <td class="p-3">${reg.telephone}</td>
+          <td class="p-3">${reg.formation}</td>
+          <td class="p-3">${new Date(reg.createdAt).toLocaleString()}</td>
+        </tr>
+      `).join('');
+
+      renderPaginationControls('formationRegistrations', pageState.formationRegistrations.data.length);
+    }
+
+
 
     // --- GENERATION AUTOMATIQUE DU SITE STATIQUE ---
     let generationTimeout;
@@ -743,7 +924,8 @@
         chargerCommandes(),
         chargerReservations(),
         chargerEquipe(),
-        chargerTestimonials()
+        chargerTestimonials(),
+                chargerFormationRegistrations()
       ]);
     }
 

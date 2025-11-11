@@ -4,146 +4,112 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>KemdeHolo - Accueil</title>
-    <link href="/css/style.css" rel="stylesheet">
-    <style>
-        :root {
-            --bleu-principal: #004aad;
-            --rouge-accent: #c32e27;
-        }
-        .testimonial-card {
-            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-            border-radius: 12px;
-            padding: 30px;
-            transition: all 0.3s ease;
-        }
-        /* Galerie d'images */
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 15px;
-        }
-        
-        .gallery-item {
-            border-radius: 8px;
-            overflow: hidden;
-            height: 200px;
-            position: relative;
-        }
-        
-        .gallery-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.3s ease;
-        }
-        
-        .gallery-item:hover img {
-            transform: scale(1.05);
-        }
-    </style>
+    <link href="css/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
 </head>
 <body class="font-sans">
     <!-- Navigation -->
-    <header id="main-header"></header>
+    <div id="header-placeholder"></div>
 
     <!-- Hero Section -->
-    <section class="hero-section relative h-[600px] flex items-center justify-center bg-cover bg-center text-white px-4" style="background-image: url('images/BCO.62a559fb-1d81-49ab-82f7-2f49eee3cf18.png');">
+    <section class="hero-section relative flex items-center justify-center bg-cover bg-center text-white px-4" style="background-image: url('images/BCO.62a559fb-1d81-49ab-82f7-2f49eee3cf18.png');">
         <div class="absolute inset-0 bg-black bg-opacity-60"></div>
         <div class="container mx-auto text-center relative z-10 animate-fade-in-up">
-            <h1 class="text-4xl md:text-5xl font-bold mb-6" data-translate-key="home_hero_title">Bienvenue chez KemdeHolo</h1>
-            <p class="text-xl mb-8" data-translate-key="home_hero_subtitle">Découvrez l'authenticité de l'hospitalité sahélienne</p>
+            <h1 class="text-6xl md:text-8xl font-bold mb-6" data-translate-key="home_hero_title">Bienvenue chez KemdeHolo</h1>
+            <p class="text-xl md:text-2xl mb-8" data-translate-key="home_hero_subtitle">Découvrez l'authenticité de l'hospitalité sahélienne</p>
             <a href="contact.html" class="bg-secondary-red hover:bg-secondary-red text-white px-6 py-3 rounded-lg font-semibold transition-colors duration-300" data-translate-key="home_hero_button">Nous contacter</a>
         </div>
     </section>
 
     <!-- Services Section -->
-    <section id="services" class="py-16 px-4 scroll-reveal">
+    <section id="services" class="py-16  px-4 scroll-reveal">
         <div class="container mx-auto">
             <h2 class="text-3xl font-bold text-center mb-12 text-[#030303]" data-translate-key="home_services_title">Nos Services</h2>
-            
+
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                 <!-- Restaurant -->
-                <div class="service-card bg-white rounded-lg shadow-lg p-6 text-center">
-                    <div class="w-16 h-16 bg-[#c32e27] rounded-full mx-auto mb-4 flex items-center justify-center">
-                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <div class="service-card bg-white rounded-xl shadow-sm border border-gray-200 p-6 text-center transition-all duration-300 hover:shadow-lg hover:-translate-y-2">
+                    <div class="w-20 h-20 bg-primary-blue rounded-full mx-auto mb-6 flex items-center justify-center">
+                        <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v13m0-13V6a2 2 0 112 2h-2zm0 0V5.5A2.5 2.5 0 109.5 8H12zm-7 4h14M5 12a2 2 0 110-4h14a2 2 0 110 4M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7"></path>
                         </svg>
                     </div>
-                    <h3 class="text-xl font-semibold mb-2" data-translate-key="home_service_restaurant_title">Restaurant</h3>
-                    <p class="text-black" data-translate-key="home_service_restaurant_desc">Dégustez une cuisine sahélienne authentique préparée avec des produits locaux.</p>
-                    <a href="restaurant.html" class="inline-block mt-4 text-[#c32e27] font-semibold" data-translate-key="home_service_link">Découvrir →</a>
+                    <h3 class="text-xl font-bold mb-2 text-black" data-translate-key="home_service_restaurant_title">Restaurant</h3>
+                    <p class="text-gray-600 mb-4" data-translate-key="home_service_restaurant_desc">Dégustez une cuisine sahélienne authentique préparée avec des produits locaux.</p>
+                    <a href="restaurant.html" class="inline-block mt-4 text-white bg-secondary-red hover:bg-red-700 font-semibold px-5 py-2 rounded-full transition-colors" data-translate-key="home_service_link" aria-label="Découvrir le service de restaurant">Découvrir</a>
                 </div>
-                
+
                 <!-- Hébergement -->
-                <div class="service-card bg-white rounded-lg shadow-lg p-6 text-center">
-                    <div class="w-16 h-16 bg-[#c32e27] rounded-full mx-auto mb-4 flex items-center justify-center">
-                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <div class="service-card bg-white rounded-xl shadow-sm border border-gray-200 p-6 text-center transition-all duration-300 hover:shadow-lg hover:-translate-y-2">
+                    <div class="w-20 h-20 bg-primary-blue rounded-full mx-auto mb-6 flex items-center justify-center">
+                        <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
                         </svg>
                     </div>
-                    <h3 class="text-xl font-semibold mb-2" data-translate-key="home_service_accommodation_title">Hébergement</h3>
-                    <p class="text-black" data-translate-key="home_service_accommodation_desc">Des chambres confortables pour un séjour reposant dans une ambiance sahélienne.</p>
-                    <a href="hebergement.html" class="inline-block mt-4 text-[#c32e27] font-semibold" data-translate-key="home_service_link">Découvrir →</a>
+                    <h3 class="text-xl font-bold mb-2 text-black" data-translate-key="home_service_accommodation_title">Hébergement</h3>
+                    <p class="text-gray-600 mb-4" data-translate-key="home_service_accommodation_desc">Des chambres confortables pour un séjour reposant dans une ambiance sahélienne.</p>
+                    <a href="hebergement.html" class="inline-block mt-4 text-white bg-secondary-red hover:bg-red-700 font-semibold px-5 py-2 rounded-full transition-colors" data-translate-key="home_service_link" aria-label="Découvrir le service d'hébergement">Découvrir</a>
                 </div>
-                
+
                 <!-- Formation -->
-                <div class="service-card bg-white rounded-lg shadow-lg p-6 text-center">
-                    <div class="w-16 h-16 bg-[#c32e27] rounded-full mx-auto mb-4 flex items-center justify-center">
-                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <div class="service-card bg-white rounded-xl shadow-sm border border-gray-200 p-6 text-center transition-all duration-300 hover:shadow-lg hover:-translate-y-2">
+                    <div class="w-20 h-20 bg-primary-blue rounded-full mx-auto mb-6 flex items-center justify-center">
+                        <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5z"></path>
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"></path>
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222"></path>
                         </svg>
                     </div>
-                    <h3 class="text-xl font-semibold mb-2" data-translate-key="home_service_training_title">Formation</h3>
-                    <p class="text-black" data-translate-key="home_service_training_desc">Formations professionnelles en hôtellerie et tourisme pour développer vos compétences.</p>
-                    <a href="formation.html" class="inline-block mt-4 text-[#c32e27] font-semibold" data-translate-key="home_service_link">Découvrir →</a>
+                    <h3 class="text-xl font-bold mb-2 text-black" data-translate-key="home_service_training_title">Formation</h3>
+                    <p class="text-gray-600 mb-4" data-translate-key="home_service_training_desc">Formations professionnelles en hôtellerie et tourisme pour développer vos compétences.</p>
+                    <a href="formation.html" class="inline-block mt-4 text-white bg-secondary-red hover:bg-red-700 font-semibold px-5 py-2 rounded-full transition-colors" data-translate-key="home_service_link" aria-label="Découvrir le service de formation">Découvrir</a>
                 </div>
-                
+
                 <!-- Blanchisserie -->
-                <div class="service-card bg-white rounded-lg shadow-lg p-6 text-center">
-                    <div class="w-16 h-16 bg-[#c32e27] rounded-full mx-auto mb-4 flex items-center justify-center">
-                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <div class="service-card bg-white rounded-xl shadow-sm border border-gray-200 p-6 text-center transition-all duration-300 hover:shadow-lg hover:-translate-y-2">
+                    <div class="w-20 h-20 bg-primary-blue rounded-full mx-auto mb-6 flex items-center justify-center">
+                        <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"></path>
                         </svg>
                     </div>
-                    <h3 class="text-xl font-semibold mb-2" data-translate-key="home_service_laundry_title">Blanchisserie</h3>
-                    <p class="text-black" data-translate-key="home_service_laundry_desc">Service professionnel de blanchisserie pour particuliers et entreprises.</p>
-                    <a href="blanchisserie.html" class="inline-block mt-4 text-[#c32e27] font-semibold" data-translate-key="home_service_link">Découvrir →</a>
+                    <h3 class="text-xl font-bold mb-2 text-black" data-translate-key="home_service_laundry_title">Blanchisserie</h3>
+                    <p class="text-gray-600 mb-4" data-translate-key="home_service_laundry_desc">Service professionnel de blanchisserie pour particuliers et entreprises.</p>
+                    <a href="blanchisserie.html" class="inline-block mt-4 text-white bg-secondary-red hover:bg-red-700 font-semibold px-5 py-2 rounded-full transition-colors" data-translate-key="home_service_link" aria-label="Découvrir le service de blanchisserie">Découvrir</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="py-16 bg-white scroll-reveal">
-      <div class="container mx-auto px-4">
+    <section class="about-dark py-16 px-4 scroll-reveal">
+      <div class="container mx-auto px-4 relative z-10">
         <div class="grid lg:grid-cols-2 gap-12 items-center">
           <div>
-            <h2 class="text-3xl font-bold text-black mb-4" data-translate-key="home_about_title">Bienvenue chez KemdeHolo</h2>
-            <p class="text-lg mb-4 text-black" data-translate-key="home_about_p1">KemdeHolo est un établissement dédié à l'art de l'hospitalité sahélienne, situé au cœur de Moundou. Nous proposons une expérience unique mêlant tradition, confort moderne et authenticité, à travers nos services de restauration, hébergement, formation et blanchisserie.</p>
-            <p class="text-lg text-black" data-translate-key="home_about_p2">Notre équipe passionnée vous accueille dans un cadre chaleureux pour vous faire découvrir le meilleur du Sahel, que ce soit pour un séjour, un repas, une formation ou un service de qualité.</p>
+            <h2 class="text-3xl font-bold mb-4 text-secondary-red" data-translate-key="home_about_title">Bienvenue chez KemdeHolo</h2>
+            <p class="text-gray-600 text-lg mb-4" data-translate-key="home_about_p1">KemdeHolo est un établissement dédié à l'art de l'hospitalité sahélienne, situé au cœur de Moundou. Nous proposons une expérience unique mêlant tradition, confort moderne et authenticité.</p>
+            <p class="text-gray-300 text-lg mb-6" data-translate-key="home_about_p2">Notre équipe passionnée vous accueille dans un cadre chaleureux pour vous faire découvrir le meilleur du Sahel, que ce soit pour un séjour, un repas, ou une formation.</p>
             <div class="flex gap-8 mt-8">
               <div class="text-center">
-                <h3 class="text-3xl font-bold text-secondary-red" data-translate-key="about_stat1_val">15</h3>
-                <p class="text-black" data-translate-key="home_about_stat1_label">Années d'expérience</p>
+                <h3 class="counter text-4xl font-bold text-white" data-target="23">0+</h3>
+                <p class="text-gray-300" data-translate-key="home_about_stat1_label">Années d'expérience</p>
               </div>
               <div class="text-center">
-                <h3 class="text-4xl font-bold text-secondary-red" data-translate-key="about_stat2_val">50+</h3>
-                <p class="text-black" data-translate-key="home_about_stat2_label">Plats au menu</p>
+                <h3 class="counter text-4xl font-bold text-white" data-target="4">0</h3>
+                <p class="text-gray-300" data-translate-key="home_about_stat2_label">Services intégrés</p>
               </div>
             </div>
+            <a href="a-propos.html" class="inline-block mt-8 text-white bg-secondary-red hover:bg-red-700 font-semibold px-6 py-3 rounded-full transition-colors">En savoir plus</a>
           </div>
-          <div class="grid grid-cols-2 gap-4">
-            <img src="images/Sans titreu.jpeg" alt="Plat 1" class="rounded-lg shadow-lg w-full h-48 object-cover">
-            <img src="images/Sans titre.2jpeg" alt="Plat 2" class="rounded-lg shadow-lg w-full h-48 object-cover">
-            <img src="images/S.jpeg" alt="Restaurant" class="rounded-lg shadow-lg w-full h-48 object-cover">
-            <img src="images/blanchisserie.jpeg" alt="Service" class="rounded-lg shadow-lg w-full h-48 object-cover">
+          <div class="grid grid-cols-2 gap-4 group">
+            <img src="images/Sans titreu.jpeg" alt="Plat 1" class="rounded-xl shadow-lg w-full h-48 object-cover transition-transform duration-300 group-hover:scale-105">
+            <img src="images/Sans titre.2jpeg" alt="Plat 2" class="rounded-xl shadow-lg w-full h-48 object-cover mt-8 transition-transform duration-300 group-hover:scale-105">
+            <img src="images/S.jpeg" alt="Restaurant" class="rounded-xl shadow-lg w-full h-48 object-cover transition-transform duration-300 group-hover:scale-105">
+            <img src="images/blanchisserie.jpeg" alt="Service" class="rounded-xl shadow-lg w-full h-48 object-cover mt-8 transition-transform duration-300 group-hover:scale-105">
           </div>
         </div>
       </div>
     </section>
-
-
 
     
 
@@ -162,100 +128,119 @@
             </div>
         </div>
     </section>
-<!-- SECTION PARTENAIRES -->
-    <section class="py-16 scroll-reveal">
-      <div class="container mx-auto px-4 text-center">
-        <h2 class="text-4xl font-bold mb-10  text-[#020202]" data-translate-key="home_partners_title">Nos Partenaires</h2>
-        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-x-8 gap-y-12 items-center bg-white">
-          <div class="flex justify-center items-center p-4 ">
-            <img src="images/OIP.jpeg" alt="Logo World Vision" class="max-h-50 md:max-h-16 w-auto transition-all duration-300  hover:scale-110">
-          </div>
-          <div class="flex justify-center items-center p-4">
-            <img src="images/OIPv.jpeg" alt="Logo IHDL" class="max-h-50  md:max-h-16 w-auto transition-all duration-300  hover:scale-110">
-          </div>
-          <div class="flex justify-center items-center p-4">
-            <img src="images/OIP2.jpeg" alt="Logo Care International" class="max-h-50  md:max-h-16 w-auto transition-all duration-300  hover:scale-110">
-          </div>
-          <div class="flex justify-center items-center p-4">
-            <img src="images/beac.jpeg" alt="Logo BEAC" class="max-h-50  md:max-h-16 w-auto transition-all duration-300  hover:scale-110">
-          </div>
-          <div class="flex justify-center items-center p-4">
-            <img src="images/id.jpeg" alt="Logo ID" class="max-h-50  md:max-h-16 w-auto transition-all duration-300  hover:scale-110">
-          </div>
-          <div class="flex justify-center items-center p-4">
-            <img src="images/C-T.jpeg" alt="Logo Coton Tchad" class="max-h-50  md:max-h-16 w-auto transition-all duration-300  hover:scale-110">
-          </div>
-          <div class="flex justify-center items-center p-4">
-            <img src="images/essor.jpeg" alt="Logo Essor" class="max-h-50  md:max-h-16 w-auto transition-all duration-300  hover:scale-110">
-          </div>
-          <div class="flex justify-center items-center p-4">
-            <img src="images/caritas.jpeg" alt="Logo Caritas" class="max-h-50  md:max-h-16 w-auto transition-all duration-300  hover:scale-110">
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- Témoignages -->
-    <section class="py-16 px-4 scroll-reveal">
-        <div class="container mx-auto">
-            <h2 class="text-3xl font-bold text-center mb-12 text-[#020202]" data-translate-key="home_testimonials_title">Ce que disent nos clients</h2>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Témoignage 1 -->
-                <div class="testimonial-card">
-                    <div class="flex items-center mb-4">
-                        <div class="w-12 h-12 bg-[#c32e27] rounded-full flex items-center justify-center text-white font-bold mr-4">DC</div>
-                        <div>
-                            <h4 class="font-semibold">Djemenda clemence</h4>
-                            <p class="text-black">Touriste de passage</p>
-                        </div>
-                    </div>
-                    <p class="text-black">"Un séjour inoubliable ! Les chambres sont confortables et le personnel est d'une gentillesse rare. Je me suis sentie comme à la maison."</p>
+    <section class="testimonials py-12 px-4 scroll-reveal">
+        <div class="container mx-auto text-center">
+            <div id="testimonial-slider-wrapper" class="testimonial-slider-wrapper max-w-7xl mx-auto hidden">
+                <h2 class="text-3xl font-bold text-center mb-12" data-translate-key="home_testimonials_title">Ce que disent nos clients</h2>
+                <div id="testimonial-slider-content" class="testimonial-slider-content">
+                    <!-- Le contenu du slider sera injecté ici -->
                 </div>
-                
-                <!-- Témoignage 2 -->
-                <div class="testimonial-card">
-                    <div class="flex items-center mb-4">
-                    <div class="w-12 h-12 bg-[#c32e27] rounded-full flex items-center justify-center text-white font-bold mr-4">BR</div>
-                     <div>
-                            <h4 class="font-semibold">Bemadjibeye ruth</h4>
-                            <p class="text-black">Cliente du restaurant</p>
-                        </div>
-                    </div>
-                    <p class="text-black">"Le restaurant de KemdeHolo est devenu ma cantine. La cuisine est délicieuse, authentique et les prix sont très corrects. Un vrai régal !"</p>
-                </div>  
-
-                <!-- Témoignage 3 -->
-                <div class="testimonial-card">
-                    <div class="flex items-center mb-4">
-                        <div class="w-12 h-12 bg-[#c32e27] rounded-full flex items-center justify-center text-white font-bold mr-4">DR</div>
-                        <div>
-                            <h4 class="font-semibold">Djimarem Roland</h4>
-                            <p class="text-black">Client de la blanchisserie</p>
-                        </div>
-                    </div>
-                    <p class="text-black">"Le service de blanchisserie est impeccable et rapide. Mon linge est toujours parfait. Un service de grande qualité que je recommande vivement."</p>
+                <div class="testimonial-slider-nav-wrapper">
+                    <div id="testimonial-slider-nav" class="testimonial-slider-nav"></div>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- Laissez un témoignage -->
+    <section class="py-16 px-4 scroll-reveal">
+        <div class="container mx-auto text-center">
+            <button id="show-testimonial-form-btn" class="btn-primary mb-8" data-translate-key="leave_testimonial_title">Laissez votre avis</button>
+        </div>
+    </section>
+
+    <!-- Modale pour laisser un témoignage -->
+    <div id="testimonial-modal" class="hidden fixed inset-0 bg-black bg-opacity-75 z-50 items-center justify-center p-4" role="dialog" aria-modal="true" aria-labelledby="testimonial-modal-title">
+        <div class="bg-white rounded-lg shadow-xl p-8 max-w-2xl w-full relative">
+            <button id="close-testimonial-modal-btn" class="absolute top-2 right-4 text-gray-500 hover:text-gray-800 text-4xl leading-none">&times;</button>
+            <h2 id="testimonial-modal-title" class="text-3xl font-bold text-center mb-8 text-black" data-translate-key="leave_testimonial_title">Laissez votre avis</h2>
+            <form id="public-testimonial-form" class="space-y-6 text-left">
+                <div id="testimonial-form-message" class="hidden text-center font-bold p-3 rounded-md"></div>
+                <div>
+                    <label for="public-testimonial-name" class="block text-gray-700 font-semibold mb-2">Votre nom</label>
+                    <input type="text" id="public-testimonial-name" required class="form-input w-full">
+                </div>
+                <div>
+                    <label for="public-testimonial-category" class="block text-gray-700 font-semibold mb-2">Quel service concerne votre avis ?</label>
+                    <select id="public-testimonial-category" required class="form-input w-full">
+                        <option value="">-- Sélectionnez --</option>
+                        <option value="Restaurant">Restaurant</option>
+                        <option value="Hebergement">Hébergement</option>
+                        <option value="Formation">Formation</option>
+                        <option value="Blanchisserie">Blanchisserie</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="public-testimonial-quote" class="block text-gray-700 font-semibold mb-2">Votre témoignage</label>
+                    <textarea id="public-testimonial-quote" rows="4" required class="form-input w-full"></textarea>
+                </div>
+                <div>
+                    <label class="block text-gray-700 font-semibold mb-2 text-center">Votre note</label>
+                    <div class="star-rating"><input type="radio" id="star5" name="rating" value="5" required><label for="star5" title="5 étoiles">★</label><input type="radio" id="star4" name="rating" value="4"><label for="star4" title="4 étoiles">★</label><input type="radio" id="star3" name="rating" value="3"><label for="star3" title="3 étoiles">★</label><input type="radio" id="star2" name="rating" value="2"><label for="star2" title="2 étoiles">★</label><input type="radio" id="star1" name="rating" value="1"><label for="star1" title="1 étoile">★</label></div>
+                </div>
+                <button type="submit" class="w-full btn-primary">Envoyer mon témoignage</button>
+            </form>
+        </div>
+    </div>
+
+<!-- SECTION PARTENAIRES -->
+    <section class="py-16 bg-white px-4 scroll-reveal">
+      <div class="container mx-auto px-4 text-center">
+        <h2 class="text-2xl font-semibold mb-12" data-translate-key="home_partners_title">Nos Partenaires</h2>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-x-20 gap-y-24 items-center max-w-5xl mx-auto">
+          <div class="partner-logo" title="World Vision">
+            <img src="images/OIP.jpeg" alt="Logo de World Vision" class="max-h-36 w-auto transition-all duration-300 mx-auto">
+          </div>
+          <div class="partner-logo" title="IHDL">
+            <img src="images/OIPv.jpeg" alt="Logo de IHDL" class="max-h-36 w-auto transition-all duration-300 mx-auto">
+          </div>
+          <div class="partner-logo" title="Care International">
+            <img src="images/OIP2.jpeg" alt="Logo de Care International" class="max-h-36 w-auto transition-all duration-300 mx-auto">
+          </div>
+          <div class="partner-logo" title="BEAC">
+            <img src="images/beac.jpeg" alt="Logo de la BEAC" class="max-h-36 w-auto transition-all duration-300 mx-auto">
+          </div>
+          <div class="partner-logo" title="ID">
+            <img src="images/id.jpeg" alt="Logo de ID" class="max-h-36 w-auto transition-all duration-300 mx-auto">
+          </div>
+          <div class="partner-logo" title="Coton Tchad">
+            <img src="images/C-T.jpeg" alt="Logo de Coton Tchad" class="max-h-36 w-auto transition-all duration-300 mx-auto">
+          </div>
+          <div class="partner-logo" title="Essor">
+            <img src="images/essor.jpeg" alt="Logo de Essor" class="max-h-36 w-auto transition-all duration-300 mx-auto">
+          </div>
+          <div class="partner-logo" title="Caritas">
+            <img src="images/caritas.jpeg" alt="Logo de Caritas" class="max-h-36 w-auto transition-all duration-300 mx-auto">
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Témoignages -->
+    
 
     <!-- Newsletter -->
-    <section class="bg-black text-white p-4 sticky top-0 z-50 scroll-reveal">
-        <div class="container mx-auto text-center">
-            <h2 class="text-3xl font-bold mb-4" data-translate-key="home_newsletter_title">Restez informé</h2>
-            <p id="newsletter-message" class="mb-8" data-translate-key="home_newsletter_subtitle">Abonnez-vous à notre newsletter pour recevoir nos actualités et promotions</p>
-            <form id="newsletter-form" class="max-w-md mx-auto flex flex-col md:flex-row gap-2">
-                <input id="newsletter-email" type="email" placeholder="Votre email" data-translate-key="home_newsletter_placeholder" class="flex-grow px-4 py-3 rounded-lg text-gray-800 focus:outline-none focus:ring-2 focus:ring-primary-blue" required>
-                <button type="submit" class="bg-secondary-red hover:bg-secondary-red text-white px-6 py-3 rounded-lg font-semibold transition-colors duration-300" data-translate-key="home_newsletter_button">S'abonner</button>
+    <section class="relative py-16 bg-cover bg-center scroll-reveal" style="background-image: url('images/Copilot_20250912_003707.png');">
+        <div class="absolute inset-0 bg-black bg-opacity-70"></div>
+        <div class="container mx-auto px-4 text-center relative z-10">
+            <h2 class="text-3xl font-bold mb-4 text-white" data-translate-key="home_newsletter_title">Restez informé</h2>
+            <p id="newsletter-message" class="mb-8 text-gray-300 max-w-xl mx-auto" data-translate-key="home_newsletter_subtitle">Abonnez-vous à notre newsletter pour recevoir nos actualités et promotions</p>
+            <form id="newsletter-form" class="max-w-lg mx-auto flex flex-col md:flex-row gap-3 bg-white/10 p-2 rounded-full border border-white/20">
+                <label for="newsletter-email" class="sr-only">Votre adresse email</label>
+                <input id="newsletter-email" type="email" placeholder="Votre email" data-translate-key="home_newsletter_placeholder" class="flex-grow px-5 py-3 rounded-full text-white bg-transparent placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-secondary-red" required autocomplete="email">
+                <button type="submit" class="bg-secondary-red hover:bg-red-700 text-white px-8 py-3 rounded-full font-semibold transition-colors duration-300" data-translate-key="home_newsletter_button">S'abonner</button>
             </form>
         </div>
     </section>
 
+
+    
     <!-- Footer -->
     <footer id="main-footer"></footer>
 
-    <script src="/main.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+
+    <script src="main.js"></script>
     <script>
         async function chargerActualites() {
             try {
@@ -281,13 +266,13 @@
                         </div>
                         <div class="p-6 flex flex-col flex-grow">
                             <div class="text-sm text-gray-500 mb-2">
-                                <span class="font-semibold text-secondary-red">${article.categorie || 'Non classé'}</span>
+                                <span class="font-semibold text-black">${article.categorie || 'Non classé'}</span>
                                 <span class="mx-2">|</span>
                                 <span>${new Date(article.date).toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' })}</span>
                             </div>
-                            <h3 class="text-xl font-bold text-primary-blue mb-3 flex-grow hover:text-secondary-red transition-colors"><a href="blog-article.html?id=${article.id}">${article.titre}</a></h3>
-                            <p class="text-gray-600 text-sm mb-6">${(article.contenu || '').substring(0, 120)}...</p>
-                            <a href="blog-article.html?id=${article.id}" class="mt-auto text-white bg-primary-blue hover:bg-blue-800 font-bold py-2 px-4 rounded-full self-start transition-colors duration-300">Lire la suite</a>
+                            <h3 class="text-xl font-bold text-black mb-3 flex-grow hover:text-gray-700 transition-colors"><a href="blog-article.html?id=${article.id}">${article.titre}</a></h3>
+                            <p class="text-gray-600 text-sm mb-6">${(article.contenu || '').substring(0, 120)}...</p> 
+                            <a href="blog-article.html?id=${article.id}" class="mt-auto text-white bg-primary-blue hover:bg-blue-800 font-bold py-2 px-4 rounded-full self-start transition-colors duration-300" aria-label="Lire la suite de l'article ${article.titre}">Lire la suite</a>
                         </div>
                     </div>
                 `).join('');
@@ -323,22 +308,20 @@
 
         // Charger les actualités au chargement de la page
         document.addEventListener('DOMContentLoaded', chargerActualites);
-        document.addEventListener("DOMContentLoaded", function () {
-    const elements = document.querySelectorAll(".scroll-reveal");
 
-    const revealOnScroll = () => {
-      const windowHeight = window.innerHeight;
-      elements.forEach(el => {
-        const elementTop = el.getBoundingClientRect().top;
-        if (elementTop < windowHeight - 50) {
-          el.classList.add("visible");
-        }
-      });
-    };
-
-    window.addEventListener("scroll", revealOnScroll);
-    revealOnScroll(); // pour les éléments déjà visibles au chargement
-  });
+        // Initialisation du slider Hero
+        $(document).ready(function(){
+            $('.hero-slider').slick({
+                dots: true,
+                arrows: false,
+                infinite: true,
+                speed: 1000,
+                fade: true,
+                autoplay: true,
+                autoplaySpeed: 7000, // Ralenti de 5s à 7s
+                cssEase: 'linear'
+            });
+        });
     </script>
 </body>
 </html>

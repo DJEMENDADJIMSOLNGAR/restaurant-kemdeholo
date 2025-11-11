@@ -3,32 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog - KemdeHolo</title>
-    <link href="/css/style.css" rel="stylesheet">
+    <title>Blog - KemdeHolo</title>    <link href="css/style.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        :root {
-            --bleu-principal: #004aad;
-            --rouge-accent: #c32e27;
-        }
-    </style>
 </head>
 <body class="font-sans">
     <!-- Navigation -->
-    <header id="main-header"></header>
+    <div id="header-placeholder"></div>
 
-    <!-- En-tête de page -->
-    <header class="bg-white shadow-sm">
-        <div class="container mx-auto py-8 px-4">
-            <h1 class="text-4xl font-bold text-black">Notre Blog</h1>
-            <p class="text-lg text-gray-600 mt-2">
-                Découvrez nos actualités, conseils et histoires du Sahel.
-            </p>
-        </div>
-    </header>
+    
 
     <!-- Grille des articles -->
-    <section class="py-16 px-4">
+    <section class="py-16 px-4 scroll-reveal">
         <div class="container mx-auto">
             <div id="articles-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Les articles seront injectés ici -->
@@ -40,9 +25,9 @@
     <!-- Footer -->
     <footer id="main-footer"></footer>
 
-    <script src="/main.js" defer></script>
-    <script src="/translations.js" defer></script>
-    <script src="/language.js" defer></script>
+    <script src="main.js"></script>
+    <script src="translations.js"></script>
+    <script src="language.js"></script>
     <script>
         async function chargerTousLesArticles() {
             try {
@@ -59,7 +44,7 @@
                 }
 
                 grid.innerHTML = articles.map(article => `
-                    <div class="bg-white rounded-xl shadow-md overflow-hidden flex flex-col group transition-all duration-300 hover:shadow-2xl hover:-translate-y-1">
+                    <div class="service-card bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden flex flex-col group transition-all duration-300 hover:shadow-lg hover:-translate-y-2">
                         <div class="overflow-hidden">
                             <a href="blog-article.html?id=${article.id}" class="block">
                                 <img src="${article.image || 'images/placeholder-image.png'}" alt="${article.titre}" class="w-full h-56 object-cover transform group-hover:scale-105 transition-transform duration-300">
@@ -67,13 +52,13 @@
                         </div>
                         <div class="p-6 flex flex-col flex-grow">
                             <div class="text-sm text-gray-500 mb-2">
-                                <span class="font-semibold text-secondary-red">${article.categorie || 'Non classé'}</span>
+                                <span class="font-semibold text-black">${article.categorie || 'Non classé'}</span>
                                 <span class="mx-2">|</span>
                                 <span>${new Date(article.date).toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' })}</span>
                             </div>
-                            <h3 class="text-xl font-bold text-primary-blue mb-3 flex-grow hover:text-secondary-red transition-colors"><a href="blog-article.html?id=${article.id}">${article.titre}</a></h3>
-                            <p class="text-gray-600 text-sm mb-6">${(article.contenu || '').substring(0, 120)}...</p>
-                            <a href="blog-article.html?id=${article.id}" class="mt-auto text-white bg-primary-blue hover:bg-blue-800 font-bold py-2 px-4 rounded-full self-start transition-colors duration-300">Lire la suite</a>
+                            <h3 class="text-xl font-bold text-black mb-3 flex-grow hover:text-gray-700 transition-colors"><a href="blog-article.html?id=${article.id}">${article.titre}</a></h3>
+                            <p class="text-gray-600 text-sm mb-6">${(article.contenu || '').substring(0, 120)}...</p> 
+                            <a href="blog-article.html?id=${article.id}" class="mt-auto text-white bg-primary-blue hover:bg-blue-800 font-bold py-2 px-4 rounded-full self-start transition-colors duration-300" aria-label="Lire la suite de l'article ${article.titre}">Lire la suite</a>
                         </div>
                     </div>
                 `).join('');
